@@ -26,6 +26,9 @@ window.onload = function () {
 /**
  * Firefly background animation taken from https: //github.com/owentr1369/animated-background-fireflies-youtube and modified slightly
  */
+/**
+ * Class constuctor that creates individual firefly instances with randomized positions (w,h), sizes , angles, and velocities.
+ */
 class Firefly {
   constructor(w, h) {
     this.x = Math.random() * w;
@@ -34,8 +37,8 @@ class Firefly {
     this.ang = Math.random() * 2 * Math.PI;
     this.v = (this.s * this.s) / 4;
   }
-  // Class constuctor that creates individual firefly instances with randomized positions (w,h), sizes , angles, and velocities.
 
+  // The move() method of the Firefly class. It represents movement behavior of a firefly object.
   move() {
     // Update the x position by adding the horizontal movement component
     this.x += this.v * Math.cos(this.ang);
@@ -44,7 +47,7 @@ class Firefly {
     // Randomly change the angle of movement within a certain range
     this.ang += (Math.random() * 20 * Math.PI) / 180 - (10 * Math.PI) / 180;
   }
-  // The move() method of the Firefly class. It represents movement behavior of a firefly object.
+
 
   show(c) {
     // Begin a new path for drawing
@@ -56,5 +59,44 @@ class Firefly {
     // Fill the firefly shape with the specified fill color
     c.fill();
   }
-  // The show() method of the Firefly class. It takes a canvas context c as a parameter and is responsible for rendering the firefly on the canvas.
+}
+
+/**
+ *Create an empty array to store fireflies
+ */
+
+let f = [];
+
+/**
+ *Variables
+ *for canvas, context, canvas width(w), and canvas height(h)
+ */
+let canvas, context, w, h;
+
+/**
+ *Creates a simulation of fireflies flying around on a canvas, and it keeps adding new fireflies as long as there's space for them and removes any that go outside the canvas.
+ */
+function draw() {
+  // Check if there are less than 100 fireflies in the array
+  if (f.length < 100) {
+    // Add 10 new Firefly objects to the array
+    for (let j = 0; j < 10; j++) {
+      f.push(new Firefly(w, h));
+    }
+  }
+
+  // Animation loop for each firefly
+  for (let i = 0; i < f.length; i++) {
+    // Move the firefly to update its position
+    f[i].move();
+
+    // Show/render the firefly on the canvas
+    f[i].show(context);
+
+    // Check if the firefly is outside the canvas boundaries
+    if (f[i].x < 0 || f[i].x > w || f[i].y < 0 || f[i].y > h) {
+      // Remove the firefly from the array
+      f.splice(i, 1);
+    }
+  }
 }
