@@ -16,3 +16,13 @@ main {
   flex-direction: column;
   align-items: center;
 }
+
+body {
+  background-image: url("../images/dark_forest_background.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  color: var(--text-color-primary);
+  overflow: hidden;
+}
