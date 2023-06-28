@@ -154,3 +154,8 @@ window.addEventListener("resize", function () {
   // Restart the animation loop to reflect the changes
   loop();
 });
+/**
+ * Initialize the canvas and start the animation loop to display the animation on the canvas
+ */
+init("myCanvas");
+loop();
