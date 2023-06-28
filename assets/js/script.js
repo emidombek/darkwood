@@ -34,4 +34,27 @@ class Firefly {
     this.ang = Math.random() * 2 * Math.PI;
     this.v = (this.s * this.s) / 4;
   }
-  // class constuctor that creates individual firefly instances with randomized positions (w,h), sizes , angles, and velocities.
+  // Class constuctor that creates individual firefly instances with randomized positions (w,h), sizes , angles, and velocities.
+
+  move() {
+    // Update the x position by adding the horizontal movement component
+    this.x += this.v * Math.cos(this.ang);
+    // Update the y position by adding the vertical movement component
+    this.y += this.v * Math.sin(this.ang);
+    // Randomly change the angle of movement within a certain range
+    this.ang += (Math.random() * 20 * Math.PI) / 180 - (10 * Math.PI) / 180;
+  }
+  // The move() method of the Firefly class. It represents movement behavior of a firefly object.
+
+  show(c) {
+    // Begin a new path for drawing
+    c.beginPath();
+    // Create an arc (circle) at the specified position with the given radius
+    c.arc(this.x, this.y, this.s, 0, 2 * Math.PI);
+    // Set the fill color for the firefly
+    c.fillStyle = "#DFF8EB";
+    // Fill the firefly shape with the specified fill color
+    c.fill();
+  }
+  // The show() method of the Firefly class. It takes a canvas context c as a parameter and is responsible for rendering the firefly on the canvas.
+}
