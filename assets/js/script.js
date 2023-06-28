@@ -22,3 +22,16 @@ window.onload = function () {
 
   });
 };
+
+/**
+ * Firefly background animation taken from https: //github.com/owentr1369/animated-background-fireflies-youtube and modified slightly
+ */
+class Firefly {
+  constructor(w, h) {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.s = Math.random() * 2;
+    this.ang = Math.random() * 2 * Math.PI;
+    this.v = (this.s * this.s) / 4;
+  }
+  // class constuctor that creates individual firefly instances with randomized positions (w,h), sizes , angles, and velocities.
