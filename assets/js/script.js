@@ -100,3 +100,26 @@ function draw() {
     }
   }
 }
+/**
+ * Initializes a canvas element and its drawing context, sets its size to match the window, and fills it with a light green color.It returns the context, allowing drawing operations on the canvas.
+ */
+function init(elemid) {
+  // Get the canvas element by its ID
+  canvas = document.getElementById(elemid);
+
+  // Get the 2D drawing context for the canvas
+  context = canvas.getContext("2d");
+
+  // Set the width and height of the canvas to match the window size
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+
+  // Set the fill style of the context to a light green color
+  context.fillStyle = "rgba(152, 255, 191, 1)";
+
+  // Fill the entire canvas with the specified fill style
+  context.fillRect(0, 0, w, h);
+
+  // Return the context to be used for drawing operations
+  return context;
+}
