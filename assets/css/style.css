@@ -39,6 +39,15 @@ body {
   color: var(--text-color-primary);
 }
 
+/* Canvas graphics setup taken from Firefly from https: //github.com/owentr1369/animated-background-fireflies-youtube and modified slightly */
+
+#myCanvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  filter: blur(1px);
+}
+
 /* Header Styling */
 
 .heading-container {
