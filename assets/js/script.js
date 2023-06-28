@@ -7,11 +7,11 @@ window.onload = function () {
   let fadeElement = document.getElementById("fade");
   // retrieves the element with the ID "fade" from the document.
   fadeElement.addEventListener("animationend", function () {
-    // This adds an event listener to the animationend event of the fadeElement. The code inside the function will be executed when the animation on fadeElement ends.
+    // This adds an event listener to the animationend event of the fadeElement, waits for the animation to end. The code inside the function will be executed when the animation on fadeElement ends.
     let entryLink = document.getElementById("entry-link");
     // This retrieves the element with the ID "entry-link" from the document.
     entryLink.classList.remove("hidden");
-    //  This removes the CSS class "hidden" from the entryLink element. 
+    //  This removes the CSS class "hidden" from the entryLink element making it visible. 
     entryLink.addEventListener("click", function (event) {
       //This adds an event listener to the click event of the entryLink element. The code inside the function will be executed when the element is clicked. 
       console.log("Link clicked!");
