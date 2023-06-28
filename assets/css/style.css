@@ -81,6 +81,8 @@ body {
   margin-top: 20px;
 }
 
+/* Fade effect classes and styling for elements*/
+
 #fade {
   opacity: 0;
   animation: fade-in-out 20s linear forwards;
@@ -113,6 +115,9 @@ body {
 .hidden {
   display: none;
 }
+
+/* Keyframes for fade effects */
+/* Idea / code taken from: this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, https://youtu.be/-lGpL6_7H3M */
 
 @keyframes fade-in-out {
   0% {
