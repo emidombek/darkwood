@@ -9,6 +9,19 @@
   padding: 0;
 }
 
+/* Design System */
+:root {
+  --font-family: 'Nova Cut', cursive;
+  --primary-font: 'Nova Cut', cursive;
+  --main-color: #cdcdcd;
+  --background-color: #001638;
+  --primary-color: #214E34;
+  --secondary-color: #364156;
+  --accent-color: #DFF8EB;
+  --text-color-primary: #cdcdcd;
+  --line-height: 1.5;
+}
+
 /* Global style settings */
 
 main {
