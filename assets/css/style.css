@@ -26,3 +26,21 @@ body {
   color: var(--text-color-primary);
   overflow: hidden;
 }
+
+/* Header Styling */
+
+.heading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30vh;
+}
+
+.main-heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
