@@ -4,24 +4,30 @@
  * https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, 
  * https://youtu.be/-lGpL6_7H3M  
  */
+// This sets up an event listener for the onload event of the window, which triggers when the window has finished loading.
 window.onload = function () {
-  // This sets up an event listener for the onload event of the window, which triggers when the window has finished loading.
+  // FadeElement and entryLink variables are defined.
   let fadeElement = document.getElementById("fade");
   let entryLink = document.getElementById("entry-link");
-  // FadeElement and entryLink variables are defined outside the event listeners to retrieve the respective elements with their IDs.
 
+  // Animationend event listener for fadeElement adds the hidden class to fadeElement once its animation ends. This triggers the fade-in animation for the entryLink element since it was initially hidden.
   fadeElement.addEventListener("animationend", function () {
     fadeElement.classList.add("hidden");
     entryLink.classList.remove("hidden");
-    // Animationend event listener for fadeElement adds the hidden class to fadeElement once its animation ends. This triggers the fade-in animation for the entryLink element since it was initially hidden.
   });
-
+  // Click event listener for entryLink remains the same, logging a message to the console and redirecting the page to the specified URL when the link is clicked.
   entryLink.addEventListener("click", function (event) {
-    console.log("Link clicked!");
     // Logs message to browser.
+    console.log("Link clicked!");
     window.location.href = entryLink.href;
-    // Click event listener for entryLink remains the same, logging a message to the console and redirecting the page to the specified URL when the link is clicked.
 
+  });
+  // Touch event listener
+  entryLink.addEventListener("touchend", function (event) {
+    event.preventDefault();
+    // Logs message to browser.
+    console.log("Link touched!");
+    window.location.href = entryLink.href;
   });
 };
 
