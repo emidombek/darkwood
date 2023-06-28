@@ -5,19 +5,20 @@
 window.onload = function () {
   // This sets up an event listener for the onload event of the window, which triggers when the window has finished loading.
   let fadeElement = document.getElementById("fade");
-  // retrieves the element with the ID "fade" from the document.
+  let entryLink = document.getElementById("entry-link");
+  // FadeElement and entryLink variables are defined outside the event listeners to retrieve the respective elements with their IDs.
+
   fadeElement.addEventListener("animationend", function () {
-    // This adds an event listener to the animationend event of the fadeElement, waits for the animation to end. The code inside the function will be executed when the animation on fadeElement ends.
-    let entryLink = document.getElementById("entry-link");
-    // This retrieves the element with the ID "entry-link" from the document.
+    fadeElement.classList.add("hidden");
     entryLink.classList.remove("hidden");
-    //  This removes the CSS class "hidden" from the entryLink element making it visible. 
-    entryLink.addEventListener("click", function (event) {
-      //This adds an event listener to the click event of the entryLink element. The code inside the function will be executed when the element is clicked. 
-      console.log("Link clicked!");
-      // Logs message to browser
-      window.location.href = entryLink.href;
-      // This changes the current URL of the window to the value of entryLink.href in this case game.html, effectively redirecting the page to the specified URL
-    });
+    // Animationend event listener for fadeElement adds the hidden class to fadeElement once its animation ends. This triggers the fade-in animation for the entryLink element since it was initially hidden.
+  });
+
+  entryLink.addEventListener("click", function (event) {
+    console.log("Link clicked!");
+    // Logs message to browser.
+    window.location.href = entryLink.href;
+    // Click event listener for entryLink remains the same, logging a message to the console and redirecting the page to the specified URL when the link is clicked.
+
   });
 };
