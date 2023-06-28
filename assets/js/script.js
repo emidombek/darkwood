@@ -137,3 +137,20 @@ function loop() {
   // Call the draw() function to update and render the animation
   draw();
 }
+
+/**
+ * Listens
+ * for window resize events, updates the canvas size accordingly, reinitializes the canvas, and restarts the animation loop to reflect the changes on the canvas.
+ */
+
+window.addEventListener("resize", function () {
+  // Update the width and height of the canvas to match the new window size
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+
+  // Reinitialize the canvas with the updated size
+  init("myCanvas");
+
+  // Restart the animation loop to reflect the changes
+  loop();
+});
