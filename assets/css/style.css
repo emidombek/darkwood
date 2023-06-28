@@ -114,7 +114,7 @@ body {
   font-size: 3em;
   text-decoration: none;
   opacity: 0;
-  animation: fade-in 5s linear 13s forwards;
+  animation: fade-in 5s linear 0s forwards;
 }
 
 #entry-link {
