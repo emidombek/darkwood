@@ -123,3 +123,17 @@ function init(elemid) {
   // Return the context to be used for drawing operations
   return context;
 }
+/**
+ * Sets up an animation loop that repeatedly clears the canvas and calls the draw
+ * function to render the animation on the canvas.
+ */
+function loop() {
+  // Request the browser to call the loop() function before the next repaint
+  window.requestAnimationFrame(loop);
+
+  // Clear the entire canvas to prepare for the next frame
+  context.clearRect(0, 0, canvas.width, canvas.height);
+
+  // Call the draw() function to update and render the animation
+  draw();
+}
