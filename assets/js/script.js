@@ -1,6 +1,8 @@
 /**
  * Fade In Fade out effect taken from a mishmash of Stack Overflow Posts
- for the JS plus this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, https://youtu.be/-lGpL6_7H3M  
+ *for the JS plus this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/,
+ * https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, 
+ * https://youtu.be/-lGpL6_7H3M  
  */
 window.onload = function () {
   // This sets up an event listener for the onload event of the window, which triggers when the window has finished loading.
@@ -27,7 +29,8 @@ window.onload = function () {
  * Firefly background animation taken from https: //github.com/owentr1369/animated-background-fireflies-youtube and modified slightly
  */
 /**
- * Class constuctor that creates individual firefly instances with randomized positions (w,h), sizes , angles, and velocities.
+ * Class constuctor that creates individual firefly instances 
+ * with randomized positions (w,h), sizes , angles, and velocities.
  */
 class Firefly {
   constructor(w, h) {
@@ -74,7 +77,8 @@ let f = [];
 let canvas, context, w, h;
 
 /**
- *Creates a simulation of fireflies flying around on a canvas, and it keeps adding new fireflies as long as there's space for them and removes any that go outside the canvas.
+ *Creates a simulation of fireflies flying around on a canvas, 
+ *and it keeps adding new fireflies as long as there's space for them and removes any that go outside the canvas.
  */
 function draw() {
   // Check if there are less than 100 fireflies in the array
@@ -101,7 +105,10 @@ function draw() {
   }
 }
 /**
- * Initializes a canvas element and its drawing context, sets its size to match the window, and fills it with a light green color.It returns the context, allowing drawing operations on the canvas.
+ * Initializes a canvas element and its drawing context, 
+ * sets its size to match the window, 
+ * and fills it with a light green color.
+ * It returns the context, allowing drawing operations on the canvas.
  */
 function init(elemid) {
   // Get the canvas element by its ID
@@ -140,7 +147,10 @@ function loop() {
 
 /**
  * Listens
- * for window resize events, updates the canvas size accordingly, reinitializes the canvas, and restarts the animation loop to reflect the changes on the canvas.
+ * for window resize events, 
+ * updates the canvas size accordingly, 
+ * reinitializes the canvas, 
+ * and restarts the animation loop to reflect the changes on the canvas.
  */
 
 window.addEventListener("resize", function () {
