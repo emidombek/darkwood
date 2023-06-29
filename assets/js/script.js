@@ -176,6 +176,7 @@ window.addEventListener("resize", function () {
  */
 init("myCanvas");
 loop();
+
 //Card game code
 
 // Array of unique image paths
@@ -228,3 +229,8 @@ for (let i = 0; i < 8; i++) {
   backImage.src = '../images/card.jpg';
   backImage.alt = 'Card Back Image';
   cardBack.appendChild(backImage);
+
+  // Creates a card with distinct front and back sides, within the outer card container.
+  cardInner.appendChild(cardFront);
+  cardInner.appendChild(cardBack);
+  card.appendChild(cardInner);
