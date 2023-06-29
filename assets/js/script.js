@@ -1,5 +1,6 @@
 //Card game code
 
+// Array of unique image paths
 const uniqueImages = [
   '../images/dazbog_card.jpg',
   '../images/dola_card.jpg',
@@ -14,7 +15,11 @@ const uniqueImages = [
   '../images/veles_card.jpg',
   '../images/zywia_card.jpg',
 ];
-// Array of unique image paths
+
+// Duplicate the unique images for pairs
+const allImages = [...uniqueImages, ...uniqueImages];
+
+
 
 //Visual Effects not part of actual game
 /**
