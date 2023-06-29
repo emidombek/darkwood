@@ -19,6 +19,9 @@ const uniqueImages = [
 // Duplicate the unique images for pairs
 const allImages = [...uniqueImages, ...uniqueImages];
 
+// Shuffle the array of images randomly
+const shuffledImages = shuffle(allImages);
+
 
 
 //Visual Effects not part of actual game
