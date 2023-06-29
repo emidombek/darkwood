@@ -158,3 +158,17 @@ body {
     opacity: 1;
   }
 }
+
+/* Media Queries */
+
+@media (max-width: 600px) {
+  #fade {
+    font-size: calc(60% + 0.8vmin);
+  }
+}
+
+@media (max-width: 600px) {
+  .entry-link {
+    margin-top: -120px;
+  }
+}
