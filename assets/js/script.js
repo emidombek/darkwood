@@ -208,9 +208,11 @@ const gridContainer = document.querySelector('.grid-game-container');
 for (let i = 0; i < 8; i++) {
   const card = document.createElement('div');
   card.classList.add('card');
+
   // Creates a new  div element and assigns it to the cardInner variable
   const cardInner = document.createElement('div');
   cardInner.classList.add('card-inner');
+
   // Creates the front side of a card by creating a div with an img and then retrieves one of the images from the shuffled images array 
   const cardFront = document.createElement('div');
   cardFront.classList.add('card-front');
@@ -218,3 +220,11 @@ for (let i = 0; i < 8; i++) {
   frontImage.src = shuffledImages[i];
   frontImage.alt = 'Card Image';
   cardFront.appendChild(frontImage);
+
+  // Creates the back side of a card by created a div and adding one img
+  const cardBack = document.createElement('div');
+  cardBack.classList.add('card-back');
+  const backImage = document.createElement('img');
+  backImage.src = '../images/card.jpg';
+  backImage.alt = 'Card Back Image';
+  cardBack.appendChild(backImage);
