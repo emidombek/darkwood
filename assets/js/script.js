@@ -16,12 +16,14 @@ const uniqueImages = [
   '../images/zywia_card.jpg',
 ];
 
-// Duplicate the unique images for pairs
+// Duplicate the unique images for pairs using spread operator
 const allImages = [...uniqueImages, ...uniqueImages];
 
 // Shuffle the array of images randomly
 const shuffledImages = shuffle(allImages);
 
+// Get the container for the card grid
+const gridContainer = document.querySelector('.grid-container');
 
 
 //Visual Effects not part of actual game
