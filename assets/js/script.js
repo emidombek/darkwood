@@ -1,5 +1,19 @@
 //Card game code
 
+const uniqueImages = [
+  '../images/dazbog_card.jpg',
+  '../images/dola_card.jpg',
+  '../images/dziewanna_card.jpg',
+  '../images/lada_card.jpg',
+  '../images/leszy_card.jpg',
+  '../images/mokosz_card.jpg',
+  '../images/morana_card.jpg',
+  '../images/perun_card.jpg',
+  '../images/rod_card.jpg',
+  '../images/swietowit_card.jpg',
+  '../images/veles_card.jpg',
+  '../images/zywia_card.jpg',
+];
 // Array of unique image paths
 
 //Visual Effects not part of actual game
