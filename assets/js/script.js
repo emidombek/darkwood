@@ -1,3 +1,8 @@
+//Card game code
+
+// Array of unique image paths
+
+//Visual Effects not part of actual game
 /**
  * Fade In Fade out effect taken from a selection of Stack Overflow Posts
  *for the JS plus this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/,
