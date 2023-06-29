@@ -170,6 +170,11 @@ body {
   transition: transform 0.5s;
 }
 
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+  /* Flip the card on hover */
+}
+
 .card-front,
 .card-back {
   position: absolute;
