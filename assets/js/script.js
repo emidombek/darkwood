@@ -9,18 +9,18 @@ function shuffle(array) {
 
 // Array of unique image paths
 const uniqueImages = [
-  '../images/dazbog_card.jpg',
-  '../images/dola_card.jpg',
-  '../images/dziewanna_card.jpg',
-  '../images/lada_card.jpg',
-  '../images/leszy_card.jpg',
-  '../images/mokosz_card.jpg',
-  '../images/morana_card.jpg',
-  '../images/perun_card.jpg',
-  '../images/rod_card.jpg',
-  '../images/swietowit_card.jpg',
-  '../images/veles_card.jpg',
-  '../images/zywia_card.jpg',
+  'assets/images/dazbog_card.jpg',
+  'assets/images/dola_card.jpg',
+  'assets/images/dziewanna_card.jpg',
+  'assets/images/lada_card.jpg',
+  'assets/images/leszy_card.jpg',
+  'assets/images/mokosz_card.jpg',
+  'assets/images/morana_card.jpg',
+  'assets/images/perun_card.jpg',
+  'assets/images/rod_card.jpg',
+  'assets/images/swietowit_card.jpg',
+  'assets/images/veles_card.jpg',
+  'assets/images/zywia_card.jpg',
 ];
 
 // Duplicate the unique images for pairs using spread operator
@@ -42,19 +42,20 @@ for (let i = 0; i < 8; i++) {
   const cardInner = document.createElement('div');
   cardInner.classList.add('card-inner');
 
-  // Creates the front side of a card by creating a div with an img and then retrieves one of the images from the shuffled images array 
+
+  // Creates the back side of a card by created a div and adding one img
   const cardFront = document.createElement('div');
   cardFront.classList.add('card-front');
   const frontImage = document.createElement('img');
-  frontImage.src = shuffledImages[i];
-  frontImage.alt = 'Card Image';
+  frontImage.src = 'assets/images/card.jpg';
+  frontImage.alt = 'Card Front Image';
   cardFront.appendChild(frontImage);
 
-  // Creates the back side of a card by created a div and adding one img
+  // Creates the front side of a card by creating a div with an img and then retrieves one of the images from the shuffled images array 
   const cardBack = document.createElement('div');
   cardBack.classList.add('card-back');
   const backImage = document.createElement('img');
-  backImage.src = '../images/card.jpg';
+  backImage.src = shuffledImages[i];
   backImage.alt = 'Card Back Image';
   cardBack.appendChild(backImage);
 
