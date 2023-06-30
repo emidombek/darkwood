@@ -52,7 +52,22 @@ for (let i = 0; i < 8; i++) {
   backImage.alt = 'Card Back Image';
   cardBack.appendChild(backImage);
 
-  // Creates a card with distinct front and back sides, within the outer card container.
+  // Creates a card with distinct front and back sides, within the outer card container usign appendChild().
   cardInner.appendChild(cardFront);
   cardInner.appendChild(cardBack);
   card.appendChild(cardInner);
+
+  /* 
+  /**If else statement that determines whether the card should be placed in the first row or 
+   * the second row based on the value of i. 
+   * If i is less than 4, it is placed in the first row, 
+   * and if i is greater than or equal to 4, it is placed in the second row.
+   */
+  if (i < 4) {
+    const firstGridRow = gridContainer.querySelector('.grid-game-row:first-child');
+    firstGridRow.appendChild(card);
+  } else {
+    const secondGridRow = gridContainer.querySelector('.grid-game-row:last-child');
+    secondGridRow.appendChild(card);
+  }
+}
