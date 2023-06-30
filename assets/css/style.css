@@ -116,7 +116,7 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   padding: 10px 20px;
-  margin-top: -60px;
+  margin-top: -13%;
   color: var(--text-color-primary);
   font-size: 3em;
   text-decoration: none;
