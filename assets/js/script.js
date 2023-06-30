@@ -1,6 +1,12 @@
 /**
  * Game JS
  */
+
+// Shuffle function using sort()
+function shuffle(array) {
+  return array.sort(() => Math.random() - 0.5);
+}
+
 // Array of unique image paths
 const uniqueImages = [
   '../images/dazbog_card.jpg',
