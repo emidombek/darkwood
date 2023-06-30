@@ -198,6 +198,33 @@ body {
   border-radius: 10px;
 }
 
+/* Footer styling*/
+
+.social-networks {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 5%;
+}
+
+/* Spacing between list items */
+.social-networks li {
+  margin: 0 10px;
+}
+
+/* Social media positioning and styling */
+.social-networks i {
+  font-size: 200%;
+  color: var(--main-color);
+  text-align: center;
+  transition: all 0.2s ease-in-out;
+}
+
+.social-networks i:hover {
+  color: var(--accent-color);
+}
 
 /* Keyframes for fade effects */
 /* Idea / code taken from: this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, https://youtu.be/-lGpL6_7H3M */
