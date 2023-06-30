@@ -101,7 +101,7 @@ body {
 
 #fade {
   opacity: 0;
-  animation: fade-in-out 15s linear 0s forwards;
+  animation: fade-in-out 10s linear 0s forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -116,12 +116,12 @@ body {
   flex-direction: column;
   justify-content: flex-start;
   padding: 10px 20px;
-  margin-top: -13%;
+  margin-top: -12.5%;
   color: var(--text-color-primary);
   font-size: 3em;
   text-decoration: none;
   opacity: 0;
-  animation: fade-in 5s linear 0s forwards;
+  animation: fade-in 5s linear 0s forwards, glowing 2s infinite;
 }
 
 #entry-link {
@@ -250,6 +250,20 @@ body {
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 5px #fff;
+  }
+
+  50% {
+    text-shadow: 0 0 20px var(--accent-color);
+  }
+
+  100% {
+    text-shadow: 0 0 5px #fff;
   }
 }
 
