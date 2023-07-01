@@ -78,14 +78,14 @@ body {
 .score-text {
   font-size: 0.7em;
   text-align: center;
-  transform: translateX(-175%);
+  transform: translateX(-185%);
   padding-right: 10%;
 }
 
 .timer-display {
   font-size: 0.7em;
   text-align: center;
-  transform: translateX(175%);
+  transform: translateX(185%);
 }
 
 
