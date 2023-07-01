@@ -203,10 +203,11 @@ body {
 .social-networks {
   list-style: none;
   display: flex;
-  justify-content: center;
+  justify-content: ce;
   align-items: center;
   margin: 0;
-  padding: 5%;
+  padding-bottom: 5%;
+  padding-left: 5%;
 }
 
 /* Spacing between list items */

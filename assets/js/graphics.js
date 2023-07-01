@@ -56,7 +56,10 @@ class Firefly {
     // Randomly change the angle of movement within a certain range
     this.ang += (Math.random() * 20 * Math.PI) / 180 - (10 * Math.PI) / 180;
   }
-
+  updateCanvasDimensions(width, height) {
+    this.x = Math.random() * width;
+    this.y = Math.random() * height;
+  }
 
   show(c) {
     // Begin a new path for drawing
@@ -71,17 +74,14 @@ class Firefly {
 }
 
 /**
- *Create an empty array to store fireflies
- */
-
-let f = [];
-
-/**
  *Variables
  *for canvas, context, canvas width(w), and canvas height(h)
  */
 let canvas, context, w, h;
-
+/**
+ *Create an empty array to store fireflies
+ */
+let f = [];
 /**
  *Creates a simulation of fireflies flying around on a canvas, 
  *and it keeps adding new fireflies as long as there's space for them and removes any that go outside the canvas.
@@ -164,6 +164,10 @@ window.addEventListener("resize", function () {
   w = canvas.width = window.innerWidth;
   h = canvas.height = window.innerHeight;
 
+  // Update the firefly positions based on the new canvas dimensions
+  for (let i = 0; i < f.length; i++) {
+    f[i].updateCanvasDimensions(w, h);
+  }
   // Reinitialize the canvas with the updated size
   init("myCanvas");
 
