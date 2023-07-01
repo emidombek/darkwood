@@ -95,13 +95,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5%;
+  margin-top: 5%;
 }
 
 .body-image {
   max-width: 100%;
-  height: 20vh;
-  transform: scale(0.9);
+  height: 30vh;
+  transform: scale(1.0);
 }
 
 .body-text-container {
@@ -136,7 +136,7 @@ body {
   padding: 10px 20px;
   margin-top: -12.5%;
   color: var(--text-color-primary);
-  font-size: 3.5em;
+  font-size: 3em;
   text-decoration: none;
   opacity: 0;
   animation: fade-in 5s linear 0s forwards, glowing 2s infinite;
