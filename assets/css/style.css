@@ -189,11 +189,13 @@ body {
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.5s;
+  transform: rotateY(0deg);
+  /* Set initial rotation */
 }
 
-.card:hover .card-inner {
+.card.flipped .card-inner {
   transform: rotateY(180deg);
-  /* Flip the card on hover */
+  /* Apply rotation when flipped */
 }
 
 .card-front,
