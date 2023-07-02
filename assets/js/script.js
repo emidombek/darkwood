@@ -82,3 +82,25 @@ for (let i = 0; i < 8; i++) {
     secondGridRow.appendChild(card);
   }
 }
+
+// Card click event listener
+gridContainer.addEventListener('click', handleCardClick);
+//retrieves the clicked card element
+function handleCardClick(event) {
+  const clickedCard = event.target.closest('.card');
+
+  // Ignore clicks on already flipped cards or non-card elements
+  if (!clickedCard || clickedCard.classList.contains('flipped')) {
+    return;
+  }
+  //If the clicked card is valid and not already flipped,
+  flipCard(clickedCard);
+  flippedCards.push(clickedCard);
+
+  //After flipping the card and adding it to the array, 
+  //it checks if two cards are currently flipped.
+  //If two cards are flipped, it calls the checkMatchfunction to check if they match.
+  if (flippedCards.length === 2) {
+    checkMatch();
+  }
+}
