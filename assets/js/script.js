@@ -121,3 +121,39 @@ function flipCard(card) {
   // Toggle the 'flipped' class to flip the card
   card.classList.toggle('flipped');
 }
+
+function checkMatch() {
+  const card1 = flippedCards[0];
+  const card2 = flippedCards[1];
+  const card1ImageName = Array.from(card1.classList).find(className =>
+    className.startsWith('card-image-')
+  );
+  const card2ImageName = Array.from(card2.classList).find(className =>
+    className.startsWith('card-image-')
+  );
+
+  if (card1ImageName === card2ImageName) {
+    // Match
+    card1.classList.add('matched');
+    card2.classList.add('matched');
+    matchedPairs++;
+    flippedCards = [];
+
+    if (matchedPairs === numberOfCards / 2) {
+      // Game completed
+      // Display final score and option to restart
+      console.log('All matches found!');
+    }
+  } else {
+    // No match
+    setTimeout(() => {
+      if (!card1.classList.contains('matched')) {
+        flipCard(card1);
+      }
+      if (!card2.classList.contains('matched')) {
+        flipCard(card2);
+      }
+      flippedCards = [];
+    }, 1000);
+  }
+}
