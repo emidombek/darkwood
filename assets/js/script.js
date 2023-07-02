@@ -32,6 +32,10 @@ const shuffledImages = shuffle(allImages);
 // Get the container for the card grid
 const gridContainer = document.querySelector('.grid-game-container');
 
+// Store flipped cards and matched pairs count
+let flippedCards = [];
+let matchedPairs = 0;
+
 // Create the card elements dynamically and assign the shuffled images
 // For loop runs 8 times, creating 8 <div> elements with the 'card' class
 for (let i = 0; i < 8; i++) {
