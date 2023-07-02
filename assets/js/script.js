@@ -104,3 +104,8 @@ function handleCardClick(event) {
     checkMatch();
   }
 }
+
+//Toggles flipped class on card element for programmatic control of card state
+function flipCard(card) {
+  card.classList.toggle('flipped');
+}
