@@ -1,5 +1,5 @@
 /**
- * Game JS
+ * Game JS 
  */
 
 // Shuffle function using sort()
@@ -28,6 +28,10 @@ const allImages = [...uniqueImages, ...uniqueImages];
 
 // Shuffle the array of images randomly
 const shuffledImages = shuffle(allImages);
+
+// Store flipped cards and matched pairs count
+let flippedCards = [];
+let matchedPairs = 0;
 
 // Get the container for the card grid
 const gridContainer = document.querySelector('.grid-game-container');
