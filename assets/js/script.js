@@ -112,7 +112,12 @@ function handleCardClick(event) {
   }
 }
 
-//Toggles flipped class on card element for programmatic control of card state
 function flipCard(card) {
+  console.log('Flipping card:', card);
+
+  if (card.classList.contains('matched')) {
+    return;
+  }
+
   card.classList.toggle('flipped');
 }
