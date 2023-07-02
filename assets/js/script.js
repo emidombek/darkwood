@@ -114,10 +114,10 @@ function handleCardClick(event) {
 
 function flipCard(card) {
   console.log('Flipping card:', card);
-
+  // Check if the card is already matched
   if (card.classList.contains('matched')) {
-    return;
+    return; // If the card is matched, do nothing and return
   }
-
+  // Toggle the 'flipped' class to flip the card
   card.classList.toggle('flipped');
 }
