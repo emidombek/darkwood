@@ -42,6 +42,12 @@ for (let i = 0; i < 8; i++) {
   const card = document.createElement('div');
   card.classList.add('card');
 
+  // Get the filename from the image source
+  const imageName = shuffledImages[i].split('/').pop();
+
+  // Assign a custom class to the card element based on the image filename
+  card.classList.add(`card-image-${imageName}`);
+
   // Creates a new  div element and assigns it to the cardInner variable
   const cardInner = document.createElement('div');
   cardInner.classList.add('card-inner');
@@ -81,6 +87,7 @@ for (let i = 0; i < 8; i++) {
     const secondGridRow = gridContainer.querySelector('.grid-game-row:last-child');
     secondGridRow.appendChild(card);
   }
+
 }
 
 // Card click event listener
