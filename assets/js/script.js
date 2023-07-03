@@ -96,6 +96,10 @@ const combinedCards = Array.from(allCards).concat(duplicatedCards);
 // Shuffle the combined array of cards
 const shuffledCards = shuffle(combinedCards);
 
+// Get the total number of cards
+const numberOfCards = shuffledCards.length;
+
+
 
 
 // Card click event listener
