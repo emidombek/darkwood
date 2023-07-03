@@ -23,11 +23,8 @@ const uniqueImages = [
   'assets/images/zywia_card.jpg',
 ];
 
-// Duplicate the unique images for pairs using spread operator
-const allImages = [...uniqueImages, ...uniqueImages];
-
 // Shuffle the array of images randomly
-const shuffledImages = shuffle(allImages);
+const shuffledImages = shuffle(uniqueImages);
 
 // Store flipped cards and matched pairs count
 let flippedCards = [];
@@ -37,8 +34,8 @@ let matchedPairs = 0;
 const gridContainer = document.querySelector('.grid-game-container');
 
 // Create the card elements dynamically and assign the shuffled images
-// For loop runs 8 times, creating 8 <div> elements with the 'card' class
-for (let i = 0; i < 8; i++) {
+// For loop runs 4 times, creating 4 <div> elements with the 'card' class
+for (let i = 0; i < 4; i++) {
   const card = document.createElement('div');
   card.classList.add('card');
 
@@ -51,7 +48,6 @@ for (let i = 0; i < 8; i++) {
   // Creates a new  div element and assigns it to the cardInner variable
   const cardInner = document.createElement('div');
   cardInner.classList.add('card-inner');
-
 
   // Creates the back side of a card by created a div and adding one img
   const cardFront = document.createElement('div');
