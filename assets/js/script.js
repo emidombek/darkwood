@@ -114,7 +114,7 @@ for (let i = 0; i < shuffledCards.length; i++) {
     rowContainer2.appendChild(shuffledCards[i]);
   }
 }
-
+// Adds grid structure into the DOM 
 gridContainer.appendChild(rowContainer1);
 gridContainer.appendChild(rowContainer2);
 
