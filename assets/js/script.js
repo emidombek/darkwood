@@ -115,7 +115,8 @@ for (let i = 0; i < shuffledCards.length; i++) {
   }
 }
 
-
+gridContainer.appendChild(rowContainer1);
+gridContainer.appendChild(rowContainer2);
 
 // Card click event listener
 gridContainer.addEventListener('click', handleCardClick);
