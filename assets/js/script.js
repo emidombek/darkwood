@@ -90,6 +90,9 @@ for (let i = 0; i < 4; i++) {
 const allCards = gridContainer.querySelectorAll('.card');
 const duplicatedCards = Array.from(allCards).map(card => card.cloneNode(true));
 
+// Combine the original and duplicated cards
+const combinedCards = Array.from(allCards).concat(duplicatedCards);
+
 // Card click event listener
 gridContainer.addEventListener('click', handleCardClick);
 //retrieves the clicked card element
