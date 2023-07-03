@@ -86,6 +86,10 @@ for (let i = 0; i < 4; i++) {
 
 }
 
+// Duplicate the created cards to create pairs
+const allCards = gridContainer.querySelectorAll('.card');
+const duplicatedCards = Array.from(allCards).map(card => card.cloneNode(true));
+
 // Card click event listener
 gridContainer.addEventListener('click', handleCardClick);
 //retrieves the clicked card element
