@@ -99,6 +99,14 @@ const shuffledCards = shuffle(combinedCards);
 // Get the total number of cards
 const numberOfCards = shuffledCards.length;
 
+// Create two row containers
+const rowContainer1 = document.createElement('div');
+rowContainer1.classList.add('grid-game-row');
+
+const rowContainer2 = document.createElement('div');
+rowContainer2.classList.add('grid-game-row');
+
+
 
 
 
