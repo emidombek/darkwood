@@ -106,7 +106,14 @@ rowContainer1.classList.add('grid-game-row');
 const rowContainer2 = document.createElement('div');
 rowContainer2.classList.add('grid-game-row');
 
-
+// Place half of the shuffled cards in each row container
+for (let i = 0; i < shuffledCards.length; i++) {
+  if (i < shuffledCards.length / 2) {
+    rowContainer1.appendChild(shuffledCards[i]);
+  } else {
+    rowContainer2.appendChild(shuffledCards[i]);
+  }
+}
 
 
 
