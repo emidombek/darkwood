@@ -93,6 +93,11 @@ const duplicatedCards = Array.from(allCards).map(card => card.cloneNode(true));
 // Combine the original and duplicated cards
 const combinedCards = Array.from(allCards).concat(duplicatedCards);
 
+// Shuffle the combined array of cards
+const shuffledCards = shuffle(combinedCards);
+
+
+
 // Card click event listener
 gridContainer.addEventListener('click', handleCardClick);
 //retrieves the clicked card element
