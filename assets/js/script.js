@@ -8,6 +8,21 @@ let score = 0; // Player's score
 let timer; // Timer variable for the countdown
 const matchTimeout = 30; // Time limit in seconds for each round
 
+function startTimer() {
+  const timerElement = document.getElementById('timer'); // Get the element where the timer will be displayed
+  let secondsLeft = matchTimeout; // Set the initial number of seconds left for the round
+
+  timer = setInterval(() => {
+    secondsLeft--; // Decrement the number of seconds left by 1
+    timerElement.textContent = `Time Left: ${secondsLeft}s`; // Update the timer element with the remaining time
+
+    if (secondsLeft <= 0) { // If the time runs out
+      clearInterval(timer); // Stop the timer
+      endRound(); // Call the function to handle the end of the round
+    }
+  }, 1000); // Run the timer function every 1 second (1000 milliseconds)
+}
+
 // Shuffle function using sort()
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
