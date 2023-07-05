@@ -2,6 +2,12 @@
  * Game JS 
  */
 
+// Declaring ariables for scoring & timer
+let moves = 0; // Number of moves made by the player
+let score = 0; // Player's score
+let timer; // Timer variable for the countdown
+const matchTimeout = 30; // Time limit in seconds for each round
+
 // Shuffle function using sort()
 function shuffle(array) {
   return array.sort(() => Math.random() - 0.5);
