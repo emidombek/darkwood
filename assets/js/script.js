@@ -6,11 +6,11 @@
 let moves = 0; // Number of moves made by the player
 let score = 0; // Player's score
 let timer; // Timer variable for the countdown
-const matchTimeout = 30; // Time limit in seconds for each round
+const matchTimeout = 60; // Time limit in seconds for each round
 
 function startTimer() {
-  const timerElement = document.getElementById('timer'); // Get the element where the timer will be displayed
-  let secondsLeft = matchTimeout; // Set the initial number of seconds left for the round
+  const timerElement = document.querySelector('.timer');
+  let secondsLeft = matchTimeout;
 
   timer = setInterval(() => {
     secondsLeft--; // Decrement the number of seconds left by 1
@@ -23,8 +23,11 @@ function startTimer() {
   }, 1000); // Run the timer function every 1 second (1000 milliseconds)
 }
 
-// Start the timer
-startTimer();
+function formatTime(seconds) {
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+  return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
 
 // Shuffle function using sort()
 function shuffle(array) {
@@ -193,6 +196,9 @@ function checkMatch() {
     // Add the "matched" class to the cards to visually indicate a match
     card1.classList.add('matched');
     card2.classList.add('matched');
+    // Award 1 point for each match
+    score++;
+    console.log('Score:', score);
     // Increment the count of matched pairs
     matchedPairs++;
     // Clear the flippedCards array since the cards are now matched
@@ -203,6 +209,10 @@ function checkMatch() {
       // Display final score and option to restart
       console.log('All matches found!');
     }
+
+    // Update the score display
+    displayScore();
+
   } else {
     // No match
     // Wait for 1 second and then flip back the cards that didn't match
@@ -220,3 +230,28 @@ function checkMatch() {
     }, 1000);
   }
 }
+
+function endRound() {
+  // Stop the timer
+  clearInterval(timer);
+
+  if (score === numberOfCards / 2) {
+    // All cards matched
+    console.log('Congratulations! You completed the round!');
+    // Add code to progress to the next round or perform other actions
+  } else {
+    // Time ran out
+    console.log('Time ran out! Try again.');
+    // Add code to handle the end of the round or prompt the user to try again
+  }
+  // Update the score display
+  displayScore();
+}
+
+function displayScore() {
+  const scoreElement = document.querySelector('.score-display');
+  scoreElement.textContent = score;
+}
+
+// Start the timer
+startTimer();
