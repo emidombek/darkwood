@@ -2,7 +2,7 @@
  * Game JS 
  */
 
-// Declaring ariables for scoring & timer
+// Declaring variables for scoring & timer
 let moves = 0; // Number of moves made by the player
 let score = 0; // Player's score
 let timer; // Timer variable for the countdown
@@ -22,6 +22,9 @@ function startTimer() {
     }
   }, 1000); // Run the timer function every 1 second (1000 milliseconds)
 }
+
+// Start the timer
+startTimer();
 
 // Shuffle function using sort()
 function shuffle(array) {
