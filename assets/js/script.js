@@ -289,7 +289,7 @@ function endRound() {
 
 function displayScore() {
   const scoreElement = document.querySelector('.score-display');
-  scoreElement.textContent = score;
+  scoreElement.textContent = `Total Score: ${totalScore}`;
 }
 
 // Start the initial round
