@@ -16,7 +16,7 @@ function startTimer() {
 
   timer = setInterval(() => {
     secondsLeft--; // Decrement the number of seconds left by 1
-    timerElement.textContent = `Time Left: ${secondsLeft}s`; // Update the timer element with the remaining time
+    timerElement.textContent = ' ' + secondsLeft; // Update the timer element with the remaining time
 
     if (secondsLeft <= 0) { // If the time runs out
       clearInterval(timer); // Stop the timer
