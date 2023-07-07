@@ -61,62 +61,75 @@ let matchedPairs = 0;
 
 // Get the container for the card grid
 const gridContainer = document.querySelector('.grid-game-container');
-
 // Create the card elements dynamically and assign the shuffled images
-// For loop runs 4 times, creating 4 <div> elements with the 'card' class
-for (let i = 0; i < 4; i++) {
-  const card = document.createElement('div');
-  card.classList.add('card');
+function createCards(images) {
+  const cards = [];
+  for (let i = 0; i < 4; i++) { // Limiting the loop to create only 4 cards
+    const card = document.createElement('div');
+    card.classList.add('card');
+    // Get the filename from the image source
+    const imageName = images[i].split('/').pop();
 
-  // Get the filename from the image source
-  const imageName = shuffledImages[i].split('/').pop();
+    // Assign a custom class to the card element based on the image filename
+    card.classList.add(`card-image-${imageName}`);
 
-  // Assign a custom class to the card element based on the image filename
-  card.classList.add(`card-image-${imageName}`);
+    // Creates a new div element and assigns it to the cardInner variable
+    const cardInner = document.createElement('div');
+    cardInner.classList.add('card-inner');
 
-  // Creates a new  div element and assigns it to the cardInner variable
-  const cardInner = document.createElement('div');
-  cardInner.classList.add('card-inner');
+    // Creates the back side of a card by creating a div and adding one img
+    const cardFront = document.createElement('div');
+    cardFront.classList.add('card-front');
+    const frontImage = document.createElement('img');
+    frontImage.src = 'assets/images/card.jpg';
+    frontImage.alt = 'Card Front Image';
+    cardFront.appendChild(frontImage);
 
-  // Creates the back side of a card by created a div and adding one img
-  const cardFront = document.createElement('div');
-  cardFront.classList.add('card-front');
-  const frontImage = document.createElement('img');
-  frontImage.src = 'assets/images/card.jpg';
-  frontImage.alt = 'Card Front Image';
-  cardFront.appendChild(frontImage);
+    // Creates the front side of a card by creating a div with an img and then retrieves one of the images from the shuffled images array
+    const cardBack = document.createElement('div');
+    cardBack.classList.add('card-back');
+    const backImage = document.createElement('img');
+    backImage.src = images[i];
+    backImage.alt = 'Card Back Image';
+    cardBack.appendChild(backImage);
 
-  // Creates the front side of a card by creating a div with an img and then retrieves one of the images from the shuffled images array 
-  const cardBack = document.createElement('div');
-  cardBack.classList.add('card-back');
-  const backImage = document.createElement('img');
-  backImage.src = shuffledImages[i];
-  backImage.alt = 'Card Back Image';
-  cardBack.appendChild(backImage);
+    // Creates a card with distinct front and back sides, within the outer card container using appendChild().
+    cardInner.appendChild(cardFront);
+    cardInner.appendChild(cardBack);
+    card.appendChild(cardInner);
 
-  // Creates a card with distinct front and back sides, within the outer card container usign appendChild().
-  cardInner.appendChild(cardFront);
-  cardInner.appendChild(cardBack);
-  card.appendChild(cardInner);
-
-  /* 
-  /**If else statement that determines whether the card should be placed in the first row or 
-   * the second row based on the value of i. 
-   * If i is less than 4, it is placed in the first row, 
-   * and if i is greater than or equal to 4, it is placed in the second row.
-   */
-  if (i < 4) {
-    const firstGridRow = gridContainer.querySelector('.grid-game-row:first-child');
-    firstGridRow.appendChild(card);
-  } else {
-    const secondGridRow = gridContainer.querySelector('.grid-game-row:last-child');
-    secondGridRow.appendChild(card);
+    cards.push(card);
   }
-
+  return cards;
 }
 
+// Function to create the grid and place the cards
+function createGrid(cards) {
+  // Create two row containers
+  const rowContainer1 = document.createElement('div');
+  rowContainer1.classList.add('grid-game-row');
+
+  const rowContainer2 = document.createElement('div');
+  rowContainer2.classList.add('grid-game-row');
+
+  // Place half of the shuffled cards in each row container
+  for (let i = 0; i < cards.length; i++) {
+    if (i < cards.length / 2) {
+      rowContainer1.appendChild(cards[i]);
+    } else {
+      rowContainer2.appendChild(cards[i]);
+    }
+  }
+
+  // Adds grid structure into the DOM
+  gridContainer.appendChild(rowContainer1);
+  gridContainer.appendChild(rowContainer2);
+}
+
+// Create the cards from shuffled images
+const allCards = createCards(shuffledImages);
+
 // Duplicate the created cards to create pairs
-const allCards = gridContainer.querySelectorAll('.card');
 const duplicatedCards = Array.from(allCards).map(card => card.cloneNode(true));
 
 // Combine the original and duplicated cards
@@ -125,27 +138,11 @@ const combinedCards = Array.from(allCards).concat(duplicatedCards);
 // Shuffle the combined array of cards
 const shuffledCards = shuffle(combinedCards);
 
+// Create the grid and place the cards
+createGrid(shuffledCards);
+
 // Get the total number of cards
 const numberOfCards = shuffledCards.length;
-
-// Create two row containers
-const rowContainer1 = document.createElement('div');
-rowContainer1.classList.add('grid-game-row');
-
-const rowContainer2 = document.createElement('div');
-rowContainer2.classList.add('grid-game-row');
-
-// Place half of the shuffled cards in each row container
-for (let i = 0; i < shuffledCards.length; i++) {
-  if (i < shuffledCards.length / 2) {
-    rowContainer1.appendChild(shuffledCards[i]);
-  } else {
-    rowContainer2.appendChild(shuffledCards[i]);
-  }
-}
-// Adds grid structure into the DOM 
-gridContainer.appendChild(rowContainer1);
-gridContainer.appendChild(rowContainer2);
 
 // Card click event listener
 gridContainer.addEventListener('click', handleCardClick);
@@ -235,6 +232,7 @@ function checkMatch() {
 
 // Function to start a round
 function startRound() {
+  console.log('Starting round...');
   // Reset game state and variables
   moves = 0;
   score = 0;
@@ -245,11 +243,14 @@ function startRound() {
   const shuffledImages = shuffle(uniqueImages);
   const allCards = createCards(shuffledImages);
 
-  // Shuffle the cards
-  const shuffledCards = shuffle(allCards);
+  // Duplicate the created cards to create pairs
+  const duplicatedCards = allCards.map(card => {
+    const clone = card.cloneNode(true);
+    return clone;
+  });
 
-  // Clear the grid container
-  gridContainer.innerHTML = '';
+  // Combine the original and duplicated cards
+  const combinedCards = shuffle(allCards.concat(duplicatedCards));
 
   // Create the grid and place the cards
   createGrid(shuffledCards);
@@ -263,6 +264,7 @@ function startRound() {
 }
 
 function endRound() {
+  console.log('Ending round...');
   // Stop the timer
   clearInterval(timer);
 
@@ -289,7 +291,9 @@ function endRound() {
 
 function displayScore() {
   const scoreElement = document.querySelector('.score-display');
-  scoreElement.textContent = `Total Score: ${totalScore}`;
+  if (scoreElement.length > 0) {
+    scoreElement[0].textContent = `Total Score: ${totalScore}`;
+  }
 }
 
 // Start the initial round
