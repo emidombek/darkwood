@@ -172,8 +172,11 @@ function flipCard(card) {
 }
 
 function checkMatch() {
+  // Get the references to the flipped cards
   const card1 = flippedCards[0];
   const card2 = flippedCards[1];
+
+  // Extract the class name containing the image name for each card
   const card1ImageName = Array.from(card1.classList).find(className =>
     className.startsWith('card-image-')
   );
@@ -181,13 +184,17 @@ function checkMatch() {
     className.startsWith('card-image-')
   );
 
+  // Check if the image names of the two cards match
   if (card1ImageName === card2ImageName) {
     // Match
+    // Add the "matched" class to the cards to visually indicate a match
     card1.classList.add('matched');
     card2.classList.add('matched');
+    // Increment the count of matched pairs
     matchedPairs++;
+    // Clear the flippedCards array since the cards are now matched
     flippedCards = [];
-
+    // Check if all pairs have been matched and the game is completed
     if (matchedPairs === numberOfCards / 2) {
       // Game completed
       // Display final score and option to restart
@@ -195,13 +202,17 @@ function checkMatch() {
     }
   } else {
     // No match
+    // Wait for 1 second and then flip back the cards that didn't match
     setTimeout(() => {
+      // If the first card is not already matched, flip it back
       if (!card1.classList.contains('matched')) {
         flipCard(card1);
       }
+      // If the second card is not already matched, flip it back
       if (!card2.classList.contains('matched')) {
         flipCard(card2);
       }
+      // Clear the flippedCards array since the cards didn't match
       flippedCards = [];
     }, 1000);
   }
