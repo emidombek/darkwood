@@ -284,5 +284,5 @@ function displayScore() {
   scoreElement.textContent = score;
 }
 
-// Start the timer
-startTimer();
+// Start the initial round
+startRound();
