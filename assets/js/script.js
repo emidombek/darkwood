@@ -7,6 +7,8 @@ let moves = 0; // Number of moves made by the player
 let score = 0; // Player's score
 let timer; // Timer variable for the countdown
 const matchTimeout = 60; // Time limit in seconds for each round
+let totalScore = 0; // Variable to track the total score across rounds
+let round = 1; // Variable to track the current round
 
 function startTimer() {
   const timerElement = document.querySelector('.timer');
@@ -229,6 +231,35 @@ function checkMatch() {
       flippedCards = [];
     }, 1000);
   }
+}
+
+// Function to start a round
+function startRound() {
+  // Reset game state and variables
+  moves = 0;
+  score = 0;
+  matchedPairs = 0;
+  flippedCards = [];
+
+  // Shuffle the images and create the cards
+  const shuffledImages = shuffle(uniqueImages);
+  const allCards = createCards(shuffledImages);
+
+  // Shuffle the cards
+  const shuffledCards = shuffle(allCards);
+
+  // Clear the grid container
+  gridContainer.innerHTML = '';
+
+  // Create the grid and place the cards
+  createGrid(shuffledCards);
+
+  // Start the timer
+  startTimer();
+
+  // Display the current round and score
+  displayRound();
+  displayScore();
 }
 
 function endRound() {
