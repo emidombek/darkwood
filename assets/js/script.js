@@ -269,11 +269,19 @@ function endRound() {
   if (score === numberOfCards / 2) {
     // All cards matched
     console.log('Congratulations! You completed the round!');
-    // Add code to progress to the next round or perform other actions
+    totalScore += score; // Add the current round's score to the total score
+    round++; // Increment the round number
+    startRound(); // Start the next round
   } else {
     // Time ran out
     console.log('Time ran out! Try again.');
-    // Add code to handle the end of the round or prompt the user to try again
+    // Prompt the user to try again
+    const playAgain = confirm('Do you want to play again?');
+    if (playAgain) {
+      startRound(); // Start a new round
+    } else {
+      console.log('Game over'); // Game over message or other actions
+    }
   }
   // Update the score display
   displayScore();
