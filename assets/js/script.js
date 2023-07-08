@@ -103,46 +103,52 @@ function createCards(images) {
   return cards;
 }
 
-// Function to create the grid and place the cards
 function createGrid(cards) {
-  // Create two row containers
-  const rowContainer1 = document.createElement('div');
-  rowContainer1.classList.add('grid-game-row');
+  const rowContainers = document.querySelectorAll('.grid-game-row');
 
-  const rowContainer2 = document.createElement('div');
-  rowContainer2.classList.add('grid-game-row');
+  if (rowContainers.length === 0) {
+    // Create two row containers if they don't exist
+    const rowContainer1 = document.createElement('div');
+    rowContainer1.classList.add('grid-game-row');
 
-  // Place half of the shuffled cards in each row container
-  for (let i = 0; i < cards.length; i++) {
-    if (i < cards.length / 2) {
-      rowContainer1.appendChild(cards[i]);
-    } else {
-      rowContainer2.appendChild(cards[i]);
+    const rowContainer2 = document.createElement('div');
+    rowContainer2.classList.add('grid-game-row');
+
+    // Place half of the shuffled cards in each row container
+    for (let i = 0; i < cards.length; i++) {
+      if (i < cards.length / 2) {
+        rowContainer1.appendChild(cards[i]);
+      } else {
+        rowContainer2.appendChild(cards[i]);
+      }
+    }
+
+    // Adds grid structure into the DOM
+    gridContainer.appendChild(rowContainer1);
+    gridContainer.appendChild(rowContainer2);
+  } else {
+    // Replace the cards in the existing row containers
+    const rowContainer1 = rowContainers[0];
+    const rowContainer2 = rowContainers[1];
+
+    while (rowContainer1.firstChild) {
+      rowContainer1.removeChild(rowContainer1.firstChild);
+    }
+
+    while (rowContainer2.firstChild) {
+      rowContainer2.removeChild(rowContainer2.firstChild);
+    }
+
+    // Place half of the shuffled cards in each row container
+    for (let i = 0; i < cards.length; i++) {
+      if (i < cards.length / 2) {
+        rowContainer1.appendChild(cards[i]);
+      } else {
+        rowContainer2.appendChild(cards[i]);
+      }
     }
   }
-
-  // Adds grid structure into the DOM
-  gridContainer.appendChild(rowContainer1);
-  gridContainer.appendChild(rowContainer2);
 }
-
-// Create the cards from shuffled images
-const allCards = createCards(shuffledImages);
-
-// Duplicate the created cards to create pairs
-const duplicatedCards = Array.from(allCards).map(card => card.cloneNode(true));
-
-// Combine the original and duplicated cards
-const combinedCards = Array.from(allCards).concat(duplicatedCards);
-
-// Shuffle the combined array of cards
-const shuffledCards = shuffle(combinedCards);
-
-// Create the grid and place the cards
-createGrid(shuffledCards);
-
-// Get the total number of cards
-const numberOfCards = shuffledCards.length;
 
 // Card click event listener
 gridContainer.addEventListener('click', handleCardClick);
@@ -253,7 +259,7 @@ function startRound() {
   const combinedCards = shuffle(allCards.concat(duplicatedCards));
 
   // Create the grid and place the cards
-  createGrid(shuffledCards);
+  createGrid(combinedCards);
 
   // Start the timer
   startTimer();
