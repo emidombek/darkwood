@@ -10,6 +10,9 @@ const matchTimeout = 60; // Time limit in seconds for each round
 let totalScore = 0; // Variable to track the total score across rounds
 let round = 1; // Variable to track the current round
 
+// Define the number of cards
+const numberOfCards = 8;
+
 function startTimer() {
   const timerElement = document.querySelector('.timer');
   let secondsLeft = matchTimeout;
@@ -213,6 +216,8 @@ function checkMatch() {
       // Game completed
       // Display final score and option to restart
       console.log('All matches found!');
+      endRound(); // Start the next round
+      return; // Exit the function early
     }
 
     // Update the score display
@@ -265,7 +270,6 @@ function startRound() {
   startTimer();
 
   // Display the current round and score
-  displayRound();
   displayScore();
 }
 
@@ -279,7 +283,12 @@ function endRound() {
     console.log('Congratulations! You completed the round!');
     totalScore += score; // Add the current round's score to the total score
     round++; // Increment the round number
-    startRound(); // Start the next round
+
+    setTimeout(() => {
+      // Show a popup to inform the user about progressing to the next round
+      alert(`Round ${round} completed! Get ready for the next round.`);
+      startRound(); // Start the next round
+    }, 1000); // Delay of 1 second (1000 milliseconds)
   } else {
     // Time ran out
     console.log('Time ran out! Try again.');
