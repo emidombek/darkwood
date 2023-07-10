@@ -7,7 +7,6 @@ let moves = 0; // Number of moves made by the player
 let score = 0; // Player's score
 let timer; // Timer variable for the countdown
 const matchTimeout = 60; // Time limit in seconds for each round
-let totalScore = 0; // Variable to track the total score across rounds
 let round = 1; // Variable to track the current round
 
 // Define the number of cards
@@ -207,6 +206,7 @@ function checkMatch() {
     // Award 1 point for each match
     score++;
     console.log('Score:', score);
+    displayScore();
     // Increment the count of matched pairs
     matchedPairs++;
     // Clear the flippedCards array since the cards are now matched
@@ -216,7 +216,9 @@ function checkMatch() {
       // Game completed
       // Display final score and option to restart
       console.log('All matches found!');
-      endRound(); // Start the next round
+      setTimeout(() => {
+        endRound(); // Start the next round after a delay
+      }, 1000); // Delay of 1 second (1000 milliseconds)
       return; // Exit the function early
     }
 
@@ -242,11 +244,11 @@ function checkMatch() {
 }
 
 // Function to start a round
-function startRound() {
+function startRound(previousScore = 0) {
   console.log('Starting round...');
   // Reset game state and variables
   moves = 0;
-  score = 0;
+  score = previousScore; // Use the previous score as the starting score for the new round
   matchedPairs = 0;
   flippedCards = [];
 
@@ -281,13 +283,12 @@ function endRound() {
   if (score === numberOfCards / 2) {
     // All cards matched
     console.log('Congratulations! You completed the round!');
-    totalScore += score; // Add the current round's score to the total score
     round++; // Increment the round number
 
     setTimeout(() => {
       // Show a popup to inform the user about progressing to the next round
-      alert(`Round ${round} completed! Get ready for the next round.`);
-      startRound(); // Start the next round
+      alert(`Round ${round} coming up! Get ready for the next round.`);
+      startRound(score); // Start a new round with the current score
     }, 1000); // Delay of 1 second (1000 milliseconds)
   } else {
     // Time ran out
@@ -295,7 +296,7 @@ function endRound() {
     // Prompt the user to try again
     const playAgain = confirm('Do you want to play again?');
     if (playAgain) {
-      startRound(); // Start a new round
+      startRound(score); // Start the next round and pass the current score
     } else {
       console.log('Game over'); // Game over message or other actions
     }
@@ -306,8 +307,8 @@ function endRound() {
 
 function displayScore() {
   const scoreElement = document.querySelector('.score-display');
-  if (scoreElement.length > 0) {
-    scoreElement[0].textContent = `Total Score: ${totalScore}`;
+  if (scoreElement) {
+    scoreElement.textContent = score;
   }
 }
 
