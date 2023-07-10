@@ -322,3 +322,17 @@ pauseButton.addEventListener('click', pauseGame);
 // Add event listener to the restart button
 const restartButton = document.querySelector('.fa-reply');
 restartButton.addEventListener('click', restartGame);
+
+// Function to pause the game
+function pauseGame() {
+  console.log('Game paused.');
+  clearInterval(timer); // Stop the timer
+  gridContainer.removeEventListener('click', handleCardClick); // Disable card click event
+}
+
+// Function to restart the game
+function restartGame() {
+  console.log('Game restarted.');
+  startRound(score); // Start a new round with the current score
+  gridContainer.addEventListener('click', handleCardClick); // Enable card click event
+}
