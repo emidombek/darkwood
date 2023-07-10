@@ -314,3 +314,11 @@ function displayScore() {
 
 // Start the initial round
 startRound();
+
+// Add event listener to the pause button
+const pauseButton = document.querySelector('.fa-pause');
+pauseButton.addEventListener('click', pauseGame);
+
+// Add event listener to the restart button
+const restartButton = document.querySelector('.fa-reply');
+restartButton.addEventListener('click', restartGame);
