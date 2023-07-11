@@ -73,6 +73,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 250px;
+  padding-bottom: 2%;
 }
 
 .score-text {
@@ -223,7 +225,6 @@ body {
 .instructions-controls {
   list-style: none;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   font-size: 1.5em;
@@ -238,6 +239,12 @@ body {
 
 .instructions-controls li {
   margin: 0 95px;
+}
+
+.instructions-controls h4 {
+  flex-grow: 1;
+  text-align: center;
+  margin: 0;
 }
 
 .fa-pause {
