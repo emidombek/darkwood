@@ -124,6 +124,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100%;
   padding: 10px 20px;
   margin-top: 5%;
   text-align: center;
@@ -135,6 +136,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  height: 100%;
   padding: 10px 20px;
   margin-top: -12.5%;
   color: var(--text-color-primary);
@@ -269,8 +271,8 @@ body {
   justify-content: center;
   align-items: center;
   margin: 0;
-  padding-bottom: 3%;
-  padding-top: 3%;
+  padding: 3% 0;
+  height: 80%;
 }
 
 /* Spacing between list items */
