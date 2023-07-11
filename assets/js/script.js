@@ -315,24 +315,66 @@ function displayScore() {
 // Start the initial round
 startRound();
 
-// Add event listener to the pause button
-const pauseButton = document.querySelector('.fa-pause');
-pauseButton.addEventListener('click', pauseGame);
-
 // Add event listener to the restart button
 const restartButton = document.querySelector('.fa-reply');
 restartButton.addEventListener('click', restartGame);
+
+
+// Get references to the play and pause buttons
+const pauseButton = document.getElementById("pauseButton");
+const playButton = document.getElementById("playButton");
+let isPaused = false;
+
+pauseButton.addEventListener("click", function () {
+  if (!isPaused) {
+    pauseGame();
+    togglePlayPauseButton(true);
+  } else {
+    resumeGame();
+    togglePlayPauseButton(false);
+  }
+  isPaused = !isPaused;
+});
+
+playButton.addEventListener("click", function () {
+  if (isPaused) {
+    resumeGame();
+    togglePlayPauseButton(false);
+  }
+  isPaused = false;
+});
+
+function togglePlayPauseButton(isPaused) {
+  const pauseButton = document.getElementById('pauseButton');
+  const playButton = document.getElementById('playButton');
+
+  if (isPaused) {
+    pauseButton.style.display = 'none';
+    playButton.style.display = 'inline-block';
+  } else {
+    pauseButton.style.display = 'inline-block';
+    playButton.style.display = 'none';
+  }
+}
+
+// Function to restart the game
+function restartGame() {
+  console.log('Game restarted.');
+  startRound();
+  gridContainer.addEventListener('click', handleCardClick); // Enable card click event
+}
 
 // Function to pause the game
 function pauseGame() {
   console.log('Game paused.');
   clearInterval(timer); // Stop the timer
   gridContainer.removeEventListener('click', handleCardClick); // Disable card click event
+  togglePlayPauseButton(true);
 }
 
-// Function to restart the game
-function restartGame() {
-  console.log('Game restarted.');
-  startRound(score); // Start a new round with the current score
+function resumeGame() {
+  console.log('Game resumed.');
+  startTimer();
   gridContainer.addEventListener('click', handleCardClick); // Enable card click event
+  togglePlayPauseButton(false);
 }

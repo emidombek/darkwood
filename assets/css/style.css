@@ -240,6 +240,20 @@ body {
   margin: 0 95px;
 }
 
+.fa-pause {
+  display: inline-block;
+  /* Initially display the pause icon */
+}
+
+.fa-play {
+  display: none;
+  /* Initially hide the play icon */
+}
+
+.instructions-controls i:hover {
+  color: var(--accent-color);
+}
+
 /* Footer styling*/
 
 .social-networks {
