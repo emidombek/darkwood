@@ -39,12 +39,33 @@
         <i id="playButton" class="fa-solid fa-play"></i>
       </li>
       <li>
-        <h4>How to Play</h4>
+        <!-- Button to trigger the pop-up -->
+        <button id="openPopup">How to Play</button>
       </li>
       <li>
         <i id="button" class="fa-solid fa-reply"></i>
       </li>
     </ul>
+    <!-- Pop-up container -->
+    <div class="popup-container" id="popupContainer">
+      <!-- Pop-up content -->
+      <div class="popup-content">
+        <h4><i class="fa-solid fa-leaf"></i> How to Play</h4>
+        <br>
+        <p>In this game there are 8 cards, each card has a match that you as the player must find.
+          All of matches must be found before the timer runs out in order to progress to the next round.
+          The player can receive bonus points if the matches are found quickly.
+          If the player fails to match all the cards within the assigned timeframe the game will end.
+        </p>
+        <br>
+        <h5><i class="fa-solid fa-dice"></i> Game Controls</h5>
+        <br>
+        <p>The player can pause and resume the game by clicking the pause/play icons on the left.
+          The player can restart the game by clicking the restart icon on the right.
+        </p>
+        <br>
+        <button id="closePopup"><i class="fa-solid fa-rectangle-xmark"></i> Close</button>
+      </div>
   </main>
   <footer>
     <section>

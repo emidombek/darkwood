@@ -378,3 +378,15 @@ function resumeGame() {
   gridContainer.addEventListener('click', handleCardClick); // Enable card click event
   togglePlayPauseButton(false);
 }
+
+const openPopupButton = document.getElementById('openPopup');
+const closePopupButton = document.getElementById('closePopup');
+const popupContainer = document.getElementById('popupContainer');
+
+openPopupButton.addEventListener('click', function () {
+  popupContainer.style.display = 'block';
+});
+
+closePopupButton.addEventListener('click', function () {
+  popupContainer.style.display = 'none';
+});
