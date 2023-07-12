@@ -360,8 +360,13 @@ function togglePlayPauseButton(isPaused) {
 // Function to restart the game
 function restartGame() {
   console.log('Game restarted.');
+  // Reset the timer to its initial state
+  clearInterval(timer);
+  timer = null;
   startRound();
   gridContainer.addEventListener('click', handleCardClick); // Enable card click event
+  // Start the timer again
+  startTimer();
 }
 
 // Function to pause the game
