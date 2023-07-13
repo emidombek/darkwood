@@ -1,4 +1,7 @@
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * Game JS
+ */
+document.addEventListener('DOMContentLoaded', () => { // eventListener on screenload
   let uniqueImages = [
     'assets/images/dazbog_card.jpg',
     'assets/images/dola_card.jpg',
@@ -29,6 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let restartButton = document.querySelector('.fa-reply');
   let isPaused = false;
 
+  // Function to start the timer
   function startTimer() {
     const timerElement = document.querySelector('.timer');
     let secondsLeft = matchTimeout;
@@ -43,19 +47,20 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }, 1000);
   }
-
+  // Function to format time in MM:SS format
   function formatTime(seconds) {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
-
+  // Function to shuffle an array using the Fisher-Yates algorithm
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
   }
-
+  // Shuffle the array of unique images
   shuffle(uniqueImages);
 
+  // Function to create the card elements dynamically
   function createCards(images) {
     let cards = [];
     for (let i = 0; i < 4; i++) {
@@ -91,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return cards;
   }
 
+  // Function to create the grid and place the cards
   function createGrid(cards) {
     const rowContainers = document.querySelectorAll('.grid-game-row');
 
@@ -133,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Function to flip a card
   function flipCard(card) {
     console.log('Flipping card:', card);
     if (card.classList.contains('matched')) {
@@ -141,6 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     card.classList.toggle('flipped');
   }
 
+  // Function to check if the flipped cards match
   function checkMatch() {
     const card1 = flippedCards[0];
     const card2 = flippedCards[1];
@@ -184,6 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Function to start a round
   function startRound(previousScore = 0) {
     console.log('Starting round...');
     score = previousScore;
@@ -206,6 +215,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayScore();
   }
 
+  // Function to end the round
   function endRound() {
     console.log('Ending round...');
     clearInterval(timer);
@@ -231,6 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
     displayScore();
   }
 
+  // Function to display the current score
   function displayScore() {
     const scoreElement = document.querySelector('.score-display');
     if (scoreElement) {
@@ -238,8 +249,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Start the initial round
   startRound();
 
+  // Function to toggle the play/pause button
   function togglePlayPauseButton(isPaused) {
     const pauseButton = document.getElementById('pauseButton');
     const playButton = document.getElementById('playButton');
@@ -253,6 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Function to restart the game
   function restartGame() {
     console.log('Game restarted.');
     clearInterval(timer);
@@ -262,6 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
   }
 
+  // Function to pause the game
   function pauseGame() {
     console.log('Game paused.');
     clearInterval(timer);
@@ -269,6 +284,7 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePlayPauseButton(true);
   }
 
+  // Function to restart the game
   function resumeGame() {
     console.log('Game resumed.');
     startTimer();
@@ -276,6 +292,7 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePlayPauseButton(false);
   }
 
+  // Event listener for card click
   function handleCardClick(event) {
     const clickedCard = event.target.closest('.card');
 
@@ -305,12 +322,14 @@ document.addEventListener('DOMContentLoaded', () => {
       checkMatch();
     }
   }
+
+  // Event listeners
 
   gridContainer.addEventListener('click', handleCardClick); // Card click event listener
 
-  restartButton.addEventListener('click', restartGame);
+  restartButton.addEventListener('click', restartGame); // Restart game icon click event listener
 
-  pauseButton.addEventListener("click", function () {
+  pauseButton.addEventListener("click", function () { // Pause game button click event listener
     if (!isPaused) {
       pauseGame();
       togglePlayPauseButton(true);
@@ -321,7 +340,7 @@ document.addEventListener('DOMContentLoaded', () => {
     isPaused = !isPaused;
   });
 
-  playButton.addEventListener("click", function () {
+  playButton.addEventListener("click", function () { // Start game button click event listener
     if (isPaused) {
       resumeGame();
       togglePlayPauseButton(false);
