@@ -10,26 +10,29 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on DOM lo
     // FadeElement and entryLink variables are defined.
     let fadeElement = document.getElementById("fade");
     let entryLink = document.getElementById("entry-link");
+    // Add event listeners only if the elements exist
+    if (fadeElement && entryLink) {
+      // Animationend event listener for fadeElement adds the hidden class to fadeElement once its animation ends. This triggers the fade-in animation for the entryLink element since it was initially hidden.
+      fadeElement.addEventListener("animationend", function () {
+        fadeElement.classList.add("hidden");
+        entryLink.classList.remove("hidden");
+      });
+      // Click event listener for entryLink remains the same, logging a message to the console and redirecting the page to the specified URL when the link is clicked.
+      entryLink.addEventListener("click", function (event) {
+        // Logs message to browser.
+        console.log("Link clicked!");
+        window.location.href = entryLink.href;
 
-    // Animationend event listener for fadeElement adds the hidden class to fadeElement once its animation ends. This triggers the fade-in animation for the entryLink element since it was initially hidden.
-    fadeElement.addEventListener("animationend", function () {
-      fadeElement.classList.add("hidden");
-      entryLink.classList.remove("hidden");
-    });
-    // Click event listener for entryLink remains the same, logging a message to the console and redirecting the page to the specified URL when the link is clicked.
-    entryLink.addEventListener("click", function (event) {
-      // Logs message to browser.
-      console.log("Link clicked!");
-      window.location.href = entryLink.href;
+      });
 
-    });
-    // Touch event listener
-    entryLink.addEventListener("touchend", function (event) {
-      event.preventDefault();
-      // Logs message to browser.
-      console.log("Link touched!");
-      window.location.href = entryLink.href;
-    });
+      // Touch event listener
+      entryLink.addEventListener("touchend", function (event) {
+        event.preventDefault();
+        // Logs message to browser.
+        console.log("Link touched!");
+        window.location.href = entryLink.href;
+      });
+    }
   };
 
   /**
