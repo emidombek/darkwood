@@ -29,7 +29,11 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let openPopupButton = document.getElementById('openPopup');
   let closePopupButton = document.getElementById('closePopup');
   let popupContainer = document.getElementById('popupContainer');
-  let restartButton = document.querySelector('.fa-reply');
+  let restartButton = document.getElementById('restartButton');
+  let pauseButton = document.getElementById('pauseButton');
+  let playButton = document.getElementById('playButton');
+  let pauseText = document.getElementById('pauseText');
+  let playText = document.getElementById('playText');
   let isPaused = false;
 
   // Function to start the timer
@@ -254,15 +258,16 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to toggle the play/pause button
   function togglePlayPauseButton(isPaused) {
-    const pauseButton = document.getElementById('pauseButton');
-    const playButton = document.getElementById('playButton');
-
     if (isPaused) {
       pauseButton.style.display = 'none';
       playButton.style.display = 'inline-block';
+      pauseText.style.display = 'none';
+      playText.style.display = 'inline-block';
     } else {
       pauseButton.style.display = 'inline-block';
       playButton.style.display = 'none';
+      pauseText.style.display = 'inline-block';
+      playText.style.display = 'none';
     }
   }
 

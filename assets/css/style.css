@@ -75,6 +75,7 @@ body {
 
 .sub-heading {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   width: 250px;
@@ -84,14 +85,15 @@ body {
 .score-text {
   font-size: 0.7em;
   text-align: center;
-  transform: translateX(-185%);
+  transform: translateX(-170%);
   padding-right: 10%;
 }
 
 .timer-display {
   font-size: 0.7em;
   text-align: center;
-  transform: translateX(185%);
+  transform: translateX(170%);
+  padding-left: 10%;
 }
 
 
@@ -124,7 +126,7 @@ body {
 
 #fade {
   opacity: 0;
-  animation: fade-in-out 10s linear 0s forwards;
+  animation: fade-in-out 5s linear 0s forwards;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -147,7 +149,7 @@ body {
   font-size: 3em;
   text-decoration: none;
   opacity: 0;
-  animation: fade-in 5s linear 0s forwards, glowing 2s infinite;
+  animation: fade-in 2s linear 0s forwards, glowing 2s infinite;
   flex-grow: 1;
 }
 
@@ -234,8 +236,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  text-align: center;
   font-size: 1.5em;
-  margin-left: 10px;
 }
 
 .instructions-controls i {
@@ -246,6 +248,20 @@ body {
 
 .instructions-controls li {
   margin: 0 95px;
+  width: 50%;
+  height: 50%;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
 .modal-container {
@@ -299,6 +315,16 @@ h5 {
 .fa-play {
   display: none;
   /* Initially hide the play icon */
+}
+
+#playText {
+  display: none;
+  text-align: center;
+}
+
+#playText {
+  display: none;
+  text-align: center;
 }
 
 .instructions-controls i:hover {
