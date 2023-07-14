@@ -19,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   let score = 0;
   let timer;
-  const matchTimeout = 60;
+  let matchTimeout = 60;
+  let timerActive = false;
   const numberOfCards = 8;
   let round = 1;
   let flippedCards = [];
@@ -42,7 +43,14 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to start the timer
   function startTimer() {
-    let secondsLeft = matchTimeout;
+    if (timerActive) {
+      return;
+    }
+    let secondsLeft = isPaused ? remainingSeconds : matchTimeout;
+
+    updateTimerDisplay(timerElement, secondsLeft);
+
+    timerActive = true;
 
     if (isPaused) {
       secondsLeft = remainingSeconds; // Use the remaining seconds if game was paused
@@ -294,14 +302,14 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   function restartGame() {
     console.log('Game restarted.');
     clearInterval(timer); // Clear any existing timers
+    timerActive = false; // Reset timerActive to false
     matchedPairs = 0;
     flippedCards = [];
     score = 0;
     round = 1;
+    remainingSeconds = matchTimeout;
 
     updateTimerDisplay(timerElement, matchTimeout); // Update timer display
-
-    startTimer(); // Start the timer
 
     startRound(); // Start a new round
 
@@ -310,6 +318,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to pause the game
   function pauseGame() {
+    timerActive = false;
     console.log('Game paused.');
     clearInterval(timer);
     gridContainer.removeEventListener('click', handleCardClick);
@@ -319,28 +328,14 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to unpause the game
   function resumeGame() {
-    console.log('Game resumed.');
+    timerActive = false;
     startTimer();
     gridContainer.addEventListener('click', handleCardClick);
     togglePlayPauseButton(false);
+    console.log('Game resumed.');
   }
 
   // Event listener for card click
-  function handleCardClick(event) {
-    const clickedCard = event.target.closest('.card');
-
-    if (!clickedCard || clickedCard.classList.contains('flipped')) {
-      return;
-    }
-
-    flipCard(clickedCard);
-    flippedCards.push(clickedCard);
-
-    if (flippedCards.length === 2) {
-      checkMatch();
-    }
-  }
-
   function handleCardClick(event) {
     const clickedCard = event.target.closest('.card');
 
