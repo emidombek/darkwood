@@ -229,6 +229,9 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     score = previousScore;
     matchedPairs = 0;
     flippedCards = [];
+    timerActive = false;
+    timer = null;
+    remainingSeconds = 0;
 
     const shuffledImages = shuffle(uniqueImages);
     const allCards = createCards(shuffledImages);
@@ -251,9 +254,10 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     console.log('Ending round...');
     clearInterval(timer);
 
-    if (score === numberOfCards / 2) {
+    if (matchedPairs === numberOfCards / 2) {
       console.log('Congratulations! You completed the round!');
       round++;
+      console.log('Current round:', round);
 
       setTimeout(() => {
         alert(`Round ${round} coming up! Get ready for the next round.`);

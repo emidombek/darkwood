@@ -83,19 +83,16 @@ body {
 }
 
 .score-text {
+  width: 100%;
   font-size: 0.7em;
   text-align: center;
-  transform: translateX(-170%);
-  padding-right: 10%;
 }
 
 .timer-display {
-  width: 20%;
+  width: 100%;
   text-align: center;
   font-size: 0.7em;
   text-align: center;
-  transform: translateX(170%);
-  padding-left: 10%;
 }
 
 
