@@ -34,27 +34,37 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let playButton = document.getElementById('playButton');
   let pauseText = document.getElementById('pauseText');
   let playText = document.getElementById('playText');
+  let timerElement = document.querySelector('.timer');
   let isPaused = false;
 
   // Function to start the timer
   function startTimer() {
-    const timerElement = document.querySelector('.timer');
     let secondsLeft = matchTimeout;
+
+    updateTimerDisplay(timerElement, secondsLeft);
 
     timer = setInterval(() => {
       secondsLeft--;
-      timerElement.textContent = ' ' + secondsLeft;
 
       if (secondsLeft <= 0) {
         clearInterval(timer);
         endRound();
       }
+
+      updateTimerDisplay(timerElement, secondsLeft);
+
     }, 1000);
   }
+
+  // Function to update the timer display
+  function updateTimerDisplay(element, seconds) {
+    element.textContent = formatTime(seconds);
+  }
+
   // Function to format time in MM:SS format
   function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = seconds % 60;
+    let minutes = Math.floor(seconds / 60);
+    let remainingSeconds = seconds % 60;
     return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
   }
   // Function to shuffle an array using the Fisher-Yates algorithm
@@ -273,12 +283,20 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to restart the game
   function restartGame() {
-    console.log('Game restarted.');
-    clearInterval(timer);
-    timer = null;
-    startRound();
-    gridContainer.addEventListener('click', handleCardClick);
-    startTimer();
+    let secondsLeft = matchTimeout;
+
+    updateTimerDisplay(secondsLeft);
+
+    timer = setInterval(() => {
+      secondsLeft--;
+
+      if (secondsLeft <= 0) {
+        clearInterval(timer);
+        endRound();
+      }
+
+      updateTimerDisplay(secondsLeft);
+    }, 1000);
   }
 
   // Function to pause the game
