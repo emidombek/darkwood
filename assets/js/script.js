@@ -35,11 +35,20 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let pauseText = document.getElementById('pauseText');
   let playText = document.getElementById('playText');
   let timerElement = document.querySelector('.timer');
+  let shuffledImages;
+  let allCards;
+  let duplicatedCards;
   let isPaused = false;
 
   // Function to start the timer
   function startTimer() {
     let secondsLeft = matchTimeout;
+
+    if (isPaused) {
+      secondsLeft = remainingSeconds; // Use the remaining seconds if game was paused
+    } else {
+      remainingSeconds = secondsLeft; // Store the initial seconds when starting the timer
+    }
 
     updateTimerDisplay(timerElement, secondsLeft);
 
@@ -283,20 +292,20 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to restart the game
   function restartGame() {
-    let secondsLeft = matchTimeout;
+    console.log('Game restarted.');
+    clearInterval(timer); // Clear any existing timers
+    matchedPairs = 0;
+    flippedCards = [];
+    score = 0;
+    round = 1;
 
-    updateTimerDisplay(secondsLeft);
+    updateTimerDisplay(timerElement, matchTimeout); // Update timer display
 
-    timer = setInterval(() => {
-      secondsLeft--;
+    startTimer(); // Start the timer
 
-      if (secondsLeft <= 0) {
-        clearInterval(timer);
-        endRound();
-      }
+    startRound(); // Start a new round
 
-      updateTimerDisplay(secondsLeft);
-    }, 1000);
+    displayScore(); // Update the score display
   }
 
   // Function to pause the game
@@ -305,9 +314,10 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     clearInterval(timer);
     gridContainer.removeEventListener('click', handleCardClick);
     togglePlayPauseButton(true);
+    remainingSeconds = timerElement.textContent; // Store the remaining seconds when pausing the game
   }
 
-  // Function to restart the game
+  // Function to unpause the game
   function resumeGame() {
     console.log('Game resumed.');
     startTimer();
