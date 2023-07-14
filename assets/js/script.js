@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   function formatTime(seconds) {
     let minutes = Math.floor(seconds / 60);
     let remainingSeconds = seconds % 60;
-    return `${minutes}:${remainingSeconds.toString().padStart(2, '0')}`;
+    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`;
   }
   // Function to shuffle an array using the Fisher-Yates algorithm
   function shuffle(array) {
