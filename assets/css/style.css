@@ -76,20 +76,21 @@ body {
 .sub-heading {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: flex-end;
   width: 250px;
   padding-bottom: 2%;
 }
 
 .score-text {
   width: 100%;
+  transform: translateX(-170%);
   font-size: 0.7em;
   text-align: center;
 }
 
 .timer-display {
   width: 100%;
+  transform: translateX(170%);
   text-align: center;
   font-size: 0.7em;
   text-align: center;
@@ -248,8 +249,8 @@ body {
 
 .instructions-controls li {
   margin: 0 95px;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: auto;
   text-decoration: none;
   display: flex;
   flex-direction: column;
@@ -494,6 +495,12 @@ h5 {
     width: 140px;
     height: 196px;
   }
+
+  .instructions-controls li {
+    margin: 0 30px;
+    width: 50%;
+    height: 50%;
+  }
 }
 
 /* Desktop devices */
@@ -510,4 +517,5 @@ h5 {
     font-size: 3em;
     margin-top: -50px;
   }
+
 }

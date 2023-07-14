@@ -95,25 +95,25 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   function createCards(images) {
     let cards = [];
     for (let i = 0; i < 4; i++) {
-      const card = document.createElement('div');
+      let card = document.createElement('div');
       card.classList.add('card');
       const imageName = images[i].split('/').pop();
 
       card.classList.add(`card-image-${imageName}`);
 
-      const cardInner = document.createElement('div');
+      let cardInner = document.createElement('div');
       cardInner.classList.add('card-inner');
 
-      const cardFront = document.createElement('div');
+      let cardFront = document.createElement('div');
       cardFront.classList.add('card-front');
-      const frontImage = document.createElement('img');
+      let frontImage = document.createElement('img');
       frontImage.src = 'assets/images/card.jpg';
       frontImage.alt = 'Card Front Image';
       cardFront.appendChild(frontImage);
 
-      const cardBack = document.createElement('div');
+      let cardBack = document.createElement('div');
       cardBack.classList.add('card-back');
-      const backImage = document.createElement('img');
+      let backImage = document.createElement('img');
       backImage.src = images[i];
       backImage.alt = 'Card Back Image';
       cardBack.appendChild(backImage);
@@ -129,13 +129,13 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to create the grid and place the cards
   function createGrid(cards) {
-    const rowContainers = document.querySelectorAll('.grid-game-row');
+    let rowContainers = document.querySelectorAll('.grid-game-row');
 
     if (rowContainers.length === 0) {
-      const rowContainer1 = document.createElement('div');
+      let rowContainer1 = document.createElement('div');
       rowContainer1.classList.add('grid-game-row');
 
-      const rowContainer2 = document.createElement('div');
+      let rowContainer2 = document.createElement('div');
       rowContainer2.classList.add('grid-game-row');
 
       for (let i = 0; i < cards.length; i++) {
@@ -149,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       gridContainer.appendChild(rowContainer1);
       gridContainer.appendChild(rowContainer2);
     } else {
-      const rowContainer1 = rowContainers[0];
-      const rowContainer2 = rowContainers[1];
+      let rowContainer1 = rowContainers[0];
+      let rowContainer2 = rowContainers[1];
 
       while (rowContainer1.firstChild) {
         rowContainer1.removeChild(rowContainer1.firstChild);
@@ -181,13 +181,13 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to check if the flipped cards match
   function checkMatch() {
-    const card1 = flippedCards[0];
-    const card2 = flippedCards[1];
+    let card1 = flippedCards[0];
+    let card2 = flippedCards[1];
 
-    const card1ImageName = Array.from(card1.classList).find(className =>
+    let card1ImageName = Array.from(card1.classList).find(className =>
       className.startsWith('card-image-')
     );
-    const card2ImageName = Array.from(card2.classList).find(className =>
+    let card2ImageName = Array.from(card2.classList).find(className =>
       className.startsWith('card-image-')
     );
 
@@ -233,10 +233,10 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     timer = null;
     remainingSeconds = 0;
 
-    const shuffledImages = shuffle(uniqueImages);
-    const allCards = createCards(shuffledImages);
-    const duplicatedCards = allCards.map(card => {
-      const clone = card.cloneNode(true);
+    shuffledImages = shuffle(uniqueImages);
+    allCards = createCards(shuffledImages);
+    duplicatedCards = allCards.map(card => {
+      let clone = card.cloneNode(true);
       return clone;
     });
 
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       if (playAgain) {
         startRound(score);
       } else {
-        console.log('Game over');
+        alert('Game over');
       }
     }
 
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to display the current score
   function displayScore() {
-    const scoreElement = document.querySelector('.score-display');
+    let scoreElement = document.querySelector('.score-display');
     if (scoreElement) {
       scoreElement.textContent = score;
     }
@@ -341,7 +341,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Event listener for card click
   function handleCardClick(event) {
-    const clickedCard = event.target.closest('.card');
+    let clickedCard = event.target.closest('.card');
 
     if (!clickedCard || clickedCard.classList.contains('flipped')) {
       return;
