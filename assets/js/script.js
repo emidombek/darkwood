@@ -27,9 +27,6 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let matchedPairs = 0;
   let gridContainer = document.querySelector('.grid-game-container');
   let combinedCards;
-  let openPopupButton = document.getElementById('openPopup');
-  let closePopupButton = document.getElementById('closePopup');
-  let popupContainer = document.getElementById('popupContainer');
   let restartButton = document.getElementById('restartButton');
   let pauseButton = document.getElementById('pauseButton');
   let playButton = document.getElementById('playButton');
@@ -40,6 +37,9 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let allCards;
   let duplicatedCards;
   let isPaused = false;
+  let instructionsIcon = document.querySelector('.instructions');
+  let popupContainer = document.getElementById('popupContainer');
+  let closePopup = document.getElementById('closePopup');
 
   // Function to start the timer
   function startTimer() {
@@ -339,6 +339,18 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     console.log('Game resumed.');
   }
 
+  // Function to open the pop-up
+  function openPopup() {
+    popupContainer.style.display = 'block';
+  }
+
+  // Function to close the pop-up
+  function closePopupHandler() {
+    popupContainer.style.display = 'none';
+  }
+
+  // Event listeners
+
   // Event listener for card click
   function handleCardClick(event) {
     let clickedCard = event.target.closest('.card');
@@ -354,8 +366,6 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       checkMatch();
     }
   }
-
-  // Event listeners
 
   gridContainer.addEventListener('click', handleCardClick); // Card click event listener
 
@@ -379,4 +389,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     }
     isPaused = false;
   });
+
+  instructionsIcon.addEventListener('click', openPopup);
+  closePopup.addEventListener('click', closePopupHandler);
 });

@@ -56,7 +56,7 @@ body {
   z-index: -1;
 }
 
-/* Header Styling */
+/* Heading Styling */
 
 .heading-container {
   display: flex;
@@ -70,32 +70,33 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 2em
+  font-size: 2em;
 }
 
 .sub-heading {
   display: flex;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-evenly;
   width: 250px;
   padding-bottom: 2%;
 }
 
 .score-text {
-  width: 100%;
-  transform: translateX(-170%);
-  font-size: 0.7em;
   text-align: center;
+  font-size: 0.5em;
+  margin-right: 65%;
+}
+
+.instructions {
+  text-align: center;
+  font-size: 0.5em;
 }
 
 .timer-display {
-  width: 100%;
-  transform: translateX(170%);
   text-align: center;
-  font-size: 0.7em;
-  text-align: center;
+  font-size: 0.5em;
+  margin-left: 65%;
 }
-
 
 /* Main Styling for index.html */
 
@@ -238,13 +239,13 @@ body {
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  font-size: 1.5em;
 }
 
 .instructions-controls i {
   font-size: 100%;
   text-align: center;
   color: var(--main-color);
+  font-size: 1.2em;
 }
 
 .instructions-controls li {
@@ -257,6 +258,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
+  font-size: 1.2em;
 }
 
 a,
@@ -296,16 +298,20 @@ h5 {
 #openPopup {
   background-color: transparent;
   font-size: inherit;
-  font: inherit;
   color: inherit;
   border: none;
+}
+
+#openPopup i {
+  animation: glowing 2s 5;
 }
 
 #closePopup {
   background-color: transparent;
   font: inherit;
   color: inherit;
-  border: none;
+  animation: glowing 2s infinite;
+  /* Apply the glowing animation to the element */
 }
 
 .fa-pause {
@@ -464,7 +470,7 @@ h5 {
   .instructions-controls li {
     margin: 10px;
     height: auto;
-    font-size: 0.7em;
+    font-size: 0.5em;
   }
 }
 
