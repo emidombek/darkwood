@@ -303,7 +303,8 @@ a:visited {
 
 /* CSS for the pop-up content */
 .popup-content,
-.popup-content2 {
+.popup-content2,
+.popup-content3 {
   position: absolute;
   text-align: center;
   top: 50%;
@@ -311,9 +312,11 @@ a:visited {
   transform: translate(-50%, -50%);
   background: rgba(0.33, 0.78, 0.52, 0.8);
   padding: 20px;
+  font-size: 1em;
 }
 
-.modal-container2 {
+.modal-container2,
+.modal-container3 {
   display: none;
   align-items: center;
   position: fixed;
@@ -325,14 +328,9 @@ a:visited {
   z-index: 9999;
 }
 
-.popup-content,
-h5,
-h6 {
-  font-size: 1em;
-}
-
 #openPopup,
-#openPopup2 {
+#openPopup2,
+#openPopup3 {
   background-color: transparent;
   font-size: inherit;
   color: inherit;
@@ -344,17 +342,14 @@ h6 {
 }
 
 #closePopup,
-#closePopup2 {
+#closePopup2,
+#restartgameButton,
+#endGameButton {
   background-color: transparent;
   font: inherit;
   color: inherit;
   animation: glowing 2s infinite;
   /* Apply the glowing animation to the element */
-}
-
-.popup-message2 {
-  font-size: 1.5em;
-  text-align: center;
 }
 
 .fa-pause {

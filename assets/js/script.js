@@ -43,6 +43,9 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   const overlay = document.getElementById('overlay');
   const popupContainer2 = document.getElementById('popupContainer2');
   const closePopup2 = document.getElementById('closePopup2');
+  const popupContainer3 = document.getElementById('popupContainer3');
+  const restartgameButton = document.getElementById('restartgameButton');
+  const endgameButton = document.getElementById('endgameButton');
   let isFlipping = false;
 
 
@@ -283,16 +286,12 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       }, 1000);
     } else {
       console.log('Time ran out! Try again.');
-      const playAgain = confirm('Do you want to play again?');
-      if (playAgain) {
-        startRound(score);
-      } else {
-        alert('Game over');
-      }
+      openPopup3();
     }
 
     displayScore();
   }
+
 
   // Function to display the current score
   function displayScore() {
@@ -387,7 +386,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     resumeGame();
   }
 
-  // Function to open the new popup
+  // Function to open the popup2
   function openPopup2() {
     const roundNumberElement = document.getElementById('roundNumber');
     roundNumberElement.textContent = round;
@@ -396,10 +395,27 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     popupContainer2.style.display = 'block';
   }
 
-  // Function to close the new popup
+  // Function to close the popup2
   function handleClosePopup2() {
     popupContainer2.style.display = 'none';
     startRound(score);
+  }
+
+  // Function to open the popup3
+  function openPopup3() {
+    // Show the popup container
+    popupContainer3.style.display = 'block';
+  }
+
+  // Function to handle restart game button on popup3
+  function handlerestartgameButton() {
+    popupContainer3.style.display = 'none';
+    restartGame();
+  }
+
+  // Function to handle endgame button on popup3
+  function handleendgameButton() {
+    popupContainer3.style.display = 'none';
   }
 
   // Handle event listener for card click function
@@ -448,4 +464,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   instructionsIcon.addEventListener('click', openPopup);
   closePopup.addEventListener('click', closePopupHandler);
   closePopup2.addEventListener('click', handleClosePopup2);
+  restartgameButton.addEventListener('click', handlerestartgameButton);
+  endgameButton.addEventListener('click', handleendgameButton);
+
 });
