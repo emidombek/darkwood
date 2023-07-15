@@ -170,6 +170,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 20px;
+  position: relative;
   margin-bottom: 2%;
 }
 
@@ -182,11 +183,11 @@ body {
 
 .overlay {
   position: absolute;
-  top: 52%;
+  top: 50%;
   left: 50%;
+  width: 100%;
+  height: 100%;
   transform: translate(-50%, -50%);
-  width: 60%;
-  height: 60%;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -198,6 +199,7 @@ body {
 .overlay h4 {
   color: inherit;
   font-size: 24px;
+  text-align: center;
 }
 
 /* Card Styling/Positioning and Flip Effects*/
@@ -430,39 +432,27 @@ h5 {
 
 /* Media Queries */
 
+/* Media Queries */
+
 @media (max-width: 600px) {
   #fade {
     font-size: calc(60% + 0.8vmin);
   }
-}
 
-@media (max-width: 600px) {
   .entry-link {
     margin-top: -120px;
+    font-size: 1.5em;
   }
-}
 
-/* Mobile devices */
-@media (max-width: 600px) {
   .main-heading {
     font-size: 1.5em;
   }
 
-  .sub-heading {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .score-text {
-    transform: none;
-    padding-right: 10%;
-    text-align: center;
-  }
-
+  .score-text,
+  .instructions,
   .timer-display {
-    transform: none;
-    padding-left: 10%;
-    text-align: center;
+    font-size: 1em;
+    margin: 10px;
   }
 
   .body-image-container {
@@ -471,11 +461,6 @@ h5 {
 
   .body-text-container {
     width: 80%;
-  }
-
-  .entry-link {
-    font-size: 2em;
-    margin-top: -100px;
   }
 
   .grid-game-row {
@@ -490,7 +475,16 @@ h5 {
   .instructions-controls li {
     margin: 10px;
     height: auto;
-    font-size: 0.5em;
+    font-size: 0.7em;
+  }
+
+  .sub-heading {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 0.7em;
   }
 }
 
@@ -498,10 +492,6 @@ h5 {
 @media (min-width: 601px) and (max-width: 1024px) {
   .main-heading {
     font-size: 2em;
-  }
-
-  .sub-heading {
-    width: 200px;
   }
 
   .body-image {
@@ -527,6 +517,22 @@ h5 {
     width: 50%;
     height: 50%;
   }
+
+  .sub-heading {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-right: 0;
+    margin-left: 0;
+    font-size: 0.8em;
+  }
+
+  .score-text,
+  .instructions,
+  .timer-display {
+    font-size: 0.8em;
+    margin: 20px;
+  }
 }
 
 /* Desktop devices */
@@ -543,5 +549,4 @@ h5 {
     font-size: 3em;
     margin-top: -50px;
   }
-
 }

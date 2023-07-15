@@ -312,6 +312,12 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   // Function to restart the game
   function restartGame() {
     console.log('Game restarted.');
+    // Toggle play/pause button to pause state if the game was running
+    if (!isPaused) {
+      isPaused = true;
+      togglePlayPauseButton(true);
+    }
+    isPaused = false
     clearInterval(timer); // Clear any existing timers
     timerActive = false; // Reset timerActive to false
     matchedPairs = 0;
