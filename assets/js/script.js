@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let instructionsIcon = document.querySelector('.instructions');
   let popupContainer = document.getElementById('popupContainer');
   let closePopup = document.getElementById('closePopup');
+  const overlay = document.getElementById('overlay');
 
   // Function to start the timer
   function startTimer() {
@@ -284,8 +285,14 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     }
   }
 
-  // Start the initial round
-  startRound();
+  startRound(); // Start the round intially 
+  pauseGame(); // Pause the game to wait for user click
+
+  // Function to start the game intially 
+  function startGame() {
+    overlay.style.display = 'none'; // Hide the overlay
+    resumeGame();
+  }
 
   // Function to toggle the play/pause button
   function togglePlayPauseButton(isPaused) {
@@ -367,6 +374,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     }
   }
 
+  overlay.addEventListener('click', startGame); // Add click event listener to the overlay
+
   gridContainer.addEventListener('click', handleCardClick); // Card click event listener
 
   restartButton.addEventListener('click', restartGame); // Restart game icon click event listener
@@ -392,4 +401,5 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   instructionsIcon.addEventListener('click', openPopup);
   closePopup.addEventListener('click', closePopupHandler);
+
 });

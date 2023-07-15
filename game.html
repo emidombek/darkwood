@@ -19,10 +19,17 @@
       <div class="main-heading">
         <h1 class="game-title">Darkwood</h1>
         <div class="sub-heading">
-          <h2 class="score-text"><i class="fa-solid fa-star"></i>Score:<span class="score-display"> 0</span></h2>
-          <div class="instructions"><span id="openPopup"><i class="fa-solid fa-scroll"></i>Instructions</span>
+          <h2 class="score-text">
+            <i class="fa-solid fa-star"></i>Score:<span class="score-display"> 0</span>
+          </h2>
+          <div class="instructions">
+            <!-- Pop-up icon setup -->
+            <span id="openPopup">
+              <i class="fa-solid fa-scroll"></i>Instructions</span>
           </div>
-          <h3 class="timer-display"><i class="fa-solid fa-hourglass"></i>Timer:<span class="timer"> 0</span></h3>
+          <h3 class="timer-display">
+            <i class="fa-solid fa-hourglass"></i>Timer:<span class="timer"> 0</span>
+          </h3>
         </div>
     </section>
   </header>
@@ -30,6 +37,9 @@
     <div class="grid-game-container">
       <div class="grid-game-row">
         <!-- Cards will be dynamically added here by JS code-->
+      </div>
+      <div id="overlay" class="overlay">
+        <h4>Click to Start</h4>
       </div>
       <div class="grid-game-row">
         <!-- Cards will be dynamically added here by JS code -->
@@ -57,7 +67,7 @@
     <div class="modal-container" id="popupContainer">
       <!-- Pop-up content -->
       <div class="popup-content">
-        <h4><i class="fa-solid fa-leaf"></i> How to Play</h4>
+        <h5><i class="fa-solid fa-leaf"></i> How to Play</h5>
         <br>
         <p>In this game there are 8 cards, each card has a match that you as the player must find.
           All of matches must be found before the timer runs out in order to progress to the next round.
@@ -65,7 +75,7 @@
           If the player fails to match all the cards within the assigned timeframe the game will end.
         </p>
         <br>
-        <h5><i class="fa-solid fa-dice"></i> Game Controls</h5>
+        <h6><i class="fa-solid fa-dice"></i> Game Controls</h6>
         <br>
         <p>The player can pause and resume the game by clicking the pause/play icons on the left.
           The player can restart the game by clicking the restart icon on the right.

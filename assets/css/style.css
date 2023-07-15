@@ -180,6 +180,26 @@ body {
   gap: 20px;
 }
 
+.overlay {
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  cursor: pointer;
+}
+
+.overlay h4 {
+  color: inherit;
+  font-size: 24px;
+}
+
 /* Card Styling/Positioning and Flip Effects*/
 
 .card {
