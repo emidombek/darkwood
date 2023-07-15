@@ -486,6 +486,11 @@ h5 {
     margin-left: 0;
     font-size: 0.7em;
   }
+
+  .popup-content {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 
 /* Tablet devices */
