@@ -43,6 +43,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   const overlay = document.getElementById('overlay');
   const popupContainer2 = document.getElementById('popupContainer2');
   const closePopup2 = document.getElementById('closePopup2');
+  let isFlipping = false;
+
 
   // Function to start the timer
   function startTimer() {
@@ -194,6 +196,9 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       className.startsWith('card-image-')
     );
 
+    // Disable card click event listeners during the flip-back animation
+    gridContainer.removeEventListener('click', handleCardClick);
+
     if (card1ImageName === card2ImageName) {
       card1.classList.add('matched');
       card2.classList.add('matched');
@@ -213,6 +218,10 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
       displayScore();
 
+      //Re-enable card click event listeners after a brief delay
+      setTimeout(() => {
+        gridContainer.addEventListener('click', handleCardClick);
+      }, 1000);
     } else {
       setTimeout(() => {
         if (!card1.classList.contains('matched')) {
@@ -222,6 +231,10 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
           flipCard(card2);
         }
         flippedCards = [];
+        // Re-enable card click event listeners after a brief delay
+        setTimeout(() => {
+          gridContainer.addEventListener('click', handleCardClick);
+        }, 1000);
       }, 1000);
     }
   }
@@ -252,6 +265,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     startTimer();
 
     displayScore();
+    gridContainer.addEventListener('click', handleCardClick);
   }
 
   // Function to end the round
@@ -299,8 +313,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       // Code block to execute only for round one
       console.log("Round one special code block");
       // ***REMOVED***
-      resumeGame();
     }
+    resumeGame();
   }
 
   // Function to toggle the play/pause button
@@ -390,6 +404,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Handle event listener for card click function
   function handleCardClick(event) {
+
     let clickedCard = event.target.closest('.card');
 
     if (!clickedCard || clickedCard.classList.contains('flipped')) {
@@ -398,7 +413,6 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
     flipCard(clickedCard);
     flippedCards.push(clickedCard);
-
     if (flippedCards.length === 2) {
       checkMatch();
     }
