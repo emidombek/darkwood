@@ -302,7 +302,8 @@ a:visited {
 }
 
 /* CSS for the pop-up content */
-.popup-content {
+.popup-content,
+.popup-content2 {
   position: absolute;
   text-align: center;
   top: 50%;
@@ -312,12 +313,26 @@ a:visited {
   padding: 20px;
 }
 
-.popup-content h4,
-h5 {
-  font-size: inherit;
+.modal-container2 {
+  display: none;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
 
-#openPopup {
+.popup-content,
+h5,
+h6 {
+  font-size: 1em;
+}
+
+#openPopup,
+#openPopup2 {
   background-color: transparent;
   font-size: inherit;
   color: inherit;
@@ -328,12 +343,18 @@ h5 {
   animation: glowing 2s 5;
 }
 
-#closePopup {
+#closePopup,
+#closePopup2 {
   background-color: transparent;
   font: inherit;
   color: inherit;
   animation: glowing 2s infinite;
   /* Apply the glowing animation to the element */
+}
+
+.popup-message2 {
+  font-size: 1.5em;
+  text-align: center;
 }
 
 .fa-pause {

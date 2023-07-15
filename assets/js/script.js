@@ -38,9 +38,11 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   let duplicatedCards;
   let isPaused = false;
   let instructionsIcon = document.querySelector('.instructions');
-  let popupContainer = document.getElementById('popupContainer');
-  let closePopup = document.getElementById('closePopup');
+  const popupContainer = document.getElementById('popupContainer');
+  const closePopup = document.getElementById('closePopup');
   const overlay = document.getElementById('overlay');
+  const popupContainer2 = document.getElementById('popupContainer2');
+  const closePopup2 = document.getElementById('closePopup2');
 
   // Function to start the timer
   function startTimer() {
@@ -245,6 +247,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
     createGrid(combinedCards);
 
+    console.log('Grid created')
+
     startTimer();
 
     displayScore();
@@ -261,8 +265,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       console.log('Current round:', round);
 
       setTimeout(() => {
-        alert(`Round ${round} coming up! Get ready for the next round.`);
-        startRound(score);
+        openPopup2();
       }, 1000);
     } else {
       console.log('Time ran out! Try again.');
@@ -291,7 +294,13 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   // Function to start the game intially 
   function startGame() {
     overlay.style.display = 'none'; // Hide the overlay
-    resumeGame();
+    // Check if it's round one
+    if (round === 1) {
+      // Code block to execute only for round one
+      console.log("Round one special code block");
+      // ***REMOVED***
+      resumeGame();
+    }
   }
 
   // Function to toggle the play/pause button
@@ -355,16 +364,31 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   // Function to open the pop-up
   function openPopup() {
     popupContainer.style.display = 'block';
+    pauseGame();
   }
 
   // Function to close the pop-up
   function closePopupHandler() {
     popupContainer.style.display = 'none';
+    resumeGame();
   }
 
-  // Event listeners
+  // Function to open the new popup
+  function openPopup2() {
+    const roundNumberElement = document.getElementById('roundNumber');
+    roundNumberElement.textContent = round;
 
-  // Event listener for card click
+    // Show the popup container
+    popupContainer2.style.display = 'block';
+  }
+
+  // Function to close the new popup
+  function handleClosePopup2() {
+    popupContainer2.style.display = 'none';
+    startRound(score);
+  }
+
+  // Handle event listener for card click function
   function handleCardClick(event) {
     let clickedCard = event.target.closest('.card');
 
@@ -379,6 +403,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       checkMatch();
     }
   }
+
+  // Event listeners
 
   overlay.addEventListener('click', startGame); // Add click event listener to the overlay
 
@@ -407,5 +433,5 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   instructionsIcon.addEventListener('click', openPopup);
   closePopup.addEventListener('click', closePopupHandler);
-
+  closePopup2.addEventListener('click', handleClosePopup2);
 });
