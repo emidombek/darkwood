@@ -1,8 +1,8 @@
 /**
  * Game JS
  */
-document.addEventListener('DOMContentLoaded', () => { // Event listener when the DOM content is loaded
-  let uniqueImages = [ // Array of unique image paths
+document.addEventListener('DOMContentLoaded', () => { // eventListener on screenload
+  let uniqueImages = [
     'assets/images/dazbog_card.jpg',
     'assets/images/dola_card.jpg',
     'assets/images/dziewanna_card.jpg',
@@ -17,35 +17,36 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
     'assets/images/zywia_card.jpg',
   ];
 
-  let score = 0; // Player's score
-  let timer; // Timer reference
-  let matchTimeout = 60; // Timeout for each round
-  let timerActive = false; // Flag to track if the timer is active
-  const numberOfCards = 8; // Number of cards in the game
-  let round = 1; // Current round number
-  let flippedCards = []; // Array to store flipped cards
-  let matchedPairs = 0; // Number of matched card pairs
-  let gridContainer = document.querySelector('.grid-game-container'); // Container for the grid of cards
-  let combinedCards; // Array to store combined cards (original and duplicated)
-  const restartButton = document.getElementById('restartButton'); // Button to restart the game
-  const pauseButton = document.getElementById('pauseButton'); // Button to pause the game
-  const playButton = document.getElementById('playButton'); // Button to resume the game
-  const pauseText = document.getElementById('pauseText'); // Text for pause button
-  const playText = document.getElementById('playText'); // Text for play button
-  const timerElement = document.querySelector('.timer'); // Element to display the timer
-  let shuffledImages; // Array to store shuffled images
-  let allCards; // Array to store all card elements
-  let duplicatedCards; // Array to store duplicated card elements
-  let isPaused = false; // Flag to track if the game is paused
-  const instructionsIcon = document.querySelector('.instructions'); // Instructions icon element
-  const popupContainer = document.getElementById('popupContainer'); // Popup container element
-  const closePopup = document.getElementById('closePopup'); // Close button for popup
-  const overlay = document.getElementById('overlay'); // Overlay element
-  const popupContainer2 = document.getElementById('popupContainer2'); // Popup container for round completion
-  const closePopup2 = document.getElementById('closePopup2'); // Close button for round completion popup
-  const popupContainer3 = document.getElementById('popupContainer3'); // Popup container for game over
-  const restartgameButton = document.getElementById('restartgameButton'); // Button to restart the game after game over
-  const endgameButton = document.getElementById('endgameButton'); // Button to end the game after game over
+  let score = 0;
+  let timer;
+  let matchTimeout = 60;
+  let timerActive = false;
+  const numberOfCards = 8;
+  let round = 1;
+  let flippedCards = [];
+  let matchedPairs = 0;
+  let gridContainer = document.querySelector('.grid-game-container');
+  let combinedCards;
+  const restartButton = document.getElementById('restartButton');
+  const pauseButton = document.getElementById('pauseButton');
+  const playButton = document.getElementById('playButton');
+  const pauseText = document.getElementById('pauseText');
+  const playText = document.getElementById('playText');
+  const timerElement = document.querySelector('.timer');
+  let shuffledImages;
+  let allCards;
+  let duplicatedCards;
+  let isPaused = false;
+  const instructionsIcon = document.querySelector('.instructions');
+  const popupContainer = document.getElementById('popupContainer');
+  const closePopup = document.getElementById('closePopup');
+  const overlay = document.getElementById('overlay');
+  const popupContainer2 = document.getElementById('popupContainer2');
+  const closePopup2 = document.getElementById('closePopup2');
+  const popupContainer3 = document.getElementById('popupContainer3');
+  const restartgameButton = document.getElementById('restartgameButton');
+  const endgameButton = document.getElementById('endgameButton');
+  let isFlipping = false;
 
 
   // Function to start the timer
