@@ -1,8 +1,8 @@
 /**
  * Game JS
  */
-document.addEventListener('DOMContentLoaded', () => { // eventListener on screenload
-  let uniqueImages = [
+document.addEventListener('DOMContentLoaded', () => { // Event listener when the DOM content is loaded
+  let uniqueImages = [ // Array of unique image paths
     'assets/images/dazbog_card.jpg',
     'assets/images/dola_card.jpg',
     'assets/images/dziewanna_card.jpg',
@@ -17,41 +17,40 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
     'assets/images/zywia_card.jpg',
   ];
 
-  let score = 0;
-  let timer;
-  let matchTimeout = 60;
-  let timerActive = false;
-  const numberOfCards = 8;
-  let round = 1;
-  let flippedCards = [];
-  let matchedPairs = 0;
-  let gridContainer = document.querySelector('.grid-game-container');
-  let combinedCards;
-  const restartButton = document.getElementById('restartButton');
-  const pauseButton = document.getElementById('pauseButton');
-  const playButton = document.getElementById('playButton');
-  const pauseText = document.getElementById('pauseText');
-  const playText = document.getElementById('playText');
-  const timerElement = document.querySelector('.timer');
-  let shuffledImages;
-  let allCards;
-  let duplicatedCards;
-  let isPaused = false;
-  const instructionsIcon = document.querySelector('.instructions');
-  const popupContainer = document.getElementById('popupContainer');
-  const closePopup = document.getElementById('closePopup');
-  const overlay = document.getElementById('overlay');
-  const popupContainer2 = document.getElementById('popupContainer2');
-  const closePopup2 = document.getElementById('closePopup2');
-  const popupContainer3 = document.getElementById('popupContainer3');
-  const restartgameButton = document.getElementById('restartgameButton');
-  const endgameButton = document.getElementById('endgameButton');
-  let isFlipping = false;
+  let score = 0; // Player's score
+  let timer; // Timer reference
+  let matchTimeout = 60; // Timeout for each round
+  let timerActive = false; // Flag to track if the timer is active
+  const numberOfCards = 8; // Number of cards in the game
+  let round = 1; // Current round number
+  let flippedCards = []; // Array to store flipped cards
+  let matchedPairs = 0; // Number of matched card pairs
+  let gridContainer = document.querySelector('.grid-game-container'); // Container for the grid of cards
+  let combinedCards; // Array to store combined cards (original and duplicated)
+  const restartButton = document.getElementById('restartButton'); // Button to restart the game
+  const pauseButton = document.getElementById('pauseButton'); // Button to pause the game
+  const playButton = document.getElementById('playButton'); // Button to resume the game
+  const pauseText = document.getElementById('pauseText'); // Text for pause button
+  const playText = document.getElementById('playText'); // Text for play button
+  const timerElement = document.querySelector('.timer'); // Element to display the timer
+  let shuffledImages; // Array to store shuffled images
+  let allCards; // Array to store all card elements
+  let duplicatedCards; // Array to store duplicated card elements
+  let isPaused = false; // Flag to track if the game is paused
+  const instructionsIcon = document.querySelector('.instructions'); // Instructions icon element
+  const popupContainer = document.getElementById('popupContainer'); // Popup container element
+  const closePopup = document.getElementById('closePopup'); // Close button for popup
+  const overlay = document.getElementById('overlay'); // Overlay element
+  const popupContainer2 = document.getElementById('popupContainer2'); // Popup container for round completion
+  const closePopup2 = document.getElementById('closePopup2'); // Close button for round completion popup
+  const popupContainer3 = document.getElementById('popupContainer3'); // Popup container for game over
+  const restartgameButton = document.getElementById('restartgameButton'); // Button to restart the game after game over
+  const endgameButton = document.getElementById('endgameButton'); // Button to end the game after game over
 
 
   // Function to start the timer
   function startTimer() {
-    if (timerActive) { //if statement to check if timer is already running
+    if (timerActive) {
       return;
     }
     let secondsLeft = isPaused ? remainingSeconds : matchTimeout;
@@ -60,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
     timerActive = true;
 
-    if (isPaused) { // if statement to check if game if paused
+    if (isPaused) {
       secondsLeft = remainingSeconds; // Use the remaining seconds if game was paused
     } else {
       remainingSeconds = secondsLeft; // Store the initial seconds when starting the timer
@@ -68,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
     updateTimerDisplay(timerElement, secondsLeft);
 
-    timer = setInterval(() => { //clear the timer 
+    timer = setInterval(() => {
       secondsLeft--;
 
       if (secondsLeft <= 0) {
@@ -90,9 +89,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   function formatTime(seconds) {
     let minutes = Math.floor(seconds / 60);
     let remainingSeconds = seconds % 60;
-    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`; // template literal that combines the minutes and seconds into a time string. Checks if the minutes value is greater than 0, if so it constructs the timestring by concatenating the minutes and seconds values into a string. If minutes value is 0 it returns the seconds as a string.
+    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`;
   }
-
   // Function to shuffle an array using the Fisher-Yates algorithm
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -102,67 +100,66 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
 
   // Function to create the card elements dynamically
   function createCards(images) {
-    let cards = []; //array to store the cards
-
-    for (let i = 0; i < 4; i++) { // for loop set to create 4 divs
+    let cards = [];
+    for (let i = 0; i < 4; i++) {
       let card = document.createElement('div');
       card.classList.add('card');
+      const imageName = images[i].split('/').pop();
 
-      const imageName = images[i].split('/').pop(); // Extracting image filenames from the images array and assigning them to the 'imageName' variable
-      card.classList.add(`card-image-${imageName}`); // Adding a CSS class to the 'card' element based on the 'imageName'
+      card.classList.add(`card-image-${imageName}`);
 
-      let cardInner = document.createElement('div'); //Creating the cardInner element
+      let cardInner = document.createElement('div');
       cardInner.classList.add('card-inner');
 
-      let cardFront = document.createElement('div'); // Creating the cardFront element 
+      let cardFront = document.createElement('div');
       cardFront.classList.add('card-front');
-
-      let frontImage = document.createElement('img'); // Creating the card frontImage img element
+      let frontImage = document.createElement('img');
       frontImage.src = 'assets/images/card.jpg';
       frontImage.alt = 'Card Front Image';
-      cardFront.appendChild(frontImage); //Appending the frontImage element as a child of the cardFront element
+      cardFront.appendChild(frontImage);
 
-      let cardBack = document.createElement('div'); // Creating the cardBack element
+      let cardBack = document.createElement('div');
       cardBack.classList.add('card-back');
+      let backImage = document.createElement('img');
       backImage.src = images[i];
       backImage.alt = 'Card Back Image';
-      cardBack.appendChild(backImage); // Appending the backImage element as a child of the cardBack element
+      cardBack.appendChild(backImage);
 
-      cardInner.appendChild(cardFront); // Append cardFront to cardInner
-      cardInner.appendChild(cardBack); // Append cardBack to cardInner
-      card.appendChild(cardInner); // Append cardInner to card
+      cardInner.appendChild(cardFront);
+      cardInner.appendChild(cardBack);
+      card.appendChild(cardInner);
 
-      cards.push(card); // push to the cards array
+      cards.push(card);
     }
-    return cards; // return card array 
+    return cards;
   }
 
   // Function to create the grid and place the cards
   function createGrid(cards) {
     let rowContainers = document.querySelectorAll('.grid-game-row');
 
-    if (rowContainers.length === 0) { // Check if there are no existing row containers
-      let rowContainer1 = document.createElement('div'); // Create a new <div> element to serve as the first row container
+    if (rowContainers.length === 0) {
+      let rowContainer1 = document.createElement('div');
       rowContainer1.classList.add('grid-game-row');
 
-      let rowContainer2 = document.createElement('div'); // Create a new <div> element to serve as the second row container
+      let rowContainer2 = document.createElement('div');
       rowContainer2.classList.add('grid-game-row');
 
       for (let i = 0; i < cards.length; i++) {
         if (i < cards.length / 2) {
-          rowContainer1.appendChild(cards[i]); // Append the card to the first row container if its index is less than half of the total cards
+          rowContainer1.appendChild(cards[i]);
         } else {
-          rowContainer2.appendChild(cards[i]); // Append the card to the second row container if its index is equal to or greater than half of the total cards
+          rowContainer2.appendChild(cards[i]);
         }
       }
 
-      gridContainer.appendChild(rowContainer1); // Append the first row container to the grid container
-      gridContainer.appendChild(rowContainer2); // Append the second row container to the grid container
+      gridContainer.appendChild(rowContainer1);
+      gridContainer.appendChild(rowContainer2);
     } else {
-      let rowContainer1 = rowContainers[0]; // Retrieve the existing first row container from the 'rowContainers' array
-      let rowContainer2 = rowContainers[1]; // Retrieve the existing second row container from the 'rowContainers' array
+      let rowContainer1 = rowContainers[0];
+      let rowContainer2 = rowContainers[1];
 
-      while (rowContainer1.firstChild) { // While loops clearing the child elements from rowContainer1 and rowContainer2
+      while (rowContainer1.firstChild) {
         rowContainer1.removeChild(rowContainer1.firstChild);
       }
 
@@ -170,8 +167,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
         rowContainer2.removeChild(rowContainer2.firstChild);
       }
 
-      for (let i = 0; i < cards.length; i++) { // Distributing the card elements between rowContainer1 and rowContainer2                                     
-        if (i < cards.length / 2) { // based on their indices(based on their positions as they are recorded numerically) to create organized card rows
+      for (let i = 0; i < cards.length; i++) {
+        if (i < cards.length / 2) {
           rowContainer1.appendChild(cards[i]);
         } else {
           rowContainer2.appendChild(cards[i]);
@@ -184,9 +181,9 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
   function flipCard(card) {
     console.log('Flipping card:', card);
     if (card.classList.contains('matched')) {
-      return; // If the card has the 'matched' class, return without flipping the card
+      return;
     }
-    card.classList.toggle('flipped'); // Toggle the 'flipped' class of the card, adding it if it's not present and removing it if it's already present
+    card.classList.toggle('flipped');
   }
 
   // Function to check if the flipped cards match
