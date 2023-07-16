@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
 
   // Function to start the timer
   function startTimer() {
-    if (timerActive) {
+    if (timerActive) { //if statement to check if timer is already running
       return;
     }
     let secondsLeft = isPaused ? remainingSeconds : matchTimeout;
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
 
     timerActive = true;
 
-    if (isPaused) {
+    if (isPaused) { // if statement to check if game if paused
       secondsLeft = remainingSeconds; // Use the remaining seconds if game was paused
     } else {
       remainingSeconds = secondsLeft; // Store the initial seconds when starting the timer
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
 
     updateTimerDisplay(timerElement, secondsLeft);
 
-    timer = setInterval(() => {
+    timer = setInterval(() => { //clear the timer 
       secondsLeft--;
 
       if (secondsLeft <= 0) {
@@ -89,8 +89,9 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   function formatTime(seconds) {
     let minutes = Math.floor(seconds / 60);
     let remainingSeconds = seconds % 60;
-    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`;
+    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`; // template literal that combines the minutes and seconds into a time string. Checks if the minutes value is greater than 0, if so it constructs the timestring by concatenating the minutes and seconds values into a string. If minutes value is 0 it returns the seconds as a string.
   }
+
   // Function to shuffle an array using the Fisher-Yates algorithm
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
@@ -100,66 +101,67 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
 
   // Function to create the card elements dynamically
   function createCards(images) {
-    let cards = [];
-    for (let i = 0; i < 4; i++) {
+    let cards = []; //array to store the cards
+
+    for (let i = 0; i < 4; i++) { // for loop set to create 4 divs
       let card = document.createElement('div');
       card.classList.add('card');
-      const imageName = images[i].split('/').pop();
 
-      card.classList.add(`card-image-${imageName}`);
+      const imageName = images[i].split('/').pop(); // Extracting image filenames from the images array and assigning them to the 'imageName' variable
+      card.classList.add(`card-image-${imageName}`); // Adding a CSS class to the 'card' element based on the 'imageName'
 
-      let cardInner = document.createElement('div');
+      let cardInner = document.createElement('div'); //Creating the cardInner element
       cardInner.classList.add('card-inner');
 
-      let cardFront = document.createElement('div');
+      let cardFront = document.createElement('div'); // Creating the cardFront element 
       cardFront.classList.add('card-front');
-      let frontImage = document.createElement('img');
+
+      let frontImage = document.createElement('img'); // Creating the card frontImage img element
       frontImage.src = 'assets/images/card.jpg';
       frontImage.alt = 'Card Front Image';
-      cardFront.appendChild(frontImage);
+      cardFront.appendChild(frontImage); //Appending the frontImage element as a child of the cardFront element
 
-      let cardBack = document.createElement('div');
+      let cardBack = document.createElement('div'); // Creating the cardBack element
       cardBack.classList.add('card-back');
-      let backImage = document.createElement('img');
       backImage.src = images[i];
       backImage.alt = 'Card Back Image';
-      cardBack.appendChild(backImage);
+      cardBack.appendChild(backImage); // Appending the backImage element as a child of the cardBack element
 
-      cardInner.appendChild(cardFront);
-      cardInner.appendChild(cardBack);
-      card.appendChild(cardInner);
+      cardInner.appendChild(cardFront); // Append cardFront to cardInner
+      cardInner.appendChild(cardBack); // Append cardBack to cardInner
+      card.appendChild(cardInner); // Append cardInner to card
 
-      cards.push(card);
+      cards.push(card); // push to the cards array
     }
-    return cards;
+    return cards; // return card array 
   }
 
   // Function to create the grid and place the cards
   function createGrid(cards) {
     let rowContainers = document.querySelectorAll('.grid-game-row');
 
-    if (rowContainers.length === 0) {
-      let rowContainer1 = document.createElement('div');
+    if (rowContainers.length === 0) { // Check if there are no existing row containers
+      let rowContainer1 = document.createElement('div'); // Create a new <div> element to serve as the first row container
       rowContainer1.classList.add('grid-game-row');
 
-      let rowContainer2 = document.createElement('div');
+      let rowContainer2 = document.createElement('div'); // Create a new <div> element to serve as the second row container
       rowContainer2.classList.add('grid-game-row');
 
       for (let i = 0; i < cards.length; i++) {
         if (i < cards.length / 2) {
-          rowContainer1.appendChild(cards[i]);
+          rowContainer1.appendChild(cards[i]); // Append the card to the first row container if its index is less than half of the total cards
         } else {
-          rowContainer2.appendChild(cards[i]);
+          rowContainer2.appendChild(cards[i]); // Append the card to the second row container if its index is equal to or greater than half of the total cards
         }
       }
 
-      gridContainer.appendChild(rowContainer1);
-      gridContainer.appendChild(rowContainer2);
+      gridContainer.appendChild(rowContainer1); // Append the first row container to the grid container
+      gridContainer.appendChild(rowContainer2); // Append the second row container to the grid container
     } else {
-      let rowContainer1 = rowContainers[0];
-      let rowContainer2 = rowContainers[1];
+      let rowContainer1 = rowContainers[0]; // Retrieve the existing first row container from the 'rowContainers' array
+      let rowContainer2 = rowContainers[1]; // Retrieve the existing second row container from the 'rowContainers' array
 
-      while (rowContainer1.firstChild) {
+      while (rowContainer1.firstChild) { // While loops clearing the child elements from rowContainer1 and rowContainer2
         rowContainer1.removeChild(rowContainer1.firstChild);
       }
 
@@ -167,8 +169,8 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
         rowContainer2.removeChild(rowContainer2.firstChild);
       }
 
-      for (let i = 0; i < cards.length; i++) {
-        if (i < cards.length / 2) {
+      for (let i = 0; i < cards.length; i++) { // Distributing the card elements between rowContainer1 and rowContainer2                                     
+        if (i < cards.length / 2) { // based on their indices(based on their positions as they are recorded numerically) to create organized card rows
           rowContainer1.appendChild(cards[i]);
         } else {
           rowContainer2.appendChild(cards[i]);
@@ -181,9 +183,9 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   function flipCard(card) {
     console.log('Flipping card:', card);
     if (card.classList.contains('matched')) {
-      return;
+      return; // If the card has the 'matched' class, return without flipping the card
     }
-    card.classList.toggle('flipped');
+    card.classList.toggle('flipped'); // Toggle the 'flipped' class of the card, adding it if it's not present and removing it if it's already present
   }
 
   // Function to check if the flipped cards match
