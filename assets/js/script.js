@@ -224,7 +224,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
       //Re-enable card click event listeners after a brief delay
       setTimeout(() => {
         gridContainer.addEventListener('click', handleCardClick);
-      }, 1000);
+      }, 500);
     } else {
       setTimeout(() => {
         if (!card1.classList.contains('matched')) {
@@ -237,8 +237,8 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on screen
         // Re-enable card click event listeners after a brief delay
         setTimeout(() => {
           gridContainer.addEventListener('click', handleCardClick);
-        }, 1000);
-      }, 1000);
+        }, 500);
+      });
     }
   }
 

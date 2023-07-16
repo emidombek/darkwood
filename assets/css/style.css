@@ -350,6 +350,7 @@ a:visited {
   color: inherit;
   font-size: 1.3em;
   animation: glowing 2s infinite;
+  padding-bottom: 2%;
   /* Apply the glowing animation to the element */
 }
 
