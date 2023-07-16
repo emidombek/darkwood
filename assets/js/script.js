@@ -308,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Function to start the game intially 
   function startGame() {
     overlay.style.display = 'none'; // Hide the overlay
-    // Check if it's round one
     resumeGame();
   }
 
