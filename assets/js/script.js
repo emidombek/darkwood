@@ -89,6 +89,8 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   function formatTime(seconds) {
     let minutes = Math.floor(seconds / 60);
     let remainingSeconds = seconds % 60;
+    // Format minutes and remaining seconds
+    // Add leading zero to remaining seconds if it is a single digit
     return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`;
   }
   // Function to shuffle an array using the Fisher-Yates algorithm
