@@ -344,13 +344,35 @@ a:visited {
 #closePopup,
 #closePopup2,
 #restartgameButton,
-#endGameButton {
+#endgameButton {
   background-color: transparent;
   font: inherit;
   color: inherit;
+  font-size: 1.3em;
   animation: glowing 2s infinite;
   /* Apply the glowing animation to the element */
 }
+
+#restartgameButton {
+  padding-right: 5%;
+}
+
+#endgameButton {
+  padding-left: 5%;
+}
+
+h5,
+h6 {
+  font-size: 1.2em;
+}
+
+.popup-title2,
+.popup-title3 {
+  font-size: 1.5em;
+  margin-bottom: 10%;
+}
+
+
 
 .fa-pause {
   display: inline-block;
