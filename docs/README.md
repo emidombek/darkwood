@@ -28,27 +28,38 @@
      
    1. Landing Page: index.html
    
-      This is a page designed to introduce the user to the feel and atmosphere of the game and to set up the user experience. It also acts as a 'gateway' to the user providing a link to the game at the end of a short animation sequence. 
-      This page consists of a Header with the Game Title. The body contains an image of a symbol and a fade-in fade-out fade-in Keyframes animation consisting of two different elements. 
-      An element with some intro text and another element with an entry link for the game. The second link element has an additional Keyframes glow animation designed to highlight and entice the user to click on it.
-      There is also an animated background (canvas element + js) consisting of small 'fireflies' flying around.
+      - This is a page designed to introduce the user to the feel and atmosphere of the game and to set up the user experience. It also acts as a 'gateway' to the user providing a link to the game at the end of a short animation sequence. 
 
-      details>
+      - It consists of a Header with the Game Title. The body contains an image of a symbol and a fade-in fade-out fade-in Keyframes animation consisting of two different elements. 
+
+      - An element with some intro text and another element with an entry link for the game. The second link element has an additional Keyframes glow animation designed to highlight and entice the user to click on it.
+
+      - The footer contains a link to my LinkedIn profile as well as my GitHub profile.
+
+      -There is also an animated background (canvas element + js) consisting of small 'fireflies' flying around.
+
+      <details>
        <summary>Click here to view a screenshot of the Landing Page</summary>
-  
-       ![Landing Page Screenshot](/docs/images/)
 
-       ![Landing Page Screenshot](/docs/images/)
+       ![Landing Page Screenshot](docs/images/landing_page2.png)
+  
+       ![Landing Page Screenshot](docs/images/landing_page.png)
   
        </details>
   
    2. Game Page: game.html
    
-      The actual game is located on this page. 
-      When the user first enters the game it load with an overlay and a click-to-start mechanism. After the user clicks on the text the overlay is removed and the game starts.
-      The page itself consists of a Header with the Game Title. There is also a sub-heading container in the header that contains 3 labeled icons that are part of the game elements. These elements are the game score display, an instructions pop-up and a timer for each round.
-      The body consists of a 'grid' ( a container with columns and rows)+ 2 rows containing, 8 dynamically generated cards in JS in pairs.
-      Within the game, there is a total of 16 different cards based on mythological Slavic Gods from different regions (West, East and Southern Slavic Countries). Each round a new set of 4 Slavic gods are placed within the game.
+      - The actual game is located on this page. 
+
+      - When the user first enters the game it load with an overlay and a click-to-start mechanism. After the user clicks on the text the overlay is removed and the game starts.
+
+      - The page itself consists of a Header with the Game Title. There is also a sub-heading container in the header that contains 3 labeled icons that are part of the game elements. These elements are the game score display, an instructions pop-up and a timer for each round.
+
+      - The body consists of a fake 'grid' (a container with columns and rows)+ 2 rows containing, 8 dynamically generated cards in JS in pairs.
+
+      - Within the game, there is a total of 16 different cards based on mythological Slavic Gods from different regions (West, East and Southern Slavic Countries). Each round a new set of 4 Slavic gods are placed within the game.
+
+      - Beneath the 'card grid' there is an instructions-controls which contains 3 additional elements: an alternating pause/play button (depending on whether the user pauses the game), a home icon with a link back to the index page and a restart button to restart the game completely.
       
 
   
