@@ -307,11 +307,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   function startGame() {
     overlay.style.display = 'none'; // Hide the overlay
     // Check if it's round one
-    if (round === 1) {
-      // Code block to execute only for round one
-      console.log("Round one special code block");
-      // ***REMOVED***
-    }
     resumeGame();
   }
 
