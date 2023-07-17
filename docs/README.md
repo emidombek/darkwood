@@ -64,6 +64,19 @@
       - The footer contains links to my LinkedIn and GitHub profiles.
   
       - This page also uses the same animated background as the entry page. It also uses the keyframes glowing/glow animation to highlight certain clickable icons/text. 
+
+     <details>
+       <summary>Click here to view a screenshot of the Game Page Page</summary>
+
+       ![Game Page Screenshot](#)
+  
+       ![Game Page Screenshot](#)
+
+       ![Game Page Screenshot](#)
+
+       ![Game Page Screenshot](#)
+       
+       </details>
   
       
 
