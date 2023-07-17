@@ -36,14 +36,14 @@
 
       - The footer contains a link to my LinkedIn profile as well as my GitHub profile.
 
-      -There is also an animated background (canvas element + js) consisting of small 'fireflies' flying around.
+      -There is also an animated background (canvas element + js) consisting of small 'fireflies' flying around. The js for this animation and the keyframes fade in-out effects are contained within a separate graphics.js file to the game js which is in the script.js file.  
 
       <details>
        <summary>Click here to view a screenshot of the Landing Page</summary>
 
-       ![Landing Page Screenshot](docs/images/landing_page2.png)
+       ![Landing Page Screenshot](images/landing_page2.png)
   
-       ![Landing Page Screenshot](docs/images/landing_page.png)
+       ![Landing Page Screenshot](images/landing_page.png)
   
        </details>
   
@@ -56,10 +56,18 @@
       - The page itself consists of a Header with the Game Title. There is also a sub-heading container in the header that contains 3 labeled icons that are part of the game elements. These elements are the game score display, an instructions pop-up and a timer for each round.
 
       - The body consists of a fake 'grid' (a container with columns and rows)+ 2 rows containing, 8 dynamically generated cards in JS in pairs.
+   
+      - Within the game, there is a total of 16 different cards based on mythological beings from different regions (West, East and Southern Slavic Countries). Each round a new set of 4 matching pairs are placed within the game. Once the user starts the game they must match all 8 cards to progress, if the user runs out of time they will be prompted with a 
+  
+      - Beneath the 'card grid' there is an instructions-controls container that holds 3 additional elements: an alternating pause/play button (depending on whether the user pauses the game), a home icon with a link back to the index page and a restart button to restart the game completely.
+     
+      - The footer contains links to my LinkedIn and GitHub profiles.
+  
+      - This page also uses the same animated background as the entry page. It also uses the keyframes glowing/glow animation to highlight certain clickable icons/text. 
+  
+      
 
-      - Within the game, there is a total of 16 different cards based on mythological Slavic Gods from different regions (West, East and Southern Slavic Countries). Each round a new set of 4 Slavic gods are placed within the game.
 
-      - Beneath the 'card grid' there is an instructions-controls which contains 3 additional elements: an alternating pause/play button (depending on whether the user pauses the game), a home icon with a link back to the index page and a restart button to restart the game completely.
       
 
   
