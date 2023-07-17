@@ -80,19 +80,75 @@
        </details>
    ## Design and Layout
 
-   The design and layout of this website was created in Figma. A moodboard and wireframes were designed from scratch to help develop the look and feel of the game. Keyframes animations help emphasize important links and icons. 
+   The design and layout of this website was created in Figma. A moodboard and wireframes were designed from scratch to help develop the look and feel of the game. Keyframes animations help emphasize important links and icons. Javascript for the background and Keyframes animations are stored in a different graphics.js file than the actual game code which is located in script.js. The setting of the game is inspired by Slavic mythology and the Witcher games/tv series/books.
 
    Design System:
+   
+   *Color Palette*
 
-  --font-family: 'Nova Cut', cursive;
-  --primary-font: 'Nova Cut', cursive;
-  --main-color: #cdcdcd;
-  --background-color: #001638;
-  --primary-color: #214E34;
-  --secondary-color: #364156;
-  --accent-color: #DFF8EB;
-  --text-color-primary: #cdcdcd;
-  --line-height: 1.5;
+   ![Color Palette](images/darkwood.png)
+
+   *Font*
+
+   ![Font](images/nova_cut_font.png)
+
+   *Iconography*
+
+   
+   Moodboard Concept:
+
+   <details>
+    <summary>Click here to view the Moodboard and Concept</summary>
+
+    ![Darkwood Moodboard](images/moodboard.png)
+
+    </details>
+  
+   Wireframes: 
+
+   [Link to Wireframes in Figma](https://www.figma.com/file/xfQpobp6FbpuhwTs9gPaX5/Darkwood-Memory-Card-Game?type=design&node-id=0%3A1&mode=design&t=QpLt1hLRtOcsTnLt-1)
+
+    <details>
+    <summary>Click here to view the Wireframes</summary>
+
+
+    Landing Page Wireframe:
+
+    ![Landing Page Wireframe](images/landing_wireframe.png)
+
+    Game page Wireframe:
+
+    ![Game Page Wireframe](images/game_wirefarme.png)
+
+    </details>
+
+    Cards:
+
+    <details>
+    <summary>Click here to view the Cards</summary>
+
+    Entire Deck:
+
+    ![Card Deck](images/card_deck.png)
+
+    Card Back:
+
+    ![Card Deck](images/card_back.jpg)
+
+    </details>
+
+
+    The front and back of the cards are taken from two artists under a private/personal use license:
+
+    - Front (Back ingame) of the cards: *Slavic Pantheon* [Hanna Dola Art](https://www.behance.net/hannadolaart/assets)
+    - Back (Front ingame) of the cards: [Losenko](https://www.deviantart.com/losenko)
+
+
+
+   
+
+
+
 
   
 
