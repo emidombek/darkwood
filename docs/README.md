@@ -68,14 +68,14 @@
      <details>
        <summary>Click here to view a screenshot of the Game Page Page</summary>
 
-       ![Game Page Screenshot](#)
+       ![Game Page Screenshot](images/click_to_start.png)
   
-       ![Game Page Screenshot](#)
+       ![Game Page Screenshot](images/game_mainscreen.png)
 
-       ![Game Page Screenshot](#)
+       ![Game Page Screenshot](images/round_complete.png)
 
-       ![Game Page Screenshot](#)
-       
+       ![Game Page Screenshot](images/game_over.png)
+
        </details>
   
       
