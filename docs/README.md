@@ -8,6 +8,7 @@
   - [Purpose and goals of the website](#purpose-and-goals-of-the-website)
   - [User stories](#user-stories)
   - [Content and Structure](#content-and-structure)
+  - [Design and Layout](#design-and-layout)
 
 ## Purpose and goals of the website
 
@@ -65,8 +66,8 @@
   
       - This page also uses the same animated background as the entry page. It also uses the keyframes glowing/glow animation to highlight certain clickable icons/text. 
 
-     <details>
-       <summary>Click here to view a screenshot of the Game Page Page</summary>
+      <details>
+       <summary>Click here to view a screenshot of the Game Page</summary>
 
        ![Game Page Screenshot](images/click_to_start.png)
   
@@ -77,6 +78,25 @@
        ![Game Page Screenshot](images/game_over.png)
 
        </details>
+   ## Design and Layout
+
+   The design and layout of this website was created in Figma. A moodboard and wireframes were designed from scratch to help develop the look and feel of the game. Keyframes animations help emphasize important links and icons. 
+
+   Design System:
+
+  --font-family: 'Nova Cut', cursive;
+  --primary-font: 'Nova Cut', cursive;
+  --main-color: #cdcdcd;
+  --background-color: #001638;
+  --primary-color: #214E34;
+  --secondary-color: #364156;
+  --accent-color: #DFF8EB;
+  --text-color-primary: #cdcdcd;
+  --line-height: 1.5;
+
+  
+
+
   
       
 
