@@ -168,6 +168,23 @@ The technology used in this project is as follows:
    - [Gitpages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)- GitHub Pages is a static site hosting service.
 ## 🤖 Code
 
+The majority of this game is written in custom Javascript, with custom CSS + Keyframes animations for styling as well as custom HTML. 
+
+   <details>
+   <summary>HTML Summary</summary>
+
+   - HTML: The HTML used is a pretty standard implementation for both the index.html page and the game.html it includes a     Head, Header, Body and Footer for each page. The index.html serves as an entry point for the game.html displaying a p entry text that reveals an entry link element to the user via a CSS/Javascript keyframes animation sequence. 
+  
+   - The game.html page has containers that hold the game features and links: a Score icon/text with a span to display the game score, an icon with a pop-up trigger that triggers a pop-up containing game instructions and a timer icon with a span that displays the time remaining in the current round at the top. The main section holds the fake 'grid' or just a container with rows and grid game rows that hold the eight cards that are generated dynamically in Javascript. Below the card containers, there is another container with some controls and a link: the play/pause icon/text is a span that is toggled via JS depending on the game state function currently active, a home icon/text that contains a link back to the index Landing Page and a restart icon/text that triggers the restart game function in JS. 
+
+   - A highlight of the HTML implementation of the **canvas** element on both pages which is used to facilitate the display of the background 'Firefly' Javascript animation.
+
+   - Another highlight of the HTML is the elements on the index.html which facilitate the fade-in fade-out fade-in keyframes animation sequence:
+  
+   </summary>
+  
+
+
 
 
    
