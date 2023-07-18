@@ -148,10 +148,10 @@ The design and layout of this website was created in Figma. A moodboard and wire
 
        </details>
 
-       The front and back of the cards are taken from two artists under a private/personal use license:
+       The front and back of the cards are taken from two artists under a private/personal use license, permission obtained from each one to make sure:
 
        - Front (Back ingame) of the cards: *Slavic Pantheon* [Hanna Dola Art](https://www.behance.net/hannadolaart/assets)
-       - Back (Front ingame) of the cards: [Losenko](https://www.deviantart.com/losenko)
+       - Back (Front ingame) of the cards: *Playing Cards* [Losenko](https://www.deviantart.com/losenko) 
   
 ## 🖥 Technology
 
@@ -173,15 +173,51 @@ The majority of this game is written in custom Javascript, with custom CSS + Key
    <details>
    <summary>HTML Summary</summary>
 
-   - HTML: The HTML used is a pretty standard implementation for both the index.html page and the game.html it includes a     Head, Header, Body and Footer for each page. The index.html serves as an entry point for the game.html displaying a p entry text that reveals an entry link element to the user via a CSS/Javascript keyframes animation sequence. 
+   - HTML: The HTML used is a pretty standard implementation for both the index.html page and the game.html it includes a     Head, Header, Body and Footer for each page. The index.html serves as an entry point for the game.html displaying a p element entry text that reveals an entry link element to the user via a CSS/Javascript keyframes animation sequence. 
   
-   - The game.html page has containers that hold the game features and links: a Score icon/text with a span to display the game score, an icon with a pop-up trigger that triggers a pop-up containing game instructions and a timer icon with a span that displays the time remaining in the current round at the top. The main section holds the fake 'grid' or just a container with rows and grid game rows that hold the eight cards that are generated dynamically in Javascript. Below the card containers, there is another container with some controls and a link: the play/pause icon/text is a span that is toggled via JS depending on the game state function currently active, a home icon/text that contains a link back to the index Landing Page and a restart icon/text that triggers the restart game function in JS. 
+   - The game.html page has containers that hold the game features and links: a Score icon/text with a span to display the game score, an icon with a pop-up trigger that triggers a pop-up containing game instructions and a timer icon with a span that displays the time remaining in the current round at the top. The main section holds the fake 'grid' or just a container with rows and grid game rows that hold the eight cards that are generated dynamically in Javascript. Below the card containers, there is another container with some controls and a link: the play/pause icon/text is a span that is toggled via JS depending on the game state function currently active, a home icon/text that contains a link back to the index Landing Page and a restart icon/text that triggers the restart game function in JS. The social media list items in the footer of both pages was taken from the Love Running project which will be listed in the resources below.
 
    - A highlight of the HTML implementation of the **canvas** element on both pages which is used to facilitate the display of the background 'Firefly' Javascript animation.
 
-   - Another highlight of the HTML is the elements on the index.html which facilitate the fade-in fade-out fade-in keyframes animation sequence:
+   - Another highlight of the HTML is the elements on the index.html which facilitate the fade-in fade-out fade-in keyframes animation sequence.
+
+   - The game.html page besides holding the containers for the dynamically created cards and game controls + displays and links has containers that holds several pop-ups that are further styled and controlled in the script.js file. 
+    
+   </details>
+
+   <details>
+   <summary>CSS Summary</summary>
+
+   - The CSS for this game is pretty standard, it imports the Nova Cut font from google fonts. The root variables define various colors, font families, and line-height to maintain consistency throughout the game. 
+
+   - The CSS includes global styles for the body, main, and header elements, setting the background image and layout. It also configures the **canvas** element for firefly-like graphics animation found in the graphics.js file. There is also a setting at the very top that removes global settings (credit to my mentor Juliia). 
   
-   </summary>
+   - Highlights of the CSS include some elements including being styled to be initially hidden to facilitate various effects:
+
+    1. .entry-link: The "Enter" link on the entry page is initially hidden. It becomes visible later with a fade-in effect.
+    2. .hidden: This class is used to hide elements. It's not directly applied to any specific element in the given CSS, but it's likely used in JavaScript or dynamically added to elements for certain interactions.
+    3. .fa-play: The play icon used in pop-up elements is initially hidden.
+    4. #playText: This element, likely a text label for the play icon, is initially hidden.
+  
+   - The CSS file also defines animations via Keyframes for fade-in and glowing effects on elements. Resources for the Keyframes animations will be listed below.
+   
+   </details>
+
+   *Javascript*
+
+   The Javascript in this project is divided into two different files, the first file is the *graphics.js* file where the background fireflies animation is created and Keyframes fade-in fade-out sequence is controlled. This file is used on both of the webpages. The second file script.js is where the actual code that runs the game lives. This file is only used within the game.html webpage. 
+
+   <details>
+   <summary>View a summary of graphics.js</summary>
+
+   The entire code is wrapped in a 'DOMContentLoaded' event listener to ensure that the JavaScript code inside the event listener runs only after the DOM has been fully loaded and parsed.  
+
+   This file is divided into two sections:
+
+      1. Control Fade-In Fade-Out Fade-In  
+
+
+
   
 
 

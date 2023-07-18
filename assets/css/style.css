@@ -203,6 +203,7 @@ body {
 }
 
 /* Card Styling/Positioning and Flip Effects*/
+/*See Readme for resources*/
 
 .card {
   position: relative;
@@ -302,6 +303,7 @@ a:visited {
 }
 
 /* CSS for the pop-up content */
+
 .popup-content,
 .popup-content2,
 .popup-content3 {
@@ -373,7 +375,7 @@ h6 {
   margin-bottom: 10%;
 }
 
-
+/* Instructions-Controls Icons*/
 
 .fa-pause {
   display: inline-block;
@@ -429,6 +431,7 @@ h6 {
 }
 
 /* Keyframes for fade effects */
+/* See Readme for resources */
 /* Idea / code taken from: this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, https://youtu.be/-lGpL6_7H3M */
 
 @keyframes fade-in-out {
@@ -468,8 +471,6 @@ h6 {
     text-shadow: 0 0 5px #fff;
   }
 }
-
-/* Media Queries */
 
 /* Media Queries */
 
