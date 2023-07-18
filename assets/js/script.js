@@ -293,7 +293,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
     displayScore();
   }
 
-
   // Function to display the current score
   function displayScore() {
     let scoreElement = document.querySelector('.score-display');
