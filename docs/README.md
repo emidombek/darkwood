@@ -338,7 +338,7 @@
 
    The entire code is wrapped in a 'DOMContentLoaded' event listener to ensure that the JavaScript code inside the event listener and runs after the DOM has been fully loaded and parsed.
 
-   [SVG Flowchart of the script.js file](https://github.com/emidombek/darkwood/blob/main/docs/images/graphicsjsfull.svg)
+   [SVG Flowchart of the script.js file](https://github.com/emidombek/darkwood/blob/main/docs/images/scriptjs.svg)
 
    <details>
    <summary>Timer & Timer Formatting</summary>
