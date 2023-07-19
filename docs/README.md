@@ -31,6 +31,9 @@
     - [📱 Responsiveness](#-responsiveness)
     - [💡 Lighthouse Testing Results](#-lighthouse-testing-results)
     - [🧪 Manual Testing](#-manual-testing)
+      - [🛬 Landing Page](#-landing-page)
+      - [🎮 Game Page](#-game-page)
+  - [Known Issues and Bugs](#known-issues-and-bugs)
   
 
 ## ⭐ Purpose and goals of the website
@@ -812,17 +815,65 @@
 
  ### 💡 Lighthouse Testing Results
 
- - Main Gallery Page Results:
+ - Landing Page Results:
   
-      [Click to view Lighthouse Testing Results for the Landing Page Here](https://github.com/emidombek/darkwood/blob/901b437917732b3b4a4fd61007a51b9f2a71cbde/docs/lighthouse_report/darkwood_index_lighthouse_report.html)
+      [Click to view Lighthouse Testing Results for the Landing Page Here]()
 
-  - About Page Results:
+  - Game Page Results:
 
-      [Click to view Lighthouse Testing Results for the Game Page Here](https://github.com/emidombek/darkwood/blob/main/docs/lighthouse_report/darkwood_game_lighthouse_report.html)
+      [Click to view Lighthouse Testing Results for the Game Page Here](https://emidombek.github.io/darkwood/docs/lighthouse_report/darkwood_game_lighthouse_report.html)
  
  ### 🧪 Manual Testing
 
- 
+ #### 🛬 Landing Page
+
+| Pass | Action              | Expected Result                                                                  | Notes |
+| ---- | ------------------- | -------------------------------------------------------------------------------- | ----- |
+| Y    | Load page           | Fade in-out-in animation reveals entry link with Animation glow after intro text |       |
+| Y    | Click Entry Link    | Link opens game.html                                                             |       |
+| Y    | Hover GitHub Icon   | Hover effect on icon, icon gets lighter                                          |       |
+| Y    | Hover LinkedIn Icon | Hover effect on icon, icon gets lighter                                          |       |
+| Y    | Click GitHub Icon   | New window opens with Github profile displayed                                   |       |
+| Y    | Click LinkedIn Icon | New window opens with LinkedIn profile displayed                                 |       |
+
+#### 🎮 Game Page
+
+| Pass | Action                                      | Expected Result                                                                                                                                                       | Notes |
+| ---- | ------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----- |
+| Y    | Load page                                   | 8 Cards are displayed with front and back, new Round starts and Game is Paused, Overlay displays with option to 'Click to Start', 5 sec glow animation on scroll icon |       |
+| Y    | Click on 'Click-to-Start'                   | Overlay is hidden and game is unpaused, timer display shows countdown from 1min                                                                                       |       |
+| Y    | Click Card 1                                | Card 1 flip animation and wait for card 2 to be clicked and flip                                                                                                      |       |
+| Y    | Click Card 2                                | Card 2 flip animation and wait for cards to be checked for a match, no other cards should be flipped                                                                  |       |
+| Y    | Click Card 3                                | Card 3 flip animation and wait for card 2 to be clicked and flip                                                                                                      |       |
+| Y    | Click Card 4                                | Card 4 flip animation and wait for cards to be checked for a match, no other cards should be flipped                                                                  |       |
+| Y    | Click Card 5                                | Card 5 flip animation and wait for card 2 to be clicked and flip                                                                                                      |       |
+| Y    | Click Card 6                                | Card 6 flip animation and wait for cards to be checked for a match, no other cards should be flipped                                                                  |       |
+| Y    | Click Card 7                                | Card 7 flip animation and wait for card 2 to be clicked and flip                                                                                                      |       |
+| Y    | Click Card 8                                | Card 8 flip animation and wait for cards to be checked for a match, no other cards should be flipped                                                                  |       |
+| Y    | if 2 Cards Match                            | 2 Cards stay flipped over, score display increases by 1                                                                                                               |       |
+| Y    | if 2 Cards Mismatch                         | 2 Cards flip back over                                                                                                                                                |       |
+| Y    | Match All 8 cards                           | Next round pop-up appears with upcoming round number displayed, glow animation on close button, game is stopped                                                       |       |
+| Y    | Click close on Popup                        | Next round pop-up is hidden, next start round starts with current score                                                                                               |       |
+| Y    | 1st or New Round Starts                     | Cards are shuffled, current score from previous round is passed, timer restarts with 1min given for the round, round 1 starts                                         |       |
+| Y    | Timer runs out before all cards are matched | Round has ended, the game stops and the user is prompted via pop-up to restart game or end game                                                                       |       |
+| Y    | Click on 'End Game' on Popup                | Pop-up is hidden and the game is completely stopped in a dormant state                                                                                                |       |
+| Y    | Click on 'Restart Game' on Popup            | Pop-up is hidden and the game is completely restarted at Round 1 with the Timer and Score cleared, Timer should be counting down from 1 min                           |       |
+| Y    | Hover mouse over Pause icon                 | Hover effect on icon, icon gets lighter                                                                                                                               |       |
+| Y    | Click Pause icon                            | Play icon appears in place of Pause, Game enters Pause state with the user unable to click on anything and the timer and score retained                               |       |
+| Y    | Hover mouse over Play icon                  | Hover effect on icon, icon gets lighter                                                                                                                               |       |
+| Y    | Click Play icon                             | Pause icons appear in place of Play, Game resumes with the previous score and time remaining displayed                                                                |       |
+| Y    | Hover mouse over Home icon                  | Hover effect on icon, icon gets lighter                                                                                                                               |       |
+| Y    | Click Home icon                             | User is directed to the index.html page                                                                                                                               |       |
+| Y    | Hover over Restart icon                     | Hover effect on icon, icon gets lighter                                                                                                                               |       |
+| Y    | Click Restart icon                          | Cards are shuffled, cards, score, and timer are reset, new game starts from round 1                                                                                   |       |
+| Y    | Click Instructions (scroll icon)            | Popup listing instructions is displayed, including glowing close text, pause game                                                                                     |       |
+| Y    | Click close on Popup                        | Popup is hidden, and the game is resumed with previous time and score. Click to start will need to click to remove overlay if not previously clicked                  |       |
+| Y    | Hover GitHub Icon                           | Hover effect on icon, icon gets lighter                                                                                                                               |       |
+| Y    | Hover LinkedIn Icon                         | Hover effect on icon, icon gets lighter                                                                                                                               |       |
+| Y    | Click GitHub Icon                           | New window opens with Github profile displayed                                                                                                                        |       |
+| Y    | Click LinkedIn Icon                         | New window opens with LinkedIn profile displayed                                                                                                                      |       |
+
+## Known Issues and Bugs
 
    
  
