@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   let score = 0; // Player's score
   let timer; // Timer reference
   let matchTimeout = 60; // Timeout for each round
+  let remainingSeconds = matchTimeout; // Set the initial remaining seconds to the match timeout value (60 seconds)
   let timerActive = false; // Flag to track if the timer is active
   const numberOfCards = 8; // Number of cards in the game
   let round = 1; // Current round number
@@ -188,7 +189,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Function to flip a card
   // Idea for this was based on several tutorials see readme
   function flipCard(card) {
-    console.log('Flipping card:', card);
     if (card.classList.contains('matched')) {
       return;
     }
@@ -215,13 +215,11 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
       card1.classList.add('matched');
       card2.classList.add('matched');
       score++;
-      console.log('Score:', score);
       displayScore();
       matchedPairs++;
       flippedCards = [];
 
       if (matchedPairs === numberOfCards / 2) {
-        console.log('All matches found!');
         setTimeout(() => {
           endRound();
         }, 1000);
@@ -254,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Function to start a round
   // Based on this and modified: https://forum.freecodecamp.org/t/rock-paper-scissors-round-tracker/608515
   function startRound(previousScore = 0) {
-    console.log('Starting round...');
     score = previousScore;
     matchedPairs = 0;
     flippedCards = [];
@@ -273,8 +270,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
 
     createGrid(combinedCards);
 
-    console.log('Grid created')
-
     startTimer();
 
     displayScore();
@@ -284,19 +279,14 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Function to end the round
   // Based on this and modified: https://forum.freecodecamp.org/t/rock-paper-scissors-round-tracker/608515
   function endRound() {
-    console.log('Ending round...');
     clearInterval(timer);
 
     if (matchedPairs === numberOfCards / 2) {
-      console.log('Congratulations! You completed the round!');
       round++;
-      console.log('Current round:', round);
-
       setTimeout(() => {
         openPopup2();
       }, 1000);
     } else {
-      console.log('Time ran out! Try again.');
       openPopup3();
     }
 
@@ -341,7 +331,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Function to restart the game
   // idea and code taken from here: https://stackoverflow.com/questions/28744682/the-best-way-to-reset-your-javascript-game-after-gameover-and-how
   function restartGame() {
-    console.log('Game restarted.');
     if (isPaused) {
       isPaused = true;
       togglePlayPauseButton(true);
@@ -367,7 +356,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Idea taken from here: https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners/
   function pauseGame() {
     timerActive = false;
-    console.log('Game paused.');
     clearInterval(timer);
     gridContainer.removeEventListener('click', handleCardClick);
     togglePlayPauseButton(true);
@@ -381,7 +369,6 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
     startTimer();
     gridContainer.addEventListener('click', handleCardClick);
     togglePlayPauseButton(false);
-    console.log('Game resumed.');
   }
 
   // Function to open the pop-up
