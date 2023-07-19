@@ -33,7 +33,12 @@
     - [🧪 Manual Testing](#-manual-testing)
       - [🛬 Landing Page](#-landing-page)
       - [🎮 Game Page](#-game-page)
-  - [Known Issues and Bugs](#known-issues-and-bugs)
+  - [🐛 Known Issues and Bugs](#-known-issues-and-bugs)
+  - [👩‍💻 Resources](#-resources)
+    - [🖋 Design Resources](#-design-resources)
+    - [🧮 Code](#-code-1)
+  - [🏆 Acknowledgments](#-acknowledgments)
+  - [🍄 Future Improvements](#-future-improvements)
   
 
 ## ⭐ Purpose and goals of the website
@@ -695,7 +700,7 @@
 
   2. Ensure you have Visual Studio Code installed on your computer. 
 
-  3. Clone the nomada-photo repository to your local machine.
+  3. Clone the darkwood repository to your local machine.
 
   4. Once the extension is installed, navigate to the root folder of the cloned repository in Visual Studio Code.
 
@@ -717,7 +722,7 @@
 
  - All pages (index.html and game.html) passed the W3C HTML validator with no warnings or errors.
  - CSS file (style.css) passed the W3C CSS Validator/Jigsaw with no errors and 2 warnings.
- - No errors or bugs found in jshint for both js files (script.js and graphics.js), script.js had 73 warning related to the use of let, const,arrow functions and template literal syntax, graphics.js had 9 warnings related to the use of let,class and the arrow function. Warnings were all realted to this syntax not being read by older browsers.
+ - No errors or bugs found in jshint for both js files (script.js and graphics.js), script.js had 73 warning related to the use of let, const, arrow functions and template literal syntax, graphics.js had 9 warnings related to the use of let,class and the arrow function. Warnings were all related to this syntax not being read by older browsers.
 
  <details>
  <summary>Click here to view warnings received for CSS in the W3C Validator & Warnings + the Warnings received in jshint for Javascript flies</summary>
@@ -817,7 +822,7 @@
 
  - Landing Page Results:
   
-      [Click to view Lighthouse Testing Results for the Landing Page Here]()
+      [Click to view Lighthouse Testing Results for the Landing Page Here](https://emidombek.github.io/darkwood/docs/lighthouse_report/darkwood_index_lighthouse.html)
 
   - Game Page Results:
 
@@ -873,7 +878,91 @@
 | Y    | Click GitHub Icon                           | New window opens with Github profile displayed                                                                                                                        |       |
 | Y    | Click LinkedIn Icon                         | New window opens with LinkedIn profile displayed                                                                                                                      |       |
 
-## Known Issues and Bugs
+ ## 🐛 Known Issues and Bugs
+
+ Current there are no known bugs or issues with the game. 
+
+ Previous Issues/Bugs that were resolved include:
+
+ 1. *Issue*: Too many cards populating in subsequent rounds.
+ 
+    *Description*: The game experienced a problem where duplicated grid containers were being added at the beginning of each round. As a result, the number of cards kept increasing with each round, leading to unintended behavior.
+
+    *Resolution*: To resolve this issue, an if statement was added to the createGrid function to check if the grid container already exists. If the grid container exists, the function updates the existing grid layout with the new set of cards. If the grid container does not exist, it creates the grid layout and appends the cards to it. This way, the game ensures that only one grid container is used throughout the gameplay, preventing the duplication of cards and providing a consistent and correct number of cards in each round.
+
+ 2. *Issue*: Timer Jumping Around when using Restart or Resume feature, causing issues with timeout for unsuccessful rounds.
+
+    *Description*: The game faced an issue where the timer display would jump between different times if the Restart or Resume feature was used multiple times or if the player progressed through additional rounds. This issue was caused by multiple instances of the timer running simultaneously, resulting in conflicting time values and erratic behavior.
+
+    *Solution*: To resolve this issue, a boolean variable was introduced to serve as a flag indicating whether the timer should be active or not. Conditional statements were added inside the startTimer() and resumeGame() functions to check the value of this flag. The timer is only started or resumed if the flag is set to true, ensuring that only one instance of the timer is active at a time. This prevents the display from jumping around and maintains consistent timing throughout the gameplay. 
+
+ 3. *Issue*: User able to click on more than two cards during the time that the two cards were flipping and being checked for 
+    a match, causing the game to break.
+
+    *Description*: A problem occurred in the game where the user could click on multiple cards while the two cards clicked previously were still flipping and being checked for a match. This led to unintended behavior and broke the game logic.
+
+    *Solution*: To address this issue, a solution was implemented in the checkMatch function. The click event listener for the card elements was temporarily disabled at the beginning of the function, preventing the user from clicking on additional cards while the match was being checked. Once the match check is complete, the event listener is reactivated, allowing the user to continue playing the game normally. This solution ensures that the game's logic remains intact and prevents the user from encountering issues by clicking on more than two cards during the matching process.
+  
+ ## 👩‍💻 Resources
+  
+  ### 🖋 Design Resources
+
+  - Cards were created using images from two Artists under a personal use license + permission obtained from the artists:
+     - Front (Back ingame) of the cards: *Slavic Pantheon* [Hanna Dola Art](https://www.behance.net/hannadolaart/assets)
+     - Back (Front ingame) of the cards: *Playing Cards* [Losenko](https://www.deviantart.com/losenko) 
+  
+  - The background image and image featured on the entry page were both downloaded from [Vecteezy](https://www.vecteezy.com/) under a free use license.
+
+  - Images used on the moodboard were taken from [Vecteezy](https://www.vecteezy.com/) & [Shuttershock](https://www.shutterstock.com/) under a free use license and [Yolo Design](https://yolodesign.pl/) with purchase(these images were purchased as prints) and permission from the artist.
+  
+  ### 🧮 Code
+
+  - Background Firefly Animations were taken from a youtube tutorial the code can be found [here](https: //github.com/owentr1369/animated-background-fireflies-youtube) a detailed description of what was changed can be found in [this](#-graphicsjs) section of the Readme.
+  - The idea for the Keyframes Fade-in-out-in sequence was taken from a few sources:
+    - [This article](https://www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/)
+    - [This video](https://youtu.be/-lGpL6_7H3M)
+    - [This article](https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m)
+  - CSS Animation Resources [here](https://animate.style/) and [here](https://freefrontend.com/css-glow-effects/
+  - Keyframes Rule Info [here](https://www.w3schools.com/cssref/css3_pr_animation-keyframes.php)
+    
+ Resources used for the Game itself:
+
+  - Memory Card Game Tutorials used to get an idea of the overall functionality and structure of the game:
+    - [Ania Kubow](https://youtu.be/tjyDOHzKN0w)
+    - [developedbyed] (https://youtu.be/-tlb4tv4mC4) *took the shuffle algorithm from here*
+    - [freeCodeCamp] (https://youtu.be/ZniVgo8U7ek)
+  
+  - For the Dynamic Card and Grid Creation in JS I used these resources to implement the ideas and changed them to fit my requirements:  
+   - For Loops | Using For Loops to Dynamically Display HTML Elements on the Page [here](https://youtu.be/zIh16K8BN7k)
+   - For While Loops [W3schools](https://www.w3schools.com/js/js_loop_while.asp)
+  
+  - Timer resources [W3schools](https://www.w3schools.com/jsref/met_win_setinterval.asp) [freeCodeCamp](https://www.freecodecamp.org/news/javascript-timers-everything-you-need-to-know-5f31eaa37162/)
+
+  - Time formatting, worked backwards from an SQL query I created, reading about the corresponding JS functionality. 
+    - [padstart] (https://www.w3schools.com/jsref/jsref_string_padstart.asp)
+    - [tostring] https://www.geeksforgeeks.org/how-to-convert-seconds-to-time-string-format-hhmmss-using-javascript/
+  
+  - For the Rounds implemented in the game the idea was taken from [here](https://stackoverflow.com/questions/71242552/making-rounds-in-a-rock-paper-scissors-game).
+
+  -  A snippet of HTML (social media menu in the footer) have been taken from the Love Running project [here](https://github.com/Code-Institute-Solutions/love-running-2.0-sourcecode/blob/main/06-site-footer/02-footer-styling/index.html)
+
+## 🏆 Acknowledgments
+
+ - I would like to acknowledge my daughter and husband for their support and understanding during this time of intense learning.
+ - My mentor Juliia for her guidance and suggestions who went above and beyond pushing me and making sure I could make my vision for this website come to life.
+
+## 🍄 Future Improvements
+
+- Set up a database to be able to implement a leaderboard.
+- Wave Testing.
+
+
+
+ 
+   
+
+
+
 
    
  
