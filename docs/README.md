@@ -129,32 +129,32 @@
 
 
    <details>
-       <summary>Click here to view the Elements of the Design System</summary>
+   <summary>Click here to view the Elements of the Design System</summary>
    
-       *Color Palette*
+   *Color Palette*
 
-       ![Color Palette](images/darkwood.png)
+   ![Color Palette](images/darkwood.png)
 
-       *Font*
+   *Font*
 
-       ![Font](images/nova_cut_font.png)
+   ![Font](images/nova_cut_font.png)
 
-       Nova Cut 400 imported from [Google Fonts](https://fonts.google.com/specimen/Nova+Cut)
+   Nova Cut 400 imported from [Google Fonts](https://fonts.google.com/specimen/Nova+Cut)
 
-       *Iconography*
+   *Iconography*
 
-       ![Icons](images/darkwood_icons.png)
+   ![Icons](images/darkwood_icons.png)
 
-       Icons are taken from [Font Awesome](https://fontawesome.com/)
+   Icons are taken from [Font Awesome](https://fontawesome.com/)
 
    </details>
 
    ### 🔮 Moodboard Concept
 
    <details>
-       <summary>Click here to view the Moodboard and Concept</summary>
+   <summary>Click here to view the Moodboard and Concept</summary>
 
-       ![Darkwood Moodboard](images/moodboard.png)
+   ![Darkwood Moodboard](images/moodboard.png)
 
    </details>
   
@@ -163,15 +163,15 @@
    [Link to Wireframes in Figma](https://www.figma.com/file/xfQpobp6FbpuhwTs9gPaX5/Darkwood-Memory-Card-Game?type=design&node-id=0%3A1&mode=design&t=QpLt1hLRtOcsTnLt-1)
 
    <details>
-       <summary>Click here to view the Wireframes</summary>
+   <summary>Click here to view the Wireframes</summary>
 
-       Landing Page Wireframe:
+   Landing Page Wireframe:
 
-       ![Landing Page Wireframe](images/landing_wireframe.png)
+   ![Landing Page Wireframe](images/landing_wireframe.png)
 
-       Game page Wireframe:
+   Game page Wireframe:
 
-       ![Game Page Wireframe](images/game_wirefarme.png)
+   ![Game Page Wireframe](images/game_wirefarme.png)
 
    </details>
 
@@ -180,17 +180,17 @@
    <details>
        <summary>Click here to view the Cards</summary>
 
-       Entire Deck:
+   Entire Deck:
 
-       ![Card Deck](images/card_deck.png)
+   ![Card Deck](images/card_deck.png)
 
-       Card Back:
+   Card Back:
 
-       ![Card Deck](images/card_back.jpg)
+   ![Card Deck](images/card_back.jpg)
 
    </details>
 
-   The front and back of the cards are taken from two artists under a private/personal use license, permission obtained from each one to make sure:
+   The front and back of the cards are taken from two artists under a private/personal use license, permission obtained:
 
    - Front (Back ingame) of the cards: *Slavic Pantheon* [Hanna Dola Art](https://www.behance.net/hannadolaart/assets)
    - Back (Front ingame) of the cards: *Playing Cards* [Losenko](https://www.deviantart.com/losenko) 
