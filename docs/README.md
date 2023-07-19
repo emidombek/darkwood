@@ -726,7 +726,7 @@
 
  </details>
 
-  ### 📱 Responsiveness:
+  ### 📱 Responsiveness
 
   1. The site was tested on the following devices:
 
