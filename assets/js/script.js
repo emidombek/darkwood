@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
       togglePlayPauseButton(true);
     }
 
-    isPaused = false
+    isPaused = false;
     clearInterval(timer); // Clear any existing timers
     timerActive = false; // Reset timerActive to false
     matchedPairs = 0;
