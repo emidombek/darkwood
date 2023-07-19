@@ -706,6 +706,12 @@
 
 ## 📝 Testing 
 
+ Validation:
+
+ - All pages passed the W3C HTML validator with no warnings or errors.
+ - Passed the W3C CSS Validator/Jigsaw with no errors. 
+ - The bottom CSS query was placed out of sequence intentionally to override all other media queries.
+ 
 
 
 
