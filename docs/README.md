@@ -396,7 +396,7 @@
 
    **shuffle(array)**
 
-   - This function performs array shuffling using the Fisher-Yates algorithm to ensure randomization of the elements.
+   - This function performs array shuffling to ensure randomization of the elements.
    - The array.sort() method is utilized, taking a comparator function that returns a random number in the range of -0.5 to 0.5.
    - Random sorting reorders the elements in the array, effectively shuffling the elements.
    
