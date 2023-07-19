@@ -29,6 +29,7 @@
   - [📝 Testing](#-testing)
     - [✅ Validation:](#-validation)
     - [📱 Responsiveness:](#-responsiveness)
+    - [💡 Lighthouse Testing Results](#-lighthouse-testing-results)
   
 
 ## ⭐ Purpose and goals of the website
@@ -807,6 +808,17 @@
     
       Screenshots taken on the iPad Mini but tested on all devices listed above
      </details>
+
+ ### 💡 Lighthouse Testing Results
+
+ - Main Gallery Page Results:
+  
+      [Click to view Lighthouse Testing Results for the Landing Page Here](#)
+
+  - About Page Results:
+
+      [Click to view Lighthouse Testing Results for the Game Page Here](#)
+
    
  
 
