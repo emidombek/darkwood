@@ -365,6 +365,10 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   // Function to unpause the game
   // Idea taken from here: https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners/
   function resumeGame() {
+    if (timerActive) {
+      // If the timer is already active, exit early and don't resume the game again
+      return;
+    }
     timerActive = false;
     startTimer();
     gridContainer.addEventListener('click', handleCardClick);

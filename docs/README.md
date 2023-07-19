@@ -28,8 +28,9 @@
   - [🚀 Deployment](#-deployment)
   - [📝 Testing](#-testing)
     - [✅ Validation:](#-validation)
-    - [📱 Responsiveness:](#-responsiveness)
+    - [📱 Responsiveness](#-responsiveness)
     - [💡 Lighthouse Testing Results](#-lighthouse-testing-results)
+    - [🧪 Manual Testing](#-manual-testing)
   
 
 ## ⭐ Purpose and goals of the website
@@ -813,11 +814,15 @@
 
  - Main Gallery Page Results:
   
-      [Click to view Lighthouse Testing Results for the Landing Page Here](#)
+      [Click to view Lighthouse Testing Results for the Landing Page Here](https://github.com/emidombek/darkwood/blob/901b437917732b3b4a4fd61007a51b9f2a71cbde/docs/lighthouse_report/darkwood_index_lighthouse_report.html)
 
   - About Page Results:
 
-      [Click to view Lighthouse Testing Results for the Game Page Here](#)
+      [Click to view Lighthouse Testing Results for the Game Page Here](https://github.com/emidombek/darkwood/blob/main/docs/lighthouse_report/darkwood_game_lighthouse_report.html)
+ 
+ ### 🧪 Manual Testing
+
+ 
 
    
  
