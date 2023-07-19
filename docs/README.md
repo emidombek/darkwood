@@ -25,6 +25,8 @@
     - [⚙ Javascript](#-javascript)
       - [🌲 graphics.js](#-graphicsjs)
       - [🎲 script.js](#-scriptjs)
+  - [🚀 Deployment](#-deployment)
+  - [📝 Testing](#-testing)
   
 
 ## ⭐ Purpose and goals of the website
@@ -237,7 +239,7 @@
    <details>
    <summary>CSS style.css Summary</summary>
 
-   - The CSS includes global styles for the body, main, and header elements, setting the background image and layout. It also configures the **canvas** element for firefly-like graphics animation found in the graphics.js file. There is also a setting at the very top that removes global settings (credit to my mentor Juliia). 
+   - The CSS includes global styles for the body, main, and header elements, setting the background image and layout. It also configures the **canvas** element for firefly-like graphics animation found in the graphics.js file. There is also a setting at the very top that removes global settings (credit to my mentor Juliia). There are also several media queries to ensure the site remains responsive on several different screen sizes.
   
    - Highlights of the CSS include some elements including being styled to be initially hidden to facilitate various effects:
 
@@ -246,7 +248,7 @@
     3. .fa-play: The play icon used in pop-up elements is initially hidden.
     4. #playText: This element, likely a text label for the play icon, is initially hidden.
   
-   - The CSS file also defines animations via Keyframes for fade-in and glowing effects on elements. Resources for the Keyframes animations will be listed below.
+   - The CSS file also defines animations via Keyframes for fade-in and glowing effects on elements. Resources for the Keyframes animations will be listed in the resources section of this readme.
    
    </details>
 
@@ -668,6 +670,43 @@
    - isPaused is a flag to track if the game is currently paused.
   
    </details>
+
+## 🚀 Deployment 
+
+
+  The site was deployed to GitHub pages. The steps to deploy are as follows:
+
+  1. In the GitHub repository, on the Code page navigate to the Environments section on the right-hand side of the page.
+   Click on GitHub pages, this will take you to deployments history where you will be able to click on 'view deployment'.
+   The live link can be found here - [Link to Live Site Here](https://emidombek.github.io/darkwood/)
+
+  **Local Deployment**
+
+  *Prerequisites: Github account, Visual Studio Code, Live Server Extension for VScode.*
+
+  1. To deploy the website locally and test it on your machine, you can follow these steps:
+
+  2. Ensure you have Visual Studio Code installed on your computer. 
+
+  3. Clone the nomada-photo repository to your local machine.
+
+  4. Once the extension is installed, navigate to the root folder of the cloned repository in Visual Studio Code.
+
+  5. Locate the main HTML file that represents your website's entry index.html
+
+  6. Install the Live Server extension.
+
+  7. Right-click on the HTML file in the Explorer sidebar and select "Open with Live Server" from the context menu.
+
+  8. The Live Server extension will launch a local development server and automatically open your website in your default web browser.
+
+  9. You can now interact with and test your website locally. Any changes you make to your HTML, CSS, or JavaScript files will be automatically refreshed in the browser.
+
+  10. To stop the local server, simply close the browser tab displaying your website or click on the "Stop" button in the Live Server output panel.
+
+## 📝 Testing 
+
+
 
 
    
