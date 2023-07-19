@@ -27,6 +27,8 @@
       - [🎲 script.js](#-scriptjs)
   - [🚀 Deployment](#-deployment)
   - [📝 Testing](#-testing)
+    - [✅ Validation:](#-validation)
+    - [📱 Responsiveness:](#-responsiveness)
   
 
 ## ⭐ Purpose and goals of the website
@@ -254,7 +256,7 @@
 
    ### ⚙ Javascript
 
-   The Javascript in this project is divided into two different files, the first file is the *graphics.js* file where the background fireflies animation is created and Keyframes fade-in fade-out sequence is controlled. This file is used on both of the web pages. The second file script.js is where the actual code that runs the game lives. This file is only used within the game.html webpage. 
+   The Javascript in this project is divided into two different files, the first file is the *graphics.js* file where the background fireflies animation is created and Keyframes fade-in fade-out sequence is controlled. This file is used on both of the web pages. The second file script.js is where the actual code that runs the game lives. This file is only used within the game.html webpage.
 
    #### 🌲 graphics.js
 
@@ -314,23 +316,23 @@
 
    Here is a list of what was modified:
 
-   1. Variable names:
+   9. Variable names:
       - Original: Uses c as the canvas context variable and returns it from the init function.
       - My edit: Uses context for the canvas context variable and returns it from the init function. It was easier to make sense of it going back to read it.
 
-   2. Typo in move method: 
+   10. Typo in move method: 
       - Original: Contains a typo (this.and) when updating the angle of movement, should be this.ang.
       - My edit: Fixed the typo.
 
-   3. Mouse movement tracking: 
+   11. Mouse movement tracking: 
       - Original: The original code includes event listeners to track the mouse position and store it in mouse and last_mouse variables. Also includes mouse movement tracking using event listeners to store mouse coordinates.
       - My edit: Removed the mouse movement tracking event listeners because they were causing issues with the animation loading and I could not figure out what exactly was causing it. This also makes the animation purely self-contained and autonomous, meaning it will generate the firefly animation without any external input.
 
-   4. Canvas initialization and animation loop:
+   12. Canvas initialization and animation loop:
       - Original: Uses setInterval for animation loop (60 FPS).
       - My edit: Uses window.requestAnimationFrame for animation loop. It provides a more efficient and optimized approach for achieving smooth animations while also being mindful of performance and battery life.
 
-   5. Background fill color:
+   13. Background fill color:
      - Original: Sets the canvas background fill color to a dark gray (rgba(30, 30, 30, 1)).
      - First Post: Sets the canvas background fill color to a light green (rgba(152, 255, 191, 1)).
 
@@ -706,11 +708,106 @@
 
 ## 📝 Testing 
 
- Validation:
+ ### ✅ Validation:
 
- - All pages passed the W3C HTML validator with no warnings or errors.
- - Passed the W3C CSS Validator/Jigsaw with no errors. 
- - The bottom CSS query was placed out of sequence intentionally to override all other media queries.
+ - All pages (index.html and game.html) passed the W3C HTML validator with no warnings or errors.
+ - CSS file (style.css) passed the W3C CSS Validator/Jigsaw with no errors and 2 warnings.
+ - No errors or bugs found in jshint for both js files (script.js and graphics.js), script.js had 73 warning related to the use of let, const,arrow functions and template literal syntax, graphics.js had 9 warnings related to the use of let,class and the arrow function. Warnings were all realted to this syntax not being read by older browsers.
+
+ <details>
+ <summary>Click here to view warnings received for CSS in the W3C Validator & Warnings + the Warnings received in jshint for Javascript flies</summary>
+
+ ![Screenshot of the warnings received for the CSS](images/css_valid.png)
+
+ ![Screenshot of the warnings received for the script.js](images/game_jshint.png)
+
+ ![Screenshot of the warnings received for the graphics.js](images/graphics_jshint.png)
+
+ </details>
+
+  ### 📱 Responsiveness:
+
+  1. The site was tested on the following devices:
+
+ - Android:
+
+     <details>
+      <summary>Click here to view a list of Android Phones & Screenshots</summary>
+
+      - Samsung Galaxy S20
+      - Xiaomi Mi 11i
+      - Huawei P20 PRO
+      - Huawei P30 PRO
+      - Google Pixel5
+      - Oneplus Nord 2
+      - Galaxy Z Flip3
+      - OPPO Find X3 PRO
+      - Galaxy A12
+      - Google Pixel 6 PRO
+      - Xiaomi 12
+
+      ![Screenshot of the Landing Page on Samsung Galaxy S20](images/samsung_galaxy_s20_landing_test.png)
+      ![Screenshot of the Game Page on Samsung Galaxy S20](images/samsung_galaxy_s20_game_test.png)
+
+      Screenshots were taken on the Samsung Galaxy S20 but tested on all devices listed above.
+
+     </details>
+
+ - iPhones:
+     <details>
+      <summary>Click here to view a list of iPhones & Screenshots</summary>
+
+      - iPhone 5
+      - iPhone SE 2016
+      - iPhone X
+      - iPhone XR
+      - iPhone 11
+      - iPhone 11 PRO
+      - iPhone 11 PRO MAX
+      - iPhone 12 Mini
+      - iPhone 12
+      - iPhone 12 MAX
+  
+      ![Screenshot of the Landing Page on iPhone 12 Pro](images/iphone_12_test_landing.png)
+      ![Screenshot of the Game Page on iPhone 12 Pro](images/iphone_12_test_game.png)
+
+      Screenshots were taken on the iPhone 12 Pro but tested on all devices listed above.
+
+      </details>
+
+ - Tablets:
+     <details>
+      <summary>Click here to view a list of Tablets & Screenshots</summary>
+   
+     - iPad Mini
+     - iPad Air 4
+     - iPad PRO 11
+     - Galaxy Tab S7
+     - Microsoft Surface Duo
+
+      ![Screenshot of the Landing Page on iPad Mini](images/ipad_mini_test_landing.png)
+      ![Screenshot of the Game Page on iPad Mini](images/ipad_mini_test_game.png)
+
+      Screenshots were taken on the iPad Mini but tested on all devices listed above.
+
+     </details>
+
+ - Laptops/PC screens:
+
+     <details>
+      <summary>Click here to view a list of Laptop & PC Monitors & Demo Screenshots </summary>
+
+     - MacBook Air 13in
+     - MacBook Pro 13in
+     - Dell 24in Monitor
+     - HP 24in Monitor
+
+      ![Screenshot of the Landing Page on a MacBook Air](images/screenshot_landing_test.png)
+      ![Screenshot of the Game Page on a MacBook Air](images/game_screenshot_test.png)
+    
+      Screenshots taken on the iPad Mini but tested on all devices listed above
+     </details>
+   
  
 
 
