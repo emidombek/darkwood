@@ -1,8 +1,7 @@
 /**
  * Fade In Fade out effect taken from a selection of Stack Overflow Posts which are included in readme
  *for the JS plus this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/,
- * https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, 
- * https://youtu.be/-lGpL6_7H3M  
+ *  
  */
 document.addEventListener('DOMContentLoaded', () => { // eventListener on DOM load
   // This sets up an event listener for the onload event of the window, which triggers when the window has finished loading.
