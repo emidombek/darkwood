@@ -714,7 +714,7 @@
    If eventListenersActive is true (allows the button to respond):
    If the game is paused (isPaused is true), it calls the resumeGame() function to resume the game and displays the "Pause" button.
    It sets isPaused to false to indicate that the game is no longer paused.
-   
+
    </details>
 
    <details>
@@ -887,6 +887,9 @@
 
  ### 💡 Lighthouse Testing Results
 
+ <details>
+ <summary>Click here to view Lighthouse Testing Results</summary>
+
  - Landing Page Results:
   
       ![Screenshot of Lighthouse Testing Results for the Landing Page Here](docs/images/lighthouse_index.html.png)
@@ -894,6 +897,8 @@
   - Game Page Results:
 
       ![Screenshot of Lighthouse Testing Results for the Game Page Here](docs/images/lighthouse_game.html.png)
+ 
+ </details>
  
  ### 🧪 Manual Testing
 
@@ -965,32 +970,26 @@
 
     *Solution*: To resolve this issue, a boolean variable was introduced to serve as a flag indicating whether the timer should be active or not. Conditional statements were added inside the startTimer() and resumeGame() functions to check the value of this flag. The timer is only started or resumed if the flag is set to true, ensuring that only one instance of the timer is active at a time. This prevents the display from jumping around and maintains consistent timing throughout the gameplay.
 
-    *boolean variable*
-   `let timerActive = false;` 
+     *boolean variable*
+     `let timerActive = false;` 
 
-    *Example of conditional statment used*
-   <pre><code>```javascript 
-   function startTimer() 
-   if (timerActive) {
-    return;
-   }
-   ```
-   </code></pre>
+     *Example of conditional statment used*
+     <pre><code>```javascript 
+     function startTimer() 
+     if (timerActive) {
+     return;
+     }
+     ```
+     </code></pre>
 
-  3. *Issue*: User able to click on more than two cards during the time that the two cards were flipping and being checked for 
-    a match, causing the game to break.
+ 3.  *Issue*: User able to click on more than two cards during the time that the two cards were flipping and being checked for
+     a match, causing the game to break.
+
+     *Description*: A problem occurred in the game where the user could click on multiple cards while the two cards clicked previously were still flipping and being checked for a match. This led to unintended behavior and broke the game logic.
     
-    *Description*: A problem occurred in the game where the user could click on multiple cards while the two cards clicked previously were still flipping and being checked for a match. This led to unintended behavior and broke the game logic.
+     *Solution*: To address this issue, a solution was implemented in the checkMatch function. The click event listener for the card elements was temporarily disabled at the beginning of the function, preventing the user from clicking on additional cards while the match was being checked. Once the match check is complete, the event listener is reactivated, allowing the user to continue playing the game normally. This solution ensures that the game's logic remains intact and prevents the user from encountering issues by clicking on more than two cards during the matching process.
 
-    *Solution*: To address this issue, a solution was implemented in the checkMatch function. The click event listener for the card elements was temporarily disabled at the beginning of the function, preventing the user from clicking on additional cards while the match was being checked. Once the match check is complete, the event listener is reactivated, allowing the user to continue playing the game normally. This solution ensures that the game's logic remains intact and prevents the user from encountering issues by clicking on more than two cards during the matching process.
-
-    `gridContainer.removeEventListener('click', handleCardClick);`
-
-    *code that checks the cards for a match*
-
-    `gridContainer.addEventListener('click', handleCardClick);`
-  
- ## 👩‍💻 Resources
+  ## 👩‍💻 Resources
   
   ### 🖋 Design Resources
 
