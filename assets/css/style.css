@@ -375,7 +375,9 @@ h6 {
   margin-bottom: 10%;
 }
 
-/* Instructions-Controls Icons*/
+.instructions i:hover {
+  color: var(--accent-color);
+}
 
 .fa-pause {
   display: inline-block;
