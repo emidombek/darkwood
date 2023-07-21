@@ -48,6 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const popupContainer3 = document.getElementById('popupContainer3'); // Popup container for game over
   const restartgameButton = document.getElementById('restartgameButton'); // Button to restart the game after game over
   const endgameButton = document.getElementById('endgameButton'); // Button to end the game after game over
+  let eventListenersActive = true; // Flag to check if eventlisteners are active
 
   /** 
    * Function to start the timer
@@ -370,12 +371,22 @@ document.addEventListener('DOMContentLoaded', () => {
     score = 0;
     round = 1;
     remainingSeconds = matchTimeout;
+    // Remove the glow from the "Restart" button
+    restartButton.classList.remove('restart-glow');
+
+    // Check if the event listeners are active before adding them
+    if (!eventListenersActive) {
+      pauseButton.addEventListener('click', handlePauseButton);
+      playButton.addEventListener('click', handlePlayButton);
+      eventListenersActive = true;
+    }
 
     updateTimerDisplay(timerElement, matchTimeout);
 
     startRound();
 
     displayScore();
+
   }
 
   /** Function to pause the game
@@ -466,6 +477,10 @@ document.addEventListener('DOMContentLoaded', () => {
   // Function to handle endgame button on Unsuccessful Round popup
   function handleendgameButton() {
     popupContainer3.style.display = 'none';
+    pauseButton.removeEventListener('click', handlePauseButton);
+    playButton.removeEventListener('click', handlePlayButton);
+    // Make the "Restart" button glow
+    restartButton.classList.add('restart-glow');
   }
 
   /** Handle event listener for card click

@@ -403,6 +403,10 @@ h6 {
   animation: glowing 1s infinite;
 }
 
+.restart-glow {
+  animation: glowing 1s infinite;
+}
+
 .instructions-controls i:hover {
   color: var(--accent-color);
 }
