@@ -226,7 +226,7 @@
    - [Git](https://en.wikipedia.org/wiki/Git) - distributed version control system.
    - [GitHub](https://github.com/) - Git repository hosting service with a web-based graphical interface.
    - [Gitpages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)- GitHub Pages is a static site hosting service.
-   - [Fireflies Graphics](https://github.com/owentr1369/animated-background-fireflies-youtube)
+   - [Firefly Graphics](https://github.com/owentr1369/animated-background-fireflies-youtube) - Javascript based animations 
 
 ## 🤖 Code
 
