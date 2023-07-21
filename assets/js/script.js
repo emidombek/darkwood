@@ -1,4 +1,6 @@
-// Event listener when the DOM content is loaded
+/** 
+ * Event listener when the DOM content is loaded
+ */
 document.addEventListener('DOMContentLoaded', () => {
   // Array of unique image paths
   let uniqueImages = [
@@ -47,9 +49,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const restartgameButton = document.getElementById('restartgameButton'); // Button to restart the game after game over
   const endgameButton = document.getElementById('endgameButton'); // Button to end the game after game over
 
-
-  // Function to start the timer
-  // Idea is based on this timer: https://codepen.io/awkay/pen/ExzGea 
+  /** 
+   * Function to start the timer
+   * Idea is based on this timer: https: //codepen.io/awkay/pen/ExzGea 
+   */
   function startTimer() {
     if (timerActive) {
       return;
@@ -82,26 +85,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }, 1000);
   }
-
-  // Function to update the timer display
-  // Based on this timer: https://codepen.io/awkay/pen/ExzGea
+  /** 
+   * Function to update the timer
+   * Based on this timer: https: //codepen.io/awkay/pen/ExzGea
+   */
   function updateTimerDisplay(element, seconds) {
     element.textContent = formatTime(seconds);
   }
-
-  // Function to format time in MM:SS format
-  // Several sites used as resource to do this please see readme resources
+  /** 
+   * Function to format the time in MM:SS with leading 0 is nessecary 
+   * Format minutes and remaining seconds
+   * 
+   */
   function formatTime(seconds) {
     let minutes = Math.floor(seconds / 60);
     let remainingSeconds = seconds % 60;
-    // Format minutes and remaining seconds
-    // Add leading zero to remaining seconds if it is a single digit
-    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`; // this is my own code based on an SQL query I wrote and converted into JS see readme resources for query
-  }
 
-  // Function to shuffle an array
-  // Used method 2 from here: https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
-  // Also seen in this video: https://youtu.be/-tlb4tv4mC4
+    // this is my own code based on an SQL query I wrote and converted into JS see readme resources for query
+    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`;
+  }
+  /** 
+   * Function to shuffle an array
+   * Used method 2 from here: https: //www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
+   * Also seen in this video: https: //youtu.be/-tlb4tv4mC4
+   */
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
   }
@@ -109,8 +116,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Shuffle the array of unique images
   shuffle(uniqueImages);
 
-  // Function to create the card elements dynamically
-  // Idea for this was based on several tutorials https://youtu.be/zIh16K8BN7k, 
+  /** 
+   * Function to create the card elements dynamically
+   * Idea taken from here: https: //youtu.be/zIh16K8BN7k
+   * Also seen here: https: //youtu.be/ZniVgo8U7ek
+   */
   function createCards(images) {
     let cards = [];
     for (let i = 0; i < 4; i++) {
@@ -146,8 +156,10 @@ document.addEventListener('DOMContentLoaded', () => {
     return cards;
   }
 
-  // Function to create the grid and place the cards
-  // Idea for this was based on several tutorials: https://youtu.be/zIh16K8BN7k,  https://www.w3schools.com/js/js_loop_while.asp, https://youtu.be/tjyDOHzKN0w
+  /** Function to create the grid and place the cards
+   * Idea for this was based on several tutorials: https://youtu.be/zIh16K8BN7k 
+   * https://www.w3schools.com/js/js_loop_while.asp, https://youtu.be/tjyDOHzKN0w
+   */
   function createGrid(cards) {
     let rowContainers = document.querySelectorAll('.grid-game-row');
 
@@ -190,8 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to flip a card
-  // Idea for this was based on several tutorials see readme
+  /** Function to flip a card
+   * Idea for this was based on https://youtu.be/tjyDOHzKN0w
+   */
   function flipCard(card) {
     if (card.classList.contains('matched')) {
       return;
@@ -199,8 +212,9 @@ document.addEventListener('DOMContentLoaded', () => {
     card.classList.toggle('flipped');
   }
 
-  // Function to check if the flipped cards match
-  // Idea for this was based on several tutorials see readme
+  /** Function to check if the flipped cards match
+   *  Idea for this was based on shttps://youtu.be/tjyDOHzKN0w
+   */
   function checkMatch() {
     let card1 = flippedCards[0];
     let card2 = flippedCards[1];
@@ -253,8 +267,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to start a round
-  // Based on this and modified: https://forum.freecodecamp.org/t/rock-paper-scissors-round-tracker/608515
+  /** Function to start a round
+   * Based on this and modified: https://forum.freecodecamp.org/t/rock-paper-scissors-round-tracker/608515
+   */
   function startRound(previousScore = 0) {
     score = previousScore;
     matchedPairs = 0;
@@ -280,8 +295,9 @@ document.addEventListener('DOMContentLoaded', () => {
     gridContainer.addEventListener('click', handleCardClick);
   }
 
-  // Function to end the round
-  // Based on this and modified: https://forum.freecodecamp.org/t/rock-paper-scissors-round-tracker/608515
+  /** Function to end the round
+   *Based on this and modified: https://forum.freecodecamp.org/t/rock-paper-scissors-round-tracker/608515
+   */
   function endRound() {
     clearInterval(timer);
 
@@ -298,7 +314,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Function to display the current score
-  // My own code
   function displayScore() {
     let scoreElement = document.querySelector('.score-display');
     if (scoreElement) {
@@ -306,18 +321,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  startRound(); // Start the round intially 
-  pauseGame(); // Pause the game to wait for user click
+  // Start the round intially 
+  startRound();
+  // Pause the game to wait for user click
+  pauseGame();
 
   // Function to start the game intially 
-  // My own code
   function startGame() {
     overlay.style.display = 'none'; // Hide the overlay
     resumeGame();
   }
 
-  // Function to toggle the play/pause button
-  // code taken from here and modified: https://stackoverflow.com/questions/27368778/how-to-toggle-audio-play-pause-with-one-button-or-link
+  /** Function to toggle the play/pause button
+   * code taken from here and modified:
+   *  https://stackoverflow.com/questions/27368778/how-to-toggle-audio-play-pause-with-one-button-or-link
+   */
   function togglePlayPauseButton(isPaused) {
     if (isPaused) {
       pauseButton.style.display = 'none';
@@ -332,8 +350,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Function to restart the game
-  // idea and code taken from here: https://stackoverflow.com/questions/28744682/the-best-way-to-reset-your-javascript-game-after-gameover-and-how
+  /** Function to restart the game
+   * idea and code taken from here: 
+   * https://stackoverflow.com/questions/28744682/the-best-way-to-reset-your-javascript-game-after-gameover-and-how
+   */
   function restartGame() {
     if (isPaused) {
       isPaused = true;
@@ -341,23 +361,27 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     isPaused = false;
-    clearInterval(timer); // Clear any existing timers
-    timerActive = false; // Reset timerActive to false
+    // Clear any existing timers
+    clearInterval(timer);
+    // Reset timerActive to false 
+    timerActive = false;
     matchedPairs = 0;
     flippedCards = [];
     score = 0;
     round = 1;
     remainingSeconds = matchTimeout;
 
-    updateTimerDisplay(timerElement, matchTimeout); // Update timer display
+    updateTimerDisplay(timerElement, matchTimeout);
 
-    startRound(); // Start a new round
+    startRound();
 
-    displayScore(); // Update the score display
+    displayScore();
   }
 
-  // Function to pause the game
-  // Idea taken from here: https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners/
+  /** Function to pause the game
+   * Idea taken from here: 
+   * https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners/
+   */
   function pauseGame() {
     timerActive = false;
     clearInterval(timer);
@@ -366,8 +390,10 @@ document.addEventListener('DOMContentLoaded', () => {
     remainingSeconds = timerElement.textContent; // Store the remaining seconds when pausing the game
   }
 
-  // Function to unpause the game
-  // Idea taken from here: https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners/
+  /** Function to unpause the game
+   * Idea taken from here:
+   *  https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners
+   */
   function resumeGame() {
     if (timerActive) {
       // If the timer is already active, exit early and don't resume the game again
@@ -379,8 +405,10 @@ document.addEventListener('DOMContentLoaded', () => {
     togglePlayPauseButton(false);
   }
 
-  // Function to open the pop-up
-  // This tutorial was used https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+  /** Function to open the Instructions pop-up
+   * This tutorial was used 
+   * https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+   */
   function openPopup() {
     popupContainer.style.display = 'block';
     pauseGame();
@@ -392,13 +420,13 @@ document.addEventListener('DOMContentLoaded', () => {
     resumeGame();
   }
 
-  // Function to open the popup2
-  // This tutorial was used https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+  /** Function to open the Successful Round popup
+   * This tutorial was used 
+   * https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+   */
   function openPopup2() {
     const roundNumberElement = document.getElementById('roundNumber');
     roundNumberElement.textContent = round;
-
-    // Show the popup container
     popupContainer2.style.display = 'block';
   }
 
@@ -408,27 +436,31 @@ document.addEventListener('DOMContentLoaded', () => {
     startRound(score);
   }
 
-  // Function to open the popup3
-  // This tutorial was used https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+  /** Function to open the Unsuccessful Round popup
+   * This tutorial was used
+   *  https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+   */
   function openPopup3() {
-    // Show the popup container
     popupContainer3.style.display = 'block';
   }
 
-  // Function to handle restart game button on popup3
-  //// This tutorial was used https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+  /** Function to handle restart game button on Unsuccessful Round popup
+   * This tutorial was used 
+   * https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.
+   */
   function handlerestartgameButton() {
     popupContainer3.style.display = 'none';
     restartGame();
   }
 
-  // Function to handle endgame button on popup3
+  // Function to handle endgame button on Unsuccessful Round popup
   function handleendgameButton() {
     popupContainer3.style.display = 'none';
   }
 
-  // Handle event listener for card click
-  //Idea based on several tutorials please see readme 
+  /** Handle event listener for card click
+   * Idea based on: https://youtu.be/tjyDOHzKN0w
+   */
   function handleCardClick(event) {
 
     let clickedCard = event.target.closest('.card');
@@ -446,13 +478,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Event listeners
 
-  overlay.addEventListener('click', startGame); // Add click event listener to the overlay
+  // Add click event listener to the overlay
+  overlay.addEventListener('click', startGame);
 
-  gridContainer.addEventListener('click', handleCardClick); // Card click event listener
+  // Card click event listener
+  gridContainer.addEventListener('click', handleCardClick);
 
-  restartButton.addEventListener('click', restartGame); // Restart game icon click event listener
+  // Restart game icon click event listener
+  restartButton.addEventListener('click', restartGame);
 
-  pauseButton.addEventListener("click", function () { // Pause game button click event listener
+  // Pause game button click event listener
+  pauseButton.addEventListener("click", function () {
     if (!isPaused) {
       pauseGame();
       togglePlayPauseButton(true);
@@ -462,8 +498,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     isPaused = !isPaused;
   });
-
-  playButton.addEventListener("click", function () { // Start game button click event listener
+  // Start game button click event listener
+  playButton.addEventListener("click", function () {
     if (isPaused) {
       resumeGame();
       togglePlayPauseButton(false);
@@ -471,10 +507,19 @@ document.addEventListener('DOMContentLoaded', () => {
     isPaused = false;
   });
 
+  //Instructions icon open click pop-up listener
   instructionsIcon.addEventListener('click', openPopup);
+
+  //Instructions close button click pop-up listener
   closePopup.addEventListener('click', closePopupHandler);
+
+  //Successful round pop-up close button listener
   closePopup2.addEventListener('click', handleClosePopup2);
+
+  //Unsuccessful round pop-up restart round button listener
   restartgameButton.addEventListener('click', handlerestartgameButton);
+
+  //Unsuccessful round pop-up end game button listener
   endgameButton.addEventListener('click', handleendgameButton);
 
 });

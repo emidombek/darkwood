@@ -952,8 +952,8 @@
 
   - Memory Card Game Tutorials used to get an idea of the overall functionality and structure of the game:
     - [Ania Kubow](https://youtu.be/tjyDOHzKN0w)
-    - [developedbyed] (https://youtu.be/-tlb4tv4mC4) *took the shuffle algorithm from here*
-    - [freeCodeCamp] (https://youtu.be/ZniVgo8U7ek)
+    - [developedbyed](https://youtu.be/-tlb4tv4mC4) *took the shuffle algorithm from here*
+    - [freeCodeCamp](https://youtu.be/ZniVgo8U7ek)
   
   - For the Shuffle, I also used the second method here: https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
   
@@ -974,10 +974,14 @@
     - [tostring] https://www.geeksforgeeks.org/how-to-convert-seconds-to-time-string-format-hhmmss-using-javascript/
   
   - For the Rounds implemented in the game, the idea was taken from [here](https://stackoverflow.com/questions/71242552/making-rounds-in-a-rock-paper-scissors-game).
+  
+  - Restart function resource [here](https://stackoverflow.com/questions/28744682/the-best-way-to-reset-your-javascript-game-after-gameover-and-how)
+
+  - Resource for how to implement pop-ups [here](https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/#:~:text=This%20pop%2Dup%20window%20is,%2Daction%20elements%2C%20and%20more.)
 
   -  A snippet of HTML (social media menu in the footer) has been taken from the Love Running project [here](https://github.com/Code-Institute-Solutions/love-running-2.0-sourcecode/blob/main/06-site-footer/02-footer-styling/index.html)
   
-  -  For the timer I used this code as a source: https://codepen.io/awkay/pen/ExzGea 
+  -  For the timer I used this code as a source [here](https://codepen.io/awkay/pen/ExzGea)
 ## 🏆 Acknowledgments
 
  - I would like to acknowledge my daughter and husband for their support and understanding during this time of intense learning.
