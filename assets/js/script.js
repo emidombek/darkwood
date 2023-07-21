@@ -1,8 +1,7 @@
-/**
- * Game JS
- */
-document.addEventListener('DOMContentLoaded', () => { // Event listener when the DOM content is loaded
-  let uniqueImages = [ // Array of unique image paths
+// Event listener when the DOM content is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  // Array of unique image paths
+  let uniqueImages = [
     'assets/images/dazbog_card.jpg',
     'assets/images/dola_card.jpg',
     'assets/images/dziewanna_card.jpg',
@@ -62,9 +61,11 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
     timerActive = true;
 
     if (isPaused) {
-      secondsLeft = remainingSeconds; // Use the remaining seconds if game was paused
+      // Use the remaining seconds if game was paused
+      secondsLeft = remainingSeconds;
     } else {
-      remainingSeconds = secondsLeft; // Store the initial seconds when starting the timer
+      // Store the initial seconds when starting the timer
+      remainingSeconds = secondsLeft;
     }
 
     updateTimerDisplay(timerElement, secondsLeft);
@@ -95,18 +96,21 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
     let remainingSeconds = seconds % 60;
     // Format minutes and remaining seconds
     // Add leading zero to remaining seconds if it is a single digit
-    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`; // this is my own code based on an SQL query I wrote and converted into JS see readme resources
+    return minutes > 0 ? `${minutes}:${remainingSeconds.toString().padStart(2, '0')}` : `${remainingSeconds}`; // this is my own code based on an SQL query I wrote and converted into JS see readme resources for query
   }
+
   // Function to shuffle an array
   // Used method 2 from here: https://www.freecodecamp.org/news/how-to-shuffle-an-array-of-items-using-javascript-or-typescript/
+  // Also seen in this video: https://youtu.be/-tlb4tv4mC4
   function shuffle(array) {
     return array.sort(() => Math.random() - 0.5);
   }
+
   // Shuffle the array of unique images
   shuffle(uniqueImages);
 
   // Function to create the card elements dynamically
-  // Idea for this was based on several tutorials
+  // Idea for this was based on several tutorials https://youtu.be/zIh16K8BN7k, 
   function createCards(images) {
     let cards = [];
     for (let i = 0; i < 4; i++) {
@@ -143,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => { // Event listener when the
   }
 
   // Function to create the grid and place the cards
-  // Idea for this was based on several tutorials
+  // Idea for this was based on several tutorials: https://youtu.be/zIh16K8BN7k,  https://www.w3schools.com/js/js_loop_while.asp, https://youtu.be/tjyDOHzKN0w
   function createGrid(cards) {
     let rowContainers = document.querySelectorAll('.grid-game-row');
 

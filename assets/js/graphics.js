@@ -1,7 +1,6 @@
 /**
  * Fade In Fade out effect taken from a selection of Stack Overflow Posts which are included in readme
- *for the JS plus this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/,
- *  
+ for the JS plus this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, 
  */
 document.addEventListener('DOMContentLoaded', () => { // eventListener on DOM load
   // This sets up an event listener for the onload event of the window, which triggers when the window has finished loading.
@@ -29,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => { // eventListener on DOM lo
   }
 
   /**
-   * Firefly background animation taken from https: //github.com/owentr1369/animated-background-fireflies-youtube and modified slightly
+   * Firefly background animation taken from https://github.com/owentr1369/animated-background-fireflies-youtube and modified slightly
    */
   /**
    * Class constuctor that creates individual firefly instances 

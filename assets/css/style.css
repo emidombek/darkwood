@@ -432,7 +432,8 @@ h6 {
 
 /* Keyframes for fade effects */
 /* See Readme for resources */
-/* Idea / code taken from: this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, https://youtu.be/-lGpL6_7H3M */
+/* Idea code taken from: this page: https: //www.geeksforgeeks.org/how-to-create-fade-in-effect-on-page-load-using-css/, https://dev.to/tiaeastwood/super-simple-css-animation-for-fade-in-on-page-load-2p8m, https://youtu.be/-lGpL6_7H3M */
+/* Animation resources:  [(https://animate.style/) and [here](https://freefrontend.com/css-glow-effects/)
 
 @keyframes fade-in-out {
   0% {
