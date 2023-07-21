@@ -399,6 +399,10 @@ h6 {
   text-align: center;
 }
 
+.play-glow {
+  animation: glowing 1s infinite;
+}
+
 .instructions-controls i:hover {
   color: var(--accent-color);
 }

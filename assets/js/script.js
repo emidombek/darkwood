@@ -383,11 +383,16 @@ document.addEventListener('DOMContentLoaded', () => {
    * https://www.geeksforgeeks.org/how-to-pause-and-play-a-loop-in-javascript-using-event-listeners/
    */
   function pauseGame() {
+
+    if (!timerActive) {
+      return; // Exit early if the game is already paused
+    }
     timerActive = false;
     clearInterval(timer);
     gridContainer.removeEventListener('click', handleCardClick);
     togglePlayPauseButton(true);
     remainingSeconds = timerElement.textContent; // Store the remaining seconds when pausing the game
+    playButton.classList.add('play-glow');
   }
 
   /** Function to unpause the game
@@ -403,6 +408,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startTimer();
     gridContainer.addEventListener('click', handleCardClick);
     togglePlayPauseButton(false);
+    playButton.classList.remove('play-glow');
   }
 
   /** Function to open the Instructions pop-up
@@ -411,14 +417,18 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function openPopup() {
     popupContainer.style.display = 'block';
-    pauseGame();
+    overlay.style.display = 'none'; // Hide the overlay
+    if (timerActive) {
+      pauseGame();
+    }
   }
 
   // Function to close the pop-up
   function closePopupHandler() {
     popupContainer.style.display = 'none';
-    resumeGame();
+    isPaused = true;
   }
+
 
   /** Function to open the Successful Round popup
    * This tutorial was used 
