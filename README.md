@@ -1,5 +1,5 @@
 # Darkwood Readme 📚
-![Devices Preview](images/darkwood_screens.png)
+![Devices Preview](docs/images/darkwood_screens.png)
 
 [Link to Live Site Here](https://emidombek.github.io/darkwood/)
 ## 📖 Table of Contents ## 
@@ -548,7 +548,6 @@
    **restartGame()**
 
    This function is called to restart the game.
-
    Actions:
    - Logs a message indicating that the game is being restarted.
    - If the game is currently paused (`isPaused` is true), it toggles the play/pause button to show the play button and its text label.
@@ -563,17 +562,20 @@
    - Updates the timer display with the initial timeout value using the `updateTimerDisplay()` function.
    - Starts a new round by calling the `startRound()` function.
    - Updates the score display on the game screen using the `displayScore()` function.
+   - Checks if play pause button eventlistners are active, if not they are re-enabled.
+   - Removes glow from restart button placed at the end of the game.
 
    **pauseGame()**
-   This function is called to pause the game.
-
+   -This function is called to pause the game.
    Actions:
+   - Checks if the timer is active if not it exits the function.
    - Sets the `timerActive` flag to false to pause the timer.
    - Logs a message indicating that the game is paused.
    - Clears the timer interval using `clearInterval(timer)` to stop the timer.
    - Removes the click event listener for card clicks on the game grid by calling `gridContainer.removeEventListener('click', handleCardClick)`.
    - Toggles the play/pause button to show the play button and its text label.
    - Stores the remaining seconds of the timer `(timerElement.textContent)` in the `remainingSeconds` variable to track the time when the game was paused.
+   - Adds glow to play button.
   
    **resumeGame()**
    This function is called to unpause the game.
@@ -587,7 +589,7 @@
   
    **togglePlayPauseButton(isPaused)**
 
-   This function is used to toggle the display of play/pause buttons based on the game's paused state.
+   This function is used to toggle the display of play/pause buttons based on the game's paused state. 
 
    Actions:
    - If the game is paused (`isPaused` is true), it hides the pause button and shows the play button along with their corresponding text labels.
@@ -607,7 +609,7 @@
 
    **closePopupHandler()**
 
-   - This function is called to close a popup by setting the display property of `popupContainer` to `none`. It also calls the `resumeGame()` function to resume the game when the popup is closed.
+   - This function is called to close a popup by setting the display property of `popupContainer` to `none`. Sets flag `isPaused` flag to true.
 
    **openPopup2()**
     
@@ -626,6 +628,8 @@
 
    **handleendgameButton()** 
    - This function is called when the end game button on `popupContainer3` is clicked. It closes the popup `popupContainer3` by setting its display property to `none`.
+   - Switches off the play/pause event listeners to prevent manipulation. 
+   - Adds glow animation to restart button.
 
    **handleCardClick(event)**
     This function is the event listener for card clicks on the game grid. It takes an event object as a parameter.
@@ -648,30 +652,69 @@
    Triggers: When the Instructions icon is clicked.
    Action: Calls the `openPopup()` function to open the pop-up.
 
-   1. Event Listener for `Close Popup` Button
+   2. Event Listener for `Close Popup` Button
 
    Attached to: `closePopup`
    Triggers: When the Close Popup button inside the pop-up is clicked.
    Action: Calls the `closePopupHandler()` function to close the pop-up.
 
-   2. Event Listener for `Close Popup2` Button
+   3. Event Listener for `Close Popup2` Button
 
    Attached to: `closePopup2`
    Triggers: When the Close Popup2 button inside the second pop-up is clicked.
    Action: Calls the `handleClosePopup2()` function to close the second pop-up and start a new round with the current score.
    
-   3. Event Listener for Restart Game Button in Popup3
+   4. Event Listener for Restart Game Button in Popup3
 
    Attached to: `restartgameButton`
    Triggers: When the Restart Game button inside the third pop-up is clicked.
    Action: Calls the `handlerestartgameButton()` function to close the third pop-up and restart the game.
    
-   4. Event Listener for End Game Button in `Popup3`
+   5. Event Listener for End Game Button in `Popup3`
 
    Attached to: `endgameButton`
    Triggers: When the End Game button inside the third pop-up is clicked.
    Action: Calls the `handleendgameButton()` function to close the third pop-up.
 
+   6. Event Listener for Overlay Click:
+
+   Attached to: overlay
+   Triggers: When the overlay element is clicked.
+   Action: Calls the startGame() function to start the game.
+
+   7. Event Listener for Card Click:
+
+   Attached to: gridContainer
+   Triggers: When any card inside the grid is clicked.
+   Action: Calls the handleCardClick(event) function to handle the card click event.
+
+   8. Event Listener for Restart Button Click:
+
+   Attached to: restartButton
+   Triggers: When the restart game icon is clicked.
+   Action: Calls the restartGame() function to restart the game.
+
+   9. Event Listener for Pause Button Click:
+
+   Attached to: pauseButton
+   Triggers: When the pause game button is clicked.
+   Action: Toggles between pausing and resuming the game by calling the anonymous function.
+   Description of the anonymous function:
+   If eventListenersActive is true (allows the button to respond):
+   If the game is not paused (isPaused is false), it calls the pauseGame() function to pause the game and displays the "Play" button.
+   If the game is already paused (isPaused is true), it calls the resumeGame() function to resume the game and displays the "Pause" button.
+   Finally, it toggles the value of isPaused.
+
+   10. Event Listener for Play Button Click:
+
+   Attached to: playButton
+   Triggers: When the play button is clicked.
+   Action: Calls an anonymous function to handle the play button click event.
+   Description of the anonymous function:
+   If eventListenersActive is true (allows the button to respond):
+   If the game is paused (isPaused is true), it calls the resumeGame() function to resume the game and displays the "Pause" button.
+   It sets isPaused to false to indicate that the game is no longer paused.
+   
    </details>
 
    <details>
@@ -692,6 +735,7 @@
    - Various elements such as buttons, texts, and pop-up containers are selected and stored in corresponding variables.
    - `isPaused` is a flag to track if the game is currently paused.
    - `timerActive` is a flag to check whether the timer is active.
+   - `eventListenersActive` is a flag to check whether event listeners are active.
   
    </details>
 
@@ -913,18 +957,38 @@
 
     *Resolution*: To resolve this issue, an if statement was added to the createGrid function to check if the grid container already exists. If the grid container exists, the function updates the existing grid layout with the new set of cards. If the grid container does not exist, it creates the grid layout and appends the cards to it. This way, the game ensures that only one grid container is used throughout the gameplay, preventing the duplication of cards and providing a consistent and correct number of cards in each round.
 
+    `if (rowContainers.length === 0) {`
+
  2. *Issue*: Timer Jumping Around when using Restart or Resume feature, causing issues with timeout for unsuccessful rounds.
 
     *Description*: The game faced an issue where the timer display would jump between different times if the Restart or Resume feature was used multiple times or if the player progressed through additional rounds. This issue was caused by multiple instances of the timer running simultaneously, resulting in conflicting time values and erratic behavior.
 
-    *Solution*: To resolve this issue, a boolean variable was introduced to serve as a flag indicating whether the timer should be active or not. Conditional statements were added inside the startTimer() and resumeGame() functions to check the value of this flag. The timer is only started or resumed if the flag is set to true, ensuring that only one instance of the timer is active at a time. This prevents the display from jumping around and maintains consistent timing throughout the gameplay. 
+    *Solution*: To resolve this issue, a boolean variable was introduced to serve as a flag indicating whether the timer should be active or not. Conditional statements were added inside the startTimer() and resumeGame() functions to check the value of this flag. The timer is only started or resumed if the flag is set to true, ensuring that only one instance of the timer is active at a time. This prevents the display from jumping around and maintains consistent timing throughout the gameplay.
 
- 3. *Issue*: User able to click on more than two cards during the time that the two cards were flipping and being checked for 
+    *boolean variable*
+   `let timerActive = false;` 
+
+    *Example of conditional statment used*
+   <pre><code>```javascript 
+   function startTimer() 
+   if (timerActive) {
+    return;
+   }
+   ```
+   </code></pre>
+
+  3. *Issue*: User able to click on more than two cards during the time that the two cards were flipping and being checked for 
     a match, causing the game to break.
-
+    
     *Description*: A problem occurred in the game where the user could click on multiple cards while the two cards clicked previously were still flipping and being checked for a match. This led to unintended behavior and broke the game logic.
 
     *Solution*: To address this issue, a solution was implemented in the checkMatch function. The click event listener for the card elements was temporarily disabled at the beginning of the function, preventing the user from clicking on additional cards while the match was being checked. Once the match check is complete, the event listener is reactivated, allowing the user to continue playing the game normally. This solution ensures that the game's logic remains intact and prevents the user from encountering issues by clicking on more than two cards during the matching process.
+
+    `gridContainer.removeEventListener('click', handleCardClick);`
+
+    *code that checks the cards for a match*
+
+    `gridContainer.addEventListener('click', handleCardClick);`
   
  ## 👩‍💻 Resources
   

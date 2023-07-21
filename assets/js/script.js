@@ -412,7 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   function resumeGame() {
     if (timerActive) {
-      // If the timer is already active, exit early and don't resume the game again
       return;
     }
     timerActive = false;
@@ -479,7 +478,6 @@ document.addEventListener('DOMContentLoaded', () => {
     popupContainer3.style.display = 'none';
     pauseButton.removeEventListener('click', handlePauseButton);
     playButton.removeEventListener('click', handlePlayButton);
-    // Make the "Restart" button glow
     restartButton.classList.add('restart-glow');
   }
 
@@ -514,22 +512,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Pause game button click event listener
   pauseButton.addEventListener("click", function () {
-    if (!isPaused) {
-      pauseGame();
-      togglePlayPauseButton(true);
-    } else {
-      resumeGame();
-      togglePlayPauseButton(false);
+    if (eventListenersActive) {
+      if (!isPaused) {
+        pauseGame();
+        togglePlayPauseButton(true);
+      } else {
+        resumeGame();
+        togglePlayPauseButton(false);
+      }
+      isPaused = !isPaused;
     }
-    isPaused = !isPaused;
   });
   // Start game button click event listener
   playButton.addEventListener("click", function () {
-    if (isPaused) {
-      resumeGame();
-      togglePlayPauseButton(false);
+    if (eventListenersActive) {
+      if (isPaused) {
+        resumeGame();
+        togglePlayPauseButton(false);
+      }
+      isPaused = false;
     }
-    isPaused = false;
   });
 
   //Instructions icon open click pop-up listener
