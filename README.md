@@ -226,7 +226,7 @@
    - [Git](https://en.wikipedia.org/wiki/Git) - distributed version control system.
    - [GitHub](https://github.com/) - Git repository hosting service with a web-based graphical interface.
    - [Gitpages](https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages)- GitHub Pages is a static site hosting service.
-   - [Firefly Graphics](https://github.com/owentr1369/animated-background-fireflies-youtube) - Javascript based animations 
+   - [Firefly Graphics](https://github.com/owentr1369/animated-background-fireflies-youtube) - Javascript based animations. 
 
 ## 🤖 Code
 
@@ -251,7 +251,7 @@
 
    ### 2.💅 CSS
 
-   The CSS for this game is pretty standard located inside the style.css file. The root variables define various colors, font families, and line height to maintain consistency throughout the game. At the top of the file it imports the Nova Cut font from google fonts.
+   The CSS for this game is pretty standard located inside the style.css file. The root variables define various colors, font families, and line height to maintain consistency throughout the game. At the top of the file, it imports the Nova Cut font from google fonts.
 
    <details>
    <summary>CSS style.css Summary</summary>
@@ -300,7 +300,7 @@
 
    - By removing the `hidden` class from `entryLink`, the CSS transition now applies to it, and its opacity is gradually changed from 0 to 1 over time, creating the fade-in effect for the link.
 
-   - So, both fadeElement and entryLink have separate `animationend` event listeners, but the removal of the `hidden` class from `entryLink` occurs in it's own event listener and is essential for triggering the fade-in animation for the link.  
+   - So, both fadeElement and entryLink have separate `animationend` event listeners, but the removal of the `hidden` class from `entryLink` occurs on it's own event listener and is essential for triggering the fade-in animation for the link.  
    
    </details>
 
@@ -387,7 +387,7 @@
    - It calculates the number of minutes by dividing seconds by 60 and using `Math.floor()` to round down to the nearest integer.
    - The remaining seconds are derived by taking the modulo (%) of seconds divided by 60.
    - The function returns a formatted string in the format `MM:SS`, with leading zeros added to single-digit remaining seconds.
-   - Note: The idea for this came from my previous life as a data analyst when I dealt with formatting dates and times extensively. This JS function was something I tried to convert from an SQL query I wrote please see the [this section for the SQL code](#-code-1).
+   - Note: The idea for this came from my previous life as a data analyst when I dealt with formatting dates and times extensively. This JS function was something I tried to convert from an SQL query I wrote please see [this section for the SQL code](#-code-1).
   
    </details>
 
@@ -543,7 +543,8 @@
 
    Actions:
    - Hides the overlay element by setting its display property to 'none'. (Hides the click-to-play overlay)
-   - Calls the `resumeGame()` function to start the game. (this is because the `startRound()` and `pause()` are called before this game in order to generate the grid behind the 'click-to-play' overlay)
+   - Checks if timer is active and Resumes game if it is not. Sets flag to is Paused flag is 
+   - Calls the `resumeGame()` function to start the game. (this is because the `startRound()` and `pause()` are called before this game in order to generate the grid behind the 'click-to-play' overlay). 
   
    **restartGame()**
 
@@ -572,7 +573,7 @@
    - Sets the `timerActive` flag to false to pause the timer.
    - Logs a message indicating that the game is paused.
    - Clears the timer interval using `clearInterval(timer)` to stop the timer.
-   - Removes the click event listener for card clicks on the game grid by calling `gridContainer.removeEventListener('click', handleCardClick)`.
+   - Removes the click event, listener, for card clicks on the game grid by calling `gridContainer.removeEventListener('click', handleCardClick)`.
    - Toggles the play/pause button to show the play button and its text label.
    - Stores the remaining seconds of the timer `(timerElement.textContent)` in the `remainingSeconds` variable to track the time when the game was paused.
    - Adds glow to play button.
@@ -973,14 +974,13 @@
      *boolean variable*
      `let timerActive = false;` 
 
-     *Example of conditional statment used*
-     <pre><code>```javascript 
+     *Example of conditional statement used*
+     ```javascript 
      function startTimer() 
      if (timerActive) {
      return;
      }
      ```
-     </code></pre>
 
  3.  *Issue*: User able to click on more than two cards during the time that the two cards were flipping and being checked for
      a match, causing the game to break.

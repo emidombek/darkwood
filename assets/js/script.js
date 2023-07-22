@@ -430,13 +430,17 @@ document.addEventListener('DOMContentLoaded', () => {
     overlay.style.display = 'none'; // Hide the overlay
     if (timerActive) {
       pauseGame();
+      isPaused = true;
     }
   }
 
   // Function to close the pop-up
   function closePopupHandler() {
     popupContainer.style.display = 'none';
-    isPaused = true;
+    if (!timerActive) {
+      resumeGame();
+      isPaused = false;
+    }
   }
 
 
