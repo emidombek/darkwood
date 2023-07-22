@@ -543,7 +543,6 @@
 
    Actions:
    - Hides the overlay element by setting its display property to 'none'. (Hides the click-to-play overlay)
-   - Checks if timer is active and Resumes game if it is not. Sets flag to is Paused flag is 
    - Calls the `resumeGame()` function to start the game. (this is because the `startRound()` and `pause()` are called before this game in order to generate the grid behind the 'click-to-play' overlay). 
   
    **restartGame()**
@@ -629,7 +628,7 @@
 
    **handleendgameButton()** 
    - This function is called when the end game button on `popupContainer3` is clicked. It closes the popup `popupContainer3` by setting its display property to `none`.
-   - Switches off the play/pause event listeners to prevent manipulation. 
+   - Sets timerActive flag to false.
    - Adds glow animation to restart button.
 
    **handleCardClick(event)**
@@ -736,7 +735,6 @@
    - Various elements such as buttons, texts, and pop-up containers are selected and stored in corresponding variables.
    - `isPaused` is a flag to track if the game is currently paused.
    - `timerActive` is a flag to check whether the timer is active.
-   - `eventListenersActive` is a flag to check whether event listeners are active.
   
    </details>
 
